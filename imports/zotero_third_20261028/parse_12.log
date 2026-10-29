@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\X2282EHB\\Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db320756c4438ffa\\20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db320756c4438ffa\\20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db320756c4438ffa\\20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 70
+    }
+  ]
+}
+
+[1/1] Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf
+  -> partial

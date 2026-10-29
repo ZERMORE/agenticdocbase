@@ -1,0 +1,3 @@
+{"qid": "smoke_version", "question": "version 1729", "answerable": true, "relevant": [{"doc_id": "doc_b1f15e1418431d19", "page_index": 1, "quote": "1729"}]}
+{"qid": "smoke_flow", "question": "INPUT OUTPUT TRANSFER", "answerable": true, "relevant": [{"doc_id": "doc_b1f15e1418431d19", "page_index": 1, "quote": "TRANSFER"}]}
+{"qid": "smoke_unknown", "question": "QZXNOTPRESENT12345", "answerable": false, "relevant": []}

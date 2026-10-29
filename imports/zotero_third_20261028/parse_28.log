@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\CSB8MAZ3\\Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_55864547fa53d1c7\\4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_55864547fa53d1c7\\4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_55864547fa53d1c7\\4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 26
+    }
+  ]
+}
+
+[1/1] Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf
+  -> partial

@@ -1,0 +1,13 @@
+**/.env
+**/.conda/
+**/node_modules/
+**/__pycache__/
+**/.test-tmp/
+**/.pytest_cache/
+**/*.egg-info/
+ResearchDesk/data/
+DocBase/storage/
+DocAgent/storage/
+doc2md/output/
+archive/legacy-runtimes/
+migration/*.log

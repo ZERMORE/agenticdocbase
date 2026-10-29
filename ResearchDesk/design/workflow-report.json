@@ -1,0 +1,1 @@
+{"model_api_requests": 0, "steps": ["空知识库索引发布", "PDF上传→真实doc2md离线解析→真实DocBase入库", "检索命中1729", "Markdown预览及PDF Range读取", "移出立即排除→最后一篇删除后发布空索引", "恢复后重新可检索", "回收验收知识库，原始sample.pdf不变"]}

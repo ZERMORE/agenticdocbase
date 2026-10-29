@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-docbase"
+version = "0.1.0"
+requires-python = ">=3.11"
+description = "Versioned local hybrid retrieval for doc2md artifacts"
+dependencies = ["numpy>=1.26,<3", "httpx>=0.27,<1", "python-dotenv>=1,<2", "jieba>=0.42,<1", "rank-bm25>=0.2,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+tokenizer = ["tokenizers>=0.20,<1"]
+sparse = ["FlagEmbedding>=1.3,<2"]
+
+[project.scripts]
+docbase = "docbase.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "--basetemp=.test-tmp"

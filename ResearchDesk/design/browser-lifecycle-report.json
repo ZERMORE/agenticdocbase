@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "modelApiRequests": 0,
+  "steps": [
+    "create",
+    "upload",
+    "parse",
+    "index",
+    "preview-markdown",
+    "remove",
+    "restore",
+    "recycle"
+  ]
+}

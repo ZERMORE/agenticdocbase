@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\PHUA82F5\\Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8c92e5190119c818\\b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8c92e5190119c818\\b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8c92e5190119c818\\b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 450
+    }
+  ]
+}
+
+[1/1] Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf
+  -> partial

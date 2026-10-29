@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\Y6QBAZS8\\ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad3faa3fab5e31ea\\49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad3faa3fab5e31ea\\49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad3faa3fab5e31ea\\49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 40
+    }
+  ]
+}
+
+[1/1] ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf
+  -> partial

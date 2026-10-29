@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\TBLIKNR4\\Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c9ffb4518a40274\\bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c9ffb4518a40274\\bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c9ffb4518a40274\\bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 92
+    }
+  ]
+}
+
+[1/1] Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf
+  -> partial

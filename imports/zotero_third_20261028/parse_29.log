@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\64CHMWKL\\11198_Selective_Labeling_with_.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_d7345e8856cf7d8a\\76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_d7345e8856cf7d8a\\76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_d7345e8856cf7d8a\\76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 6
+    }
+  ]
+}
+
+[1/1] 11198_Selective_Labeling_with_.pdf
+  -> partial

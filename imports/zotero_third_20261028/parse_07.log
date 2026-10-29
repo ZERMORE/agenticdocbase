@@ -1,0 +1,40 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+MuPDF error: syntax error: could not parse color space (512 0 R)
+
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b4d5d40ddacf0b14\\a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b4d5d40ddacf0b14\\a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b4d5d40ddacf0b14\\a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 20
+    }
+  ]
+}
+
+[1/1] Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf
+  -> partial

@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\IU4FFHMS\\Crandall 等 - 2009 - Mapping the world's photos.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_2b407d56738a2ad7\\032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_2b407d56738a2ad7\\032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_2b407d56738a2ad7\\032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 108
+    }
+  ]
+}
+
+[1/1] Crandall 等 - 2009 - Mapping the world's photos.pdf
+  -> partial

@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\3GAFYPNT\\Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_22aba4d13004bbd9\\359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_22aba4d13004bbd9\\359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_22aba4d13004bbd9\\359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 22
+    }
+  ]
+}
+
+[1/1] Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf
+  -> partial

@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\Z49M5RDW\\Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43e429241eac9981\\a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43e429241eac9981\\a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43e429241eac9981\\a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 20
+    }
+  ]
+}
+
+[1/1] Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf
+  -> partial

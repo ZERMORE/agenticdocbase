@@ -1,0 +1,7 @@
+name: docagent
+dependencies:
+  - python=3.11
+  - pip
+  - setuptools>=68
+  - pip:
+      - -r requirements.txt

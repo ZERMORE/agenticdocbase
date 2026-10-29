@@ -1,0 +1,7 @@
+.env
+.conda/
+storage/
+__pycache__/
+*.egg-info/
+.test-tmp/
+.pytest_cache/

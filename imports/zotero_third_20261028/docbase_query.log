@@ -1,0 +1,258 @@
+{
+  "schema_version": "1",
+  "query_id": "q_16dc0f387e044b88",
+  "status": "ok",
+  "query": "vision language model",
+  "index_version": "idx_20261028T081959_aefb72e0",
+  "profile": "bm25-only",
+  "results": [
+    {
+      "chunk_id": "c_1fcaf9483fe0121e80ff29a5d309bf7e",
+      "artifact_id": "9ed8c1e54516791d283d4c2146bfac165456302ac8c70a3d21b70ed0dd0a8dae",
+      "doc_id": "doc_8a9c1768ecc46553",
+      "category": "Zotero论文",
+      "text": "soft prompting of vision & language models. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (CVPR), pages 23232–23241, June 2023.",
+      "search_text": "9\nsoft prompting of vision & language models. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (CVPR), pages 23232–23241, June 2023.",
+      "heading_path": [
+        "9"
+      ],
+      "type": "paragraph",
+      "length": 168,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_8a9c1768ecc46553_5fab44dd71fd_b000287",
+          "start": 0,
+          "end": 166,
+          "repeated_header_range": null
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\7T35AUB7\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "snapshot_path": "source/Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "rendered_pdf_path": "source/Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "page_index": 10,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            129.25,
+            402.73,
+            504.0,
+            423.79
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_8a9c1768ecc46553",
+          "revision": "5fab44dd71fdb24cdf2cf5645eedeaaf1d9e46f41e0253d8815154f60c927699",
+          "source_block_id": "doc_8a9c1768ecc46553_5fab44dd71fd_b000287",
+          "source_bundle_id": "8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861",
+          "snapshot_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861\\source\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "rendered_pdf_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861\\source\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "equivalent_chunk_ids": [
+        "c_1fcaf9483fe0121e80ff29a5d309bf7e"
+      ],
+      "scores": {
+        "rrf": 0.01639344262295082,
+        "bm25_rank": 1,
+        "rerank": null
+      }
+    },
+    {
+      "chunk_id": "c_bae7b96f99aae8a15956b608926a4188",
+      "artifact_id": "090f99b122762bae71ad1c1e8c2a41d20805995f95685f5df0dfacf648d22497",
+      "doc_id": "doc_b4d5d40ddacf0b14",
+      "category": "Zotero论文",
+      "text": "as a foreign language: Beit pretraining for\nall vision and vision-language tasks. arXiv\npreprint arXiv:220810442",
+      "search_text": "References\nas a foreign language: Beit pretraining for\nall vision and vision-language tasks. arXiv\npreprint arXiv:220810442",
+      "heading_path": [
+        "References"
+      ],
+      "type": "paragraph",
+      "length": 123,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000513",
+          "start": 0,
+          "end": 112,
+          "repeated_header_range": null
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "snapshot_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "rendered_pdf_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "page_index": 18,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            66.4,
+            566.44,
+            261.65,
+            600.48
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_b4d5d40ddacf0b14",
+          "revision": "a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8",
+          "source_block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000513",
+          "source_bundle_id": "5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5",
+          "snapshot_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "rendered_pdf_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "equivalent_chunk_ids": [
+        "c_bae7b96f99aae8a15956b608926a4188"
+      ],
+      "scores": {
+        "rrf": 0.016129032258064516,
+        "bm25_rank": 2,
+        "rerank": null
+      }
+    },
+    {
+      "chunk_id": "c_4bb85f790ebc44ea253b35d3b4d53b28",
+      "artifact_id": "090f99b122762bae71ad1c1e8c2a41d20805995f95685f5df0dfacf648d22497",
+      "doc_id": "doc_b4d5d40ddacf0b14",
+      "category": "Zotero论文",
+      "text": "fied language model pre-training for natural\nlanguage understanding and generation. In:\nNeurIPS",
+      "search_text": "References\nfied language model pre-training for natural\nlanguage understanding and generation. In:\nNeurIPS",
+      "heading_path": [
+        "References"
+      ],
+      "type": "paragraph",
+      "length": 106,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000381",
+          "start": 0,
+          "end": 95,
+          "repeated_header_range": null
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "snapshot_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "rendered_pdf_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "page_index": 15,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            306.21,
+            609.38,
+            502.6,
+            643.41
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_b4d5d40ddacf0b14",
+          "revision": "a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8",
+          "source_block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000381",
+          "source_bundle_id": "5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5",
+          "snapshot_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "rendered_pdf_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "equivalent_chunk_ids": [
+        "c_4bb85f790ebc44ea253b35d3b4d53b28"
+      ],
+      "scores": {
+        "rrf": 0.015873015873015872,
+        "bm25_rank": 3,
+        "rerank": null
+      }
+    }
+  ],
+  "diagnostics": {
+    "active_routes": [
+      "bm25"
+    ],
+    "degraded": false,
+    "rerank_executed": false,
+    "candidate_counts": {
+      "bm25": 30
+    },
+    "quality_warnings": [
+      "doc2md 文档为 partial，仅索引成功块"
+    ],
+    "timings": {
+      "bm25": 0.172,
+      "fusion": 0.0,
+      "total": 0.781
+    },
+    "model_usage": {
+      "requests": 0,
+      "cache_hits": 0,
+      "usage": [],
+      "elapsed_seconds": 0.0
+    },
+    "rankings": {
+      "bm25": [
+        "c_1fcaf9483fe0121e80ff29a5d309bf7e",
+        "c_bae7b96f99aae8a15956b608926a4188",
+        "c_4bb85f790ebc44ea253b35d3b4d53b28",
+        "c_79b5971b52741cdd91a84185dd4457ea",
+        "c_c9abe548c126eeaab69bcda9fbee3335",
+        "c_75846d209e374506750a1f184285954d",
+        "c_9f89afe9b427b53371087f6b04d017aa",
+        "c_bd636cdd7f1276f74a28cdced18b9256",
+        "c_edfb8bde628a8728a3ccc30770d85765",
+        "c_cb605175325414540e668518ff06cc1e",
+        "c_9a3881f35c1a4fa2606f9d458454b9bb",
+        "c_d0a6be8bd6edc5173fe5b58563ed1a26",
+        "c_06a13fa81b4166d6bf6e954de28bce7e",
+        "c_4d01e37c835ebfb9916e53e4819c2b8b",
+        "c_02e315abe53ac1e283d55d7287e0cf89",
+        "c_8d2b27914d6eb9609cc510ea080a174d",
+        "c_d0ad4c70e30938f594f1e67898e30146",
+        "c_1644a5e0339999bfef0bd3c17fcfdd2e",
+        "c_0564d1ed4d226cacddeee5f1d575f379",
+        "c_e97166979fa85a40ed99ef21d70522e7",
+        "c_34829cf25b697b0d2154937a04f0d5a5",
+        "c_e085cbdace8ed587f2a920c324b5445d",
+        "c_1ffd63f53bbfda3a3a10d9808dfa4e88",
+        "c_1fc51f132a45336cc54dfa5388866a99",
+        "c_8856570f38094d2b6bb5f63773ce3b57",
+        "c_eaa44181c04e0e5a26da30126c978f57",
+        "c_68cab7634fcd0beb0c949fc51eb2bb5d",
+        "c_f86b53e73bfab44b64f39500001a91c6",
+        "c_a263b4426ce7ded13497ecef656a42a4",
+        "c_1f940c6296b1116b21da0acde0c98b4b"
+      ]
+    },
+    "models": {
+      "embedding": null,
+      "reranker": null,
+      "sparse": null
+    }
+  },
+  "report_path": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\reports\\q_16dc0f387e044b88.json"
+}
+

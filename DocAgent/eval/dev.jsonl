@@ -1,0 +1,2 @@
+{"id":"sample-version","question":"测试文档中的版本号是什么？","answerability":"answerable","answer_points":["1729"],"note":"仅供collection=default的合成示例库调试，不作为论文质量评测。"}
+{"id":"sample-unknown","question":"测试文档作者的银行卡密码是什么？","answerability":"unanswerable","answer_points":[]}

@@ -1,0 +1,627 @@
+{
+  "selection": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\imports\\zotero_third_20261028\\selection.json",
+  "offline": true,
+  "profile": "bm25-only",
+  "collection": "zotero_third_20261028",
+  "parsed_output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028",
+  "catalog": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\catalog_zotero_third_20261028.json",
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\9YWAB42D\\Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_502321bb8ec981f0\\ba7f4c81336a9ef3fd52c23c25560f49a2b24b0c8ded52f66f3d1eb9eeed8405\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_502321bb8ec981f0\\ba7f4c81336a9ef3fd52c23c25560f49a2b24b0c8ded52f66f3d1eb9eeed8405\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_502321bb8ec981f0\\ba7f4c81336a9ef3fd52c23c25560f49a2b24b0c8ded52f66f3d1eb9eeed8405\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 58
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\6KGVXQ6D\\Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad356fb7082aa56b\\3791459d7b500b8413eae81a1941be665734d1fcb6a28527b80d29289452d9b3\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad356fb7082aa56b\\3791459d7b500b8413eae81a1941be665734d1fcb6a28527b80d29289452d9b3\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad356fb7082aa56b\\3791459d7b500b8413eae81a1941be665734d1fcb6a28527b80d29289452d9b3\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 32
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\E5DRQAQN\\Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_06377371190dd362\\f8194795573ce16b4de8ad549f89ef9dc0468a074c5251a2b4f24e1f4fe9a4d8\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_06377371190dd362\\f8194795573ce16b4de8ad549f89ef9dc0468a074c5251a2b4f24e1f4fe9a4d8\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_06377371190dd362\\f8194795573ce16b4de8ad549f89ef9dc0468a074c5251a2b4f24e1f4fe9a4d8\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 14
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\SMSUK5RQ\\2022年A题获奖论文合集.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b0247c1369a54287\\c0223c6762763a14d8f1bb2e443755bfe1ead597ca338bedf7c8dd0a44b5358a\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b0247c1369a54287\\c0223c6762763a14d8f1bb2e443755bfe1ead597ca338bedf7c8dd0a44b5358a\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b0247c1369a54287\\c0223c6762763a14d8f1bb2e443755bfe1ead597ca338bedf7c8dd0a44b5358a\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 606
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\GQXIAQQF\\Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_73e170ae5be6eded\\ec10a714fe8a27f2da79d4900c7e34c0bef0e35ef0bee97da2a06e4b48b47016\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_73e170ae5be6eded\\ec10a714fe8a27f2da79d4900c7e34c0bef0e35ef0bee97da2a06e4b48b47016\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_73e170ae5be6eded\\ec10a714fe8a27f2da79d4900c7e34c0bef0e35ef0bee97da2a06e4b48b47016\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 14
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\PHUA82F5\\Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8c92e5190119c818\\b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8c92e5190119c818\\b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8c92e5190119c818\\b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 450
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b4d5d40ddacf0b14\\a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b4d5d40ddacf0b14\\a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_b4d5d40ddacf0b14\\a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 20
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\HX7WZAF7\\Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_a54cebabc9796abf\\639b056c9154c0ad5557f2ca27315de7ca6ff1e56aa6a1447876ff2f2989c867\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_a54cebabc9796abf\\639b056c9154c0ad5557f2ca27315de7ca6ff1e56aa6a1447876ff2f2989c867\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_a54cebabc9796abf\\639b056c9154c0ad5557f2ca27315de7ca6ff1e56aa6a1447876ff2f2989c867\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 16
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\8QHJNMUZ\\Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_159b65f8205fd913\\e37e7544e4e15361d140e089dda645ce2d39a6a183dcecc68fd1c3e0ddaf6131\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_159b65f8205fd913\\e37e7544e4e15361d140e089dda645ce2d39a6a183dcecc68fd1c3e0ddaf6131\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_159b65f8205fd913\\e37e7544e4e15361d140e089dda645ce2d39a6a183dcecc68fd1c3e0ddaf6131\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 24
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\GDE4E9NP\\Liu 等 - Visual Instruction Tuning.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_9eb6efbac1cc8ead\\dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_9eb6efbac1cc8ead\\dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_9eb6efbac1cc8ead\\dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 88
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\EBKW2KII\\Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c514ff465792361\\b07e6e6c9078de9ff9e81c5d92b1c6150dd4aa251aa3c56713acba42f06289a4\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c514ff465792361\\b07e6e6c9078de9ff9e81c5d92b1c6150dd4aa251aa3c56713acba42f06289a4\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c514ff465792361\\b07e6e6c9078de9ff9e81c5d92b1c6150dd4aa251aa3c56713acba42f06289a4\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 22
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\X2282EHB\\Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db320756c4438ffa\\20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db320756c4438ffa\\20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db320756c4438ffa\\20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 70
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\IF49KMWZ\\Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_cd0e83c8cfd50e30\\5cee4fbdd5d2f6c70f96c34e5128911f7dcafc92c6d15e3e72bbb96e750a45cb\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_cd0e83c8cfd50e30\\5cee4fbdd5d2f6c70f96c34e5128911f7dcafc92c6d15e3e72bbb96e750a45cb\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_cd0e83c8cfd50e30\\5cee4fbdd5d2f6c70f96c34e5128911f7dcafc92c6d15e3e72bbb96e750a45cb\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 26
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\Z49M5RDW\\Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43e429241eac9981\\a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43e429241eac9981\\a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43e429241eac9981\\a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 20
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\TBLIKNR4\\Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c9ffb4518a40274\\bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c9ffb4518a40274\\bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_6c9ffb4518a40274\\bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 92
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\EME8LF29\\Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_a98ba421638eb04c\\76e1e46a12a71a83d16646661189e8dc39035ba899bd16e1c362e514c3813ec1\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_a98ba421638eb04c\\76e1e46a12a71a83d16646661189e8dc39035ba899bd16e1c362e514c3813ec1\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_a98ba421638eb04c\\76e1e46a12a71a83d16646661189e8dc39035ba899bd16e1c362e514c3813ec1\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 20
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\INYW5IEV\\_.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8ce88dde3aec708d\\0f8bdc58cc75ff674300eb5fbf00b8646fd1b5202c87c96fe678868910f771ad\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8ce88dde3aec708d\\0f8bdc58cc75ff674300eb5fbf00b8646fd1b5202c87c96fe678868910f771ad\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8ce88dde3aec708d\\0f8bdc58cc75ff674300eb5fbf00b8646fd1b5202c87c96fe678868910f771ad\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 16
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\VLLWRMV5\\Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43c2348badf58d40\\55fe1bc1a44ae5d5f09f7ccccb9fd4363ee01e0c23cfcbe4530af04763f12f69\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43c2348badf58d40\\55fe1bc1a44ae5d5f09f7ccccb9fd4363ee01e0c23cfcbe4530af04763f12f69\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_43c2348badf58d40\\55fe1bc1a44ae5d5f09f7ccccb9fd4363ee01e0c23cfcbe4530af04763f12f69\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 86
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\Y6QBAZS8\\ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad3faa3fab5e31ea\\49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad3faa3fab5e31ea\\49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_ad3faa3fab5e31ea\\49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 40
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\7T35AUB7\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8a9c1768ecc46553\\5fab44dd71fdb24cdf2cf5645eedeaaf1d9e46f41e0253d8815154f60c927699\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8a9c1768ecc46553\\5fab44dd71fdb24cdf2cf5645eedeaaf1d9e46f41e0253d8815154f60c927699\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8a9c1768ecc46553\\5fab44dd71fdb24cdf2cf5645eedeaaf1d9e46f41e0253d8815154f60c927699\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 22
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\HJJZJXLX\\Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_71d594dabdf0064e\\d8b21249dfc3ae72ac95c0fc8edd4211d1fa8165f1eedb5ebdba66f258eaf498\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_71d594dabdf0064e\\d8b21249dfc3ae72ac95c0fc8edd4211d1fa8165f1eedb5ebdba66f258eaf498\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_71d594dabdf0064e\\d8b21249dfc3ae72ac95c0fc8edd4211d1fa8165f1eedb5ebdba66f258eaf498\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 10
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\7SRZYS73\\Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_bc38c59f35223730\\d6fd92213c429a834067643a0b437364257b32771e3206f05c803977f4ae2d28\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_bc38c59f35223730\\d6fd92213c429a834067643a0b437364257b32771e3206f05c803977f4ae2d28\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_bc38c59f35223730\\d6fd92213c429a834067643a0b437364257b32771e3206f05c803977f4ae2d28\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 16
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\VAJZWDFT\\Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db4466281d4d7841\\2868de22a7988c5008bb5f4cf7faa54a58a5c3a7bf56c9a63ae2cf4e3ff9724f\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db4466281d4d7841\\2868de22a7988c5008bb5f4cf7faa54a58a5c3a7bf56c9a63ae2cf4e3ff9724f\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_db4466281d4d7841\\2868de22a7988c5008bb5f4cf7faa54a58a5c3a7bf56c9a63ae2cf4e3ff9724f\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 30
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\NZ5MNMHE\\Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_1d8cee91c9058ea1\\08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_1d8cee91c9058ea1\\08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_1d8cee91c9058ea1\\08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 86
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\6TXVJU3I\\Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_c3fbc0d7bddb84e9\\b3210fdb5d8e5bf599d24da562f78bd9c4eb911dfbdb7fc8e87cb82c72f22102\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_c3fbc0d7bddb84e9\\b3210fdb5d8e5bf599d24da562f78bd9c4eb911dfbdb7fc8e87cb82c72f22102\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_c3fbc0d7bddb84e9\\b3210fdb5d8e5bf599d24da562f78bd9c4eb911dfbdb7fc8e87cb82c72f22102\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 102
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\QFNBX69B\\中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_c3739570e5ebf996\\d75e2fd8a331f9f39a77c9dc7846f02b0ea232611774decf10d782c91e3391e6\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_c3739570e5ebf996\\d75e2fd8a331f9f39a77c9dc7846f02b0ea232611774decf10d782c91e3391e6\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_c3739570e5ebf996\\d75e2fd8a331f9f39a77c9dc7846f02b0ea232611774decf10d782c91e3391e6\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 150
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\MT43T7BY\\Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8a4641781fe79035\\b43017fb45566bf7db3ce6572fc987c8965b8e0793c2fd490362276eb2210cd0\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8a4641781fe79035\\b43017fb45566bf7db3ce6572fc987c8965b8e0793c2fd490362276eb2210cd0\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_8a4641781fe79035\\b43017fb45566bf7db3ce6572fc987c8965b8e0793c2fd490362276eb2210cd0\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 34
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\CSB8MAZ3\\Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_55864547fa53d1c7\\4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_55864547fa53d1c7\\4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_55864547fa53d1c7\\4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 26
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\64CHMWKL\\11198_Selective_Labeling_with_.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_d7345e8856cf7d8a\\76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_d7345e8856cf7d8a\\76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_d7345e8856cf7d8a\\76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 6
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\QQQSCJ9K\\Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_e2b7bd635ba00ea6\\5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_e2b7bd635ba00ea6\\5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_e2b7bd635ba00ea6\\5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 10
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\IU4FFHMS\\Crandall 等 - 2009 - Mapping the world's photos.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_2b407d56738a2ad7\\032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_2b407d56738a2ad7\\032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_2b407d56738a2ad7\\032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 108
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\FXLNUQ8B\\Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_373c1729d193969d\\842c284226a0259e361b636a28d082770ce60cc48c44e06ded6799239f5a4156\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_373c1729d193969d\\842c284226a0259e361b636a28d082770ce60cc48c44e06ded6799239f5a4156\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_373c1729d193969d\\842c284226a0259e361b636a28d082770ce60cc48c44e06ded6799239f5a4156\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 14
+    },
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\3GAFYPNT\\Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_22aba4d13004bbd9\\359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_22aba4d13004bbd9\\359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_22aba4d13004bbd9\\359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 22
+    }
+  ],
+  "stages": [
+    {
+      "command": "scan",
+      "exit_code": 0,
+      "result": {
+        "status": "ok",
+        "catalog": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\catalog_zotero_third_20261028.json",
+        "discovered": 33,
+        "active": 33,
+        "conflicts": [],
+        "rejected": [],
+        "note": "有版本冲突时编辑 catalog，仅为每个 doc_id 启用一个版本；扫描不会隐式删除旧登记"
+      }
+    },
+    {
+      "command": "build",
+      "exit_code": 2,
+      "result": {
+        "status": "partial",
+        "action": "built",
+        "index_version": "idx_20261028T081959_aefb72e0",
+        "index_path": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\indexes\\zotero_third_20261028\\idx_20261028T081959_aefb72e0",
+        "profile": "bm25-only",
+        "chunk_count": 18099,
+        "document_count": 33,
+        "excluded_blocks": 2350,
+        "dimension": null,
+        "length_unit": "characters",
+        "quality_warnings": [
+          "doc2md 文档为 partial，仅索引成功块"
+        ],
+        "model_usage": {
+          "requests": 0,
+          "cache_hits": 0,
+          "usage": [],
+          "elapsed_seconds": 0.0
+        },
+        "report_path": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\reports\\build_idx_20261028T081959_aefb72e0.json"
+      }
+    },
+    {
+      "command": "query",
+      "exit_code": 0,
+      "result": {
+        "schema_version": "1",
+        "query_id": "q_16dc0f387e044b88",
+        "status": "ok",
+        "query": "vision language model",
+        "index_version": "idx_20261028T081959_aefb72e0",
+        "profile": "bm25-only",
+        "results": [
+          {
+            "chunk_id": "c_1fcaf9483fe0121e80ff29a5d309bf7e",
+            "artifact_id": "9ed8c1e54516791d283d4c2146bfac165456302ac8c70a3d21b70ed0dd0a8dae",
+            "doc_id": "doc_8a9c1768ecc46553",
+            "category": "Zotero论文",
+            "text": "soft prompting of vision & language models. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (CVPR), pages 23232–23241, June 2023.",
+            "search_text": "9\nsoft prompting of vision & language models. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (CVPR), pages 23232–23241, June 2023.",
+            "heading_path": [
+              "9"
+            ],
+            "type": "paragraph",
+            "length": 168,
+            "length_unit": "characters",
+            "block_ranges": [
+              {
+                "block_id": "doc_8a9c1768ecc46553_5fab44dd71fd_b000287",
+                "start": 0,
+                "end": 166,
+                "repeated_header_range": null
+              }
+            ],
+            "content_origin": [
+              "native_text"
+            ],
+            "sources": [
+              {
+                "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\7T35AUB7\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+                "snapshot_path": "source/Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+                "rendered_pdf_path": "source/Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+                "page_index": 10,
+                "printed_page_label": null,
+                "slide_number": null,
+                "anchor": null,
+                "bbox": [
+                  129.25,
+                  402.73,
+                  504.0,
+                  423.79
+                ],
+                "image_path": null,
+                "figure_id": null,
+                "doc_id": "doc_8a9c1768ecc46553",
+                "revision": "5fab44dd71fdb24cdf2cf5645eedeaaf1d9e46f41e0253d8815154f60c927699",
+                "source_block_id": "doc_8a9c1768ecc46553_5fab44dd71fd_b000287",
+                "source_bundle_id": "8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861",
+                "snapshot_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861\\source\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+                "rendered_pdf_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861\\source\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf"
+              }
+            ],
+            "quality_warnings": [
+              "doc2md 文档为 partial，仅索引成功块"
+            ],
+            "equivalent_chunk_ids": [
+              "c_1fcaf9483fe0121e80ff29a5d309bf7e"
+            ],
+            "scores": {
+              "rrf": 0.01639344262295082,
+              "bm25_rank": 1,
+              "rerank": null
+            }
+          },
+          {
+            "chunk_id": "c_bae7b96f99aae8a15956b608926a4188",
+            "artifact_id": "090f99b122762bae71ad1c1e8c2a41d20805995f95685f5df0dfacf648d22497",
+            "doc_id": "doc_b4d5d40ddacf0b14",
+            "category": "Zotero论文",
+            "text": "as a foreign language: Beit pretraining for\nall vision and vision-language tasks. arXiv\npreprint arXiv:220810442",
+            "search_text": "References\nas a foreign language: Beit pretraining for\nall vision and vision-language tasks. arXiv\npreprint arXiv:220810442",
+            "heading_path": [
+              "References"
+            ],
+            "type": "paragraph",
+            "length": 123,
+            "length_unit": "characters",
+            "block_ranges": [
+              {
+                "block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000513",
+                "start": 0,
+                "end": 112,
+                "repeated_header_range": null
+              }
+            ],
+            "content_origin": [
+              "native_text"
+            ],
+            "sources": [
+              {
+                "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "snapshot_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "rendered_pdf_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "page_index": 18,
+                "printed_page_label": null,
+                "slide_number": null,
+                "anchor": null,
+                "bbox": [
+                  66.4,
+                  566.44,
+                  261.65,
+                  600.48
+                ],
+                "image_path": null,
+                "figure_id": null,
+                "doc_id": "doc_b4d5d40ddacf0b14",
+                "revision": "a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8",
+                "source_block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000513",
+                "source_bundle_id": "5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5",
+                "snapshot_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "rendered_pdf_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf"
+              }
+            ],
+            "quality_warnings": [
+              "doc2md 文档为 partial，仅索引成功块"
+            ],
+            "equivalent_chunk_ids": [
+              "c_bae7b96f99aae8a15956b608926a4188"
+            ],
+            "scores": {
+              "rrf": 0.016129032258064516,
+              "bm25_rank": 2,
+              "rerank": null
+            }
+          },
+          {
+            "chunk_id": "c_4bb85f790ebc44ea253b35d3b4d53b28",
+            "artifact_id": "090f99b122762bae71ad1c1e8c2a41d20805995f95685f5df0dfacf648d22497",
+            "doc_id": "doc_b4d5d40ddacf0b14",
+            "category": "Zotero论文",
+            "text": "fied language model pre-training for natural\nlanguage understanding and generation. In:\nNeurIPS",
+            "search_text": "References\nfied language model pre-training for natural\nlanguage understanding and generation. In:\nNeurIPS",
+            "heading_path": [
+              "References"
+            ],
+            "type": "paragraph",
+            "length": 106,
+            "length_unit": "characters",
+            "block_ranges": [
+              {
+                "block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000381",
+                "start": 0,
+                "end": 95,
+                "repeated_header_range": null
+              }
+            ],
+            "content_origin": [
+              "native_text"
+            ],
+            "sources": [
+              {
+                "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "snapshot_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "rendered_pdf_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "page_index": 15,
+                "printed_page_label": null,
+                "slide_number": null,
+                "anchor": null,
+                "bbox": [
+                  306.21,
+                  609.38,
+                  502.6,
+                  643.41
+                ],
+                "image_path": null,
+                "figure_id": null,
+                "doc_id": "doc_b4d5d40ddacf0b14",
+                "revision": "a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8",
+                "source_block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000381",
+                "source_bundle_id": "5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5",
+                "snapshot_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+                "rendered_pdf_path_absolute": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf"
+              }
+            ],
+            "quality_warnings": [
+              "doc2md 文档为 partial，仅索引成功块"
+            ],
+            "equivalent_chunk_ids": [
+              "c_4bb85f790ebc44ea253b35d3b4d53b28"
+            ],
+            "scores": {
+              "rrf": 0.015873015873015872,
+              "bm25_rank": 3,
+              "rerank": null
+            }
+          }
+        ],
+        "diagnostics": {
+          "active_routes": [
+            "bm25"
+          ],
+          "degraded": false,
+          "rerank_executed": false,
+          "candidate_counts": {
+            "bm25": 30
+          },
+          "quality_warnings": [
+            "doc2md 文档为 partial，仅索引成功块"
+          ],
+          "timings": {
+            "bm25": 0.172,
+            "fusion": 0.0,
+            "total": 0.781
+          },
+          "model_usage": {
+            "requests": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "elapsed_seconds": 0.0
+          },
+          "rankings": {
+            "bm25": [
+              "c_1fcaf9483fe0121e80ff29a5d309bf7e",
+              "c_bae7b96f99aae8a15956b608926a4188",
+              "c_4bb85f790ebc44ea253b35d3b4d53b28",
+              "c_79b5971b52741cdd91a84185dd4457ea",
+              "c_c9abe548c126eeaab69bcda9fbee3335",
+              "c_75846d209e374506750a1f184285954d",
+              "c_9f89afe9b427b53371087f6b04d017aa",
+              "c_bd636cdd7f1276f74a28cdced18b9256",
+              "c_edfb8bde628a8728a3ccc30770d85765",
+              "c_cb605175325414540e668518ff06cc1e",
+              "c_9a3881f35c1a4fa2606f9d458454b9bb",
+              "c_d0a6be8bd6edc5173fe5b58563ed1a26",
+              "c_06a13fa81b4166d6bf6e954de28bce7e",
+              "c_4d01e37c835ebfb9916e53e4819c2b8b",
+              "c_02e315abe53ac1e283d55d7287e0cf89",
+              "c_8d2b27914d6eb9609cc510ea080a174d",
+              "c_d0ad4c70e30938f594f1e67898e30146",
+              "c_1644a5e0339999bfef0bd3c17fcfdd2e",
+              "c_0564d1ed4d226cacddeee5f1d575f379",
+              "c_e97166979fa85a40ed99ef21d70522e7",
+              "c_34829cf25b697b0d2154937a04f0d5a5",
+              "c_e085cbdace8ed587f2a920c324b5445d",
+              "c_1ffd63f53bbfda3a3a10d9808dfa4e88",
+              "c_1fc51f132a45336cc54dfa5388866a99",
+              "c_8856570f38094d2b6bb5f63773ce3b57",
+              "c_eaa44181c04e0e5a26da30126c978f57",
+              "c_68cab7634fcd0beb0c949fc51eb2bb5d",
+              "c_f86b53e73bfab44b64f39500001a91c6",
+              "c_a263b4426ce7ded13497ecef656a42a4",
+              "c_1f940c6296b1116b21da0acde0c98b4b"
+            ]
+          },
+          "models": {
+            "embedding": null,
+            "reranker": null,
+            "sparse": null
+          }
+        },
+        "report_path": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\reports\\q_16dc0f387e044b88.json"
+      }
+    }
+  ],
+  "summary": {
+    "selected": 33,
+    "parsed_ok": 0,
+    "parsed_partial": 33,
+    "failed": 0,
+    "indexed_documents": 33,
+    "chunks": 18099,
+    "index_version": "idx_20261028T081959_aefb72e0"
+  },
+  "validation": {
+    "original_files_unchanged": true,
+    "selected_count": 33,
+    "pages": 697,
+    "pending_image_descriptions": 1175,
+    "query_hit_count": 3,
+    "query_sources_valid": true,
+    "model_requests": 0
+  }
+}

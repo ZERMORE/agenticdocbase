@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\QQQSCJ9K\\Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_e2b7bd635ba00ea6\\5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_e2b7bd635ba00ea6\\5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_e2b7bd635ba00ea6\\5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 10
+    }
+  ]
+}
+
+[1/1] Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf
+  -> partial

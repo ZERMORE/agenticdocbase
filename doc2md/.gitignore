@@ -1,0 +1,12 @@
+.venv/
+.conda/
+.conda-pkgs/
+.env
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.test-tmp*/
+.cache/
+output/
+examples/output/

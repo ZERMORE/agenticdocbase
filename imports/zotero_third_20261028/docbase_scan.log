@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "catalog": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\DocBase\\storage\\catalog_zotero_third_20261028.json",
+  "discovered": 33,
+  "active": 33,
+  "conflicts": [],
+  "rejected": [],
+  "note": "有版本冲突时编辑 catalog，仅为每个 doc_id 启用一个版本；扫描不会隐式删除旧登记"
+}
+

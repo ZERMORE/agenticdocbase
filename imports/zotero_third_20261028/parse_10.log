@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\GDE4E9NP\\Liu 等 - Visual Instruction Tuning.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_9eb6efbac1cc8ead\\dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_9eb6efbac1cc8ead\\dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_9eb6efbac1cc8ead\\dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 88
+    }
+  ]
+}
+
+[1/1] Liu 等 - Visual Instruction Tuning.pdf
+  -> partial

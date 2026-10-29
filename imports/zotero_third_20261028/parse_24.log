@@ -1,0 +1,24 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+{
+  "schema_version": "1",
+  "counts": {
+    "ok": 0,
+    "partial": 1,
+    "failed": 0
+  },
+  "exit_code": 2,
+  "results": [
+    {
+      "source": "C:\\Users\\Lenovo\\Zotero\\storage\\NZ5MNMHE\\Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+      "status": "partial",
+      "output": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_1d8cee91c9058ea1\\08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179\\76b5567130afbf0b",
+      "markdown": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_1d8cee91c9058ea1\\08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179\\76b5567130afbf0b\\document.md",
+      "manifest": "C:\\Users\\Lenovo\\Desktop\\研一\\大模型软件开发\\doc2md\\output\\zotero_third_20261028\\doc_1d8cee91c9058ea1\\08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179\\76b5567130afbf0b\\manifest.json",
+      "warnings": [],
+      "unfinished_blocks": 86
+    }
+  ]
+}
+
+[1/1] Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf
+  -> partial
