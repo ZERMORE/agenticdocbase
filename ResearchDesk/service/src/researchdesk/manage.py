@@ -14,9 +14,12 @@ import zipfile
 from .store import Store, ROOT, WORKSPACE, atomic
 
 
-def backup(store):
-    directory = store.data / 'backups' / time.strftime('%Y%m%d-%H%M%S')
+def backup(store, check=lambda: None):
+    directory = store.data / 'backups' / (time.strftime('%Y%m%d-%H%M%S') + '-' + __import__('uuid').uuid4().hex[:8])
+    final = directory
+    directory = directory.with_name('.incomplete-' + directory.name)
     directory.mkdir(parents=True)
+    check()
     with store.connect() as source:
         target = sqlite3.connect(directory / 'app.sqlite')
         source.backup(target)
@@ -25,7 +28,7 @@ def backup(store):
     paths = set()
     for row in store.all('SELECT path FROM docs UNION SELECT path FROM assets'):
         paths.add(Path(row['path']))
-    for row in store.all('SELECT artifact FROM members WHERE artifact IS NOT NULL'):
+    for row in store.all('SELECT artifact FROM members WHERE artifact IS NOT NULL UNION SELECT artifact FROM document_revisions UNION SELECT parent AS artifact FROM document_revisions'):
         paths.update(p for p in Path(row['artifact']).rglob('*') if p.is_file())
     for row in store.all('SELECT collection FROM kbs'):
         root = store.docbase_storage / 'indexes' / row['collection']
@@ -40,6 +43,7 @@ def backup(store):
     manifest = []
     with zipfile.ZipFile(directory / 'files.zip', 'w', compression=zipfile.ZIP_DEFLATED) as archive:
         for i, path in enumerate(sorted(paths)):
+            check()
             if path.name == '.env' or not path.is_file():
                 continue
             entry = f'files/{i:06d}/{path.name}'
@@ -47,7 +51,13 @@ def backup(store):
             manifest.append({'original': str(path.resolve()), 'entry': entry,
                              'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
     atomic(directory / 'manifest.json', {'schema_version': 1, 'data_root': str(store.data),
-                                       'tool_storage': str(store.docbase_storage), 'files': manifest})
+                                       'tool_storage': str(store.docbase_storage), 'files': manifest,
+                                       'database_sha256': hashlib.sha256((directory / 'app.sqlite').read_bytes()).hexdigest()})
+    check()
+    directory.rename(final)
+    directory = final
+    store.execute('INSERT INTO backup_records(path,state,created) VALUES(?,?,?)', (str(directory), 'succeeded', time.time()))
+    store.set_setting('backup_success', str(time.time()))
     return directory
 
 
@@ -56,6 +66,8 @@ def restore(backup_path, destination):
     if destination.exists():
         raise RuntimeError('恢复目录必须尚不存在；不会覆盖现有数据')
     manifest = json.loads((backup_path / 'manifest.json').read_text(encoding='utf-8'))
+    if manifest.get('database_sha256') and hashlib.sha256((backup_path / 'app.sqlite').read_bytes()).hexdigest() != manifest['database_sha256']:
+        raise RuntimeError('备份数据库校验失败')
     destination.mkdir(parents=True)
     shutil.copyfile(backup_path / 'app.sqlite', destination / 'app.sqlite')
     mappings = {}
@@ -103,6 +115,11 @@ def restore(backup_path, destination):
         if isinstance(value,list):return [rewrite(x) for x in value]
         if isinstance(value,dict):return {k:rewrite(v) for k,v in value.items()}
         return value
+    if c.execute("SELECT 1 FROM sqlite_master WHERE name='document_revisions'").fetchone():
+        for rid, artifact, parent in c.execute('SELECT id,artifact,parent FROM document_revisions').fetchall():
+            c.execute('UPDATE document_revisions SET artifact=?,parent=? WHERE id=?', (rewrite(artifact),rewrite(parent),rid))
+    for jid, payload in c.execute('SELECT id,payload FROM jobs').fetchall():
+        c.execute('UPDATE jobs SET payload=? WHERE id=?', (json.dumps(rewrite(json.loads(payload)),ensure_ascii=False),jid))
     for mid,raw in c.execute('SELECT id,result FROM messages WHERE result IS NOT NULL').fetchall():
         c.execute('UPDATE messages SET result=? WHERE id=?',(json.dumps(rewrite(json.loads(raw)),ensure_ascii=False),mid))
     for kid,collection,version in c.execute('SELECT id,collection,index_version FROM kbs').fetchall():
@@ -186,6 +203,15 @@ def main():
                 raise SystemExit('8765端口已被占用；未启动任何新进程')
         logs = s.data / 'logs'
         logs.mkdir(exist_ok=True)
+        # Rotate only our known API/worker logs, keeping three prior files.
+        for name in ('api','worker'):
+            path = (logs / (name + '.log')).resolve()
+            if path.parent != logs.resolve(): raise RuntimeError('日志路径越界')
+            if path.is_file() and path.stat().st_size > 10 * 1024**2:
+                for number in (2,1):
+                    prior = path.with_name(path.name + '.' + str(number))
+                    if prior.is_file(): prior.replace(path.with_name(path.name + '.' + str(number+1)))
+                path.replace(path.with_name(path.name + '.1'))
         launched = []
         for name, command in [('api', ['-m', 'uvicorn', 'researchdesk.server:app', '--host', '127.0.0.1', '--port', '8765']),
                               ('worker', ['-m', 'researchdesk', 'worker'])]:

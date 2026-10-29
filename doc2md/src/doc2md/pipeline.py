@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from contextlib import nullcontext
 import json
 import os
 import shutil
@@ -55,6 +56,23 @@ def parse_document(source: str | Path, output: str | Path, settings: Settings | 
     revision = file_hash(origin)
     fingerprint = cfg.fingerprint()
     destination = root / doc_id / revision / fingerprint
+    if (root / (doc_id + ".lock")).exists():
+        raise ValueError("该文档存在写入锁文件，请等待或确认原进程已结束")
+    if destination.exists():
+        prior = json.loads((destination / 'manifest.json').read_text(encoding='utf-8'))
+        if prior.get('status') == 'ok':
+            cached_source = (destination / prior['source_snapshot']).resolve()
+            if not cached_source.is_relative_to(destination.resolve()) or not cached_source.is_file() or file_hash(cached_source) != revision:
+                raise ValueError('已发布产物的来源快照损坏，拒绝复用')
+            cached_blocks = [json.loads(line) for line in (destination / 'blocks.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
+            if prior.get('blocks_sha256') and file_hash(destination / 'blocks.jsonl') != prior['blocks_sha256']:
+                raise ValueError('已发布产物内容哈希不匹配，拒绝复用')
+            if len(cached_blocks) != prior['block_count']:
+                raise ValueError('已发布产物内容不完整，拒绝复用')
+            return {'source': str(origin), 'status': 'ok', 'output': str(destination),
+                    'markdown': str(destination / 'document.md'), 'manifest': str(destination / 'manifest.json'),
+                    'warnings': prior.get('warnings', []), 'unfinished_blocks': 0, 'reused': True}
+        destination = destination.with_name(fingerprint + "-" + uuid.uuid4().hex[:12])
     lock_path = root / (doc_id + ".lock")
     try:
         lock_fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
@@ -65,16 +83,39 @@ def parse_document(source: str | Path, output: str | Path, settings: Settings | 
     started = time.monotonic()
     client = vision or VisionClient(cfg)
     try:
-        with tempfile.TemporaryDirectory(prefix=".work-", dir=root) as temporary:
+        checkpoint = root / '.checkpoints' / (doc_id + '_' + revision + '_' + fingerprint)
+        if origin.suffix.lower() == '.pdf':
+            checkpoint.mkdir(parents=True, exist_ok=True)
+            context = nullcontext(str(checkpoint))
+        else:
+            context = tempfile.TemporaryDirectory(prefix='.work-', dir=root)
+        with context as temporary:
             workspace = Path(temporary)
             snapshots = workspace / "source"
-            snapshots.mkdir()
+            snapshots.mkdir(exist_ok=True)
             snapshot = snapshots / origin.name
             shutil.copy2(origin, snapshot)
             if file_hash(snapshot) != revision:
                 raise ValueError("读取过程中输入发生变化，请文件写入完成后重试")
             extractor = Extractor(cfg, workspace, origin, doc_id, revision, client)
+            state_path = workspace / 'checkpoint.json'
+            completed = set()
+            if state_path.is_file():
+                state = json.loads(state_path.read_text(encoding='utf-8'))
+                if state.get('revision') != revision or state.get('fingerprint') != fingerprint:
+                    raise ValueError('断点版本不匹配，请选择新的输出目录')
+                extractor.blocks = state['blocks']
+                extractor.warnings = state['warnings']
+                completed = set(state['completed_pages'])
+            extractor.completed_pages = completed
+            def save_page(number):
+                completed.add(number)
+                write_json(state_path, {'revision': revision, 'fingerprint': fingerprint,
+                           'completed_pages': sorted(completed), 'blocks': extractor.blocks,
+                           'warnings': extractor.warnings})
+            extractor.on_page = save_page if origin.suffix.lower() == '.pdf' else None
             extractor.extract(snapshot)
+            state_path.unlink(missing_ok=True)
             if not extractor.blocks:
                 extractor.warnings.append("没有提取到有效内容，请核对空白文档或未支持的对象类型")
             extractor.write()
@@ -86,12 +127,15 @@ def parse_document(source: str | Path, output: str | Path, settings: Settings | 
                 "source_snapshot": extractor.snapshot, "rendered_pdf": extractor.rendered_pdf,
                 "mode": extractor.mode, "page_count": extractor.page_count,
                 "block_count": len(extractor.blocks), "unfinished_blocks": len(unfinished),
+                "blocks_sha256": file_hash(workspace / 'blocks.jsonl'),
                 "warnings": sorted(set(extractor.warnings)),
                 "created_at": datetime.now(timezone.utc).isoformat(),
                 "model": cfg.model, "base_url": cfg.base_url,
                 "offline": cfg.offline, "vision": client.stats,
                 "elapsed_seconds": round(time.monotonic() - started, 3),
             }
+            from .quality import report as quality_report
+            write_json(workspace / "quality.json", quality_report(extractor.blocks, manifest))
             write_json(workspace / "manifest.json", manifest)
             events = [{"event": "warning", "message": warning} for warning in manifest["warnings"]]
             events.extend({"event": "unfinished_block", "block_id": b["block_id"], "status": b["status"],

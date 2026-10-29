@@ -134,7 +134,7 @@ def test_protocol_cache_and_context_invalidation(tmp_path, picture, payload):
     assert "DO-NOT-LOG" not in repr(cfg)
 
 
-@pytest.mark.parametrize("status,expected_requests", [(401, 1), (403, 1), (400, 1), (429, 3), (503, 3)])
+@pytest.mark.parametrize("status,expected_requests", [(401, 1), (403, 1), (400, 1), (429, 3), (503, 1)])
 def test_http_failures_do_not_cache(tmp_path, picture, status, expected_requests):
     cfg = Settings(api_key="test-secret", cache_dir=tmp_path / "cache", retries=2)
     client = VisionClient(cfg, transport=httpx.MockTransport(lambda req: httpx.Response(status, text="test-secret")), sleeper=lambda _: None)
@@ -163,7 +163,7 @@ def test_timeout(tmp_path, picture):
                           transport=httpx.MockTransport(handler), sleeper=lambda _: None)
     result = client.analyze(picture)
     assert result["status"] == "failed"
-    assert client.stats["requests"] == 2
+    assert client.stats["requests"] == 1
     assert "secret response" not in json.dumps(result)
 
 

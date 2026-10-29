@@ -28,6 +28,8 @@ def inspect_artifact(path: Path, strict=False):
         if len(path.parents) > 2 and (path.parents[2] / (doc_id + '.lock')).exists():
             raise DocBaseError('ARTIFACT_BUSY', 'doc2md 正在重写该文档产物')
         blocks = [json.loads(line) for line in blocks_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+        if manifest.get('blocks_sha256') and manifest['blocks_sha256'] != before[1]:
+            raise DocBaseError('ARTIFACT_INCOMPLETE', '内容块哈希与manifest不一致')
         if len(blocks) != manifest['block_count']:
             raise DocBaseError('ARTIFACT_INCOMPLETE', '内容块数与 manifest 不一致')
         seen = set()

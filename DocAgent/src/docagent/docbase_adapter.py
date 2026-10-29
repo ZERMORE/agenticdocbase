@@ -16,7 +16,7 @@ class DocBaseAdapter:
         self.storage = None
 
     def call(self, command, *args):
-        if command not in {'status', 'query', 'get', 'context'}:
+        if command not in {'status', 'query', 'get', 'context', 'overview'}:
             raise AgentError('TOOL', '不允许调用写入命令')
         python = self.cfg.base_root / '.conda' / 'python.exe'
         if not python.is_file():
@@ -87,6 +87,18 @@ class DocBaseAdapter:
         return self.call('query', '--profile', self.profile, '--question', query, '--top-k', str(top_k),
                          *(['--prefer-body'] if prefer_body else []),
                          *(['--category', self.category] if self.category else []))
+
+    def overview(self, budget=24000):
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as folder:
+            args = ['--budget', str(budget)]
+            if self.allowed_doc_ids is not None:
+                scope = Path(folder) / 'scope.json'
+                scope.write_text(json.dumps(self.allowed_doc_ids), encoding='utf-8')
+                args += ['--allowed-doc-ids-file', str(scope)]
+            if self.category: args += ['--category', self.category]
+            return self.call('overview', *args)
 
     def get(self, chunk_id):
         return self.call('get', '--chunk-id', chunk_id)['evidence']

@@ -1,0 +1,1996 @@
+{
+  "status": "ok",
+  "index_version": "idx_20261029T040137_eb1726ba",
+  "query_id": "overview_idx_20261029T040137_eb1726ba",
+  "results": [
+    {
+      "chunk_id": null,
+      "artifact_id": "3557047394c78445f92ba1298d8ce61ce1cc1da4f3cd1b8e05d6775db73ead3d",
+      "doc_id": "doc_06377371190dd362",
+      "category": "Zotero论文",
+      "text": "Nonnegative matrix factorization (NMF) provides a lower\nrank approximation of a nonnegative matrix, and has been\nsuccessfully used as a clustering method. In this paper, we\noﬀer some conceptual understanding for the capabilities and\nshortcomings of NMF as a clustering method.\nThen, we\npropose Symmetric NMF (SymNMF) as a general frame-\nwork for graph clustering, which inherits the advantages of\nNMF by enforcing nonnegativity on the clustering assign-\nment matrix.\nUnlike NMF, however, SymNMF is based\non a similarity measure between data points, and factor-\nizes a symmetric matrix containing pairwise similarity val-\nues (not necessarily nonnegative).",
+      "search_text": "Symmetric Nonnegative Matrix Factorization for Graph Clustering\nDa Kuang∗\nChris Ding†\nHaesun Park∗",
+      "heading_path": [
+        "Symmetric Nonnegative Matrix Factorization for Graph Clustering"
+      ],
+      "type": "paragraph",
+      "length": 98,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_06377371190dd362_f8194795573c_b000005",
+          "start": 0,
+          "end": 655
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\E5DRQAQN\\Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf",
+          "snapshot_path": "source/Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf",
+          "rendered_pdf_path": "source/Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            61.54,
+            190.72,
+            301.64,
+            486.61
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_06377371190dd362",
+          "revision": "f8194795573ce16b4de8ad549f89ef9dc0468a074c5251a2b4f24e1f4fe9a4d8",
+          "source_bundle_id": "f2447788fe4fa71543e407fe6c0c9f32bd1165427ec753556e955ea59628d1e8",
+          "source_block_id": "doc_06377371190dd362_f8194795573c_b000005",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\f2447788fe4fa71543e407fe6c0c9f32bd1165427ec753556e955ea59628d1e8\\source\\Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\f2447788fe4fa71543e407fe6c0c9f32bd1165427ec753556e955ea59628d1e8\\source\\Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "0d37c795bf3c2bc81d2a3ab27cc75eba954fe03ec35a0e5e17de00a3ec79697b",
+      "doc_id": "doc_159b65f8205fd913",
+      "category": "Zotero论文",
+      "text": "Large Language Models (LLMs) can enhance\nreasoning capabilities through test-time scal-\ning by generating multiple traces. However,\nthe combination of lengthy reasoning traces\nwith multiple sampling introduces substantial\ncomputation and high end-to-end latency. Prior\nwork on accelerating this process has relied on\nsimilarity-based or confidence-based pruning,\nbut these signals do not reliably indicate trace\nquality. To address these limitations, we pro-\npose STEP: Step-level Trace Evaluation and\nPruning, a novel pruning framework that evalu-\nates reasoning steps using hidden states and\ndynamically prunes unpromising traces dur-\ning generation.",
+      "search_text": "Pruning for Efficient Test-Time Scaling\nZhixiang Liang*, Beichen Huang*, Zheng Wang, Minjia Zhang\n\nUniversity of Illinois Urbana-Champaign\n{zliang18, beichen8, zhengw10, minjiaz}@illinois.edu",
+      "heading_path": [
+        "Pruning for Efficient Test-Time Scaling"
+      ],
+      "type": "paragraph",
+      "length": 191,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_159b65f8205fd913_e37e7544e4e1_b000010",
+          "start": 0,
+          "end": 652
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\8QHJNMUZ\\Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf",
+          "snapshot_path": "source/Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf",
+          "rendered_pdf_path": "source/Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            87.51,
+            241.94,
+            273.78,
+            552.12
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_159b65f8205fd913",
+          "revision": "e37e7544e4e15361d140e089dda645ce2d39a6a183dcecc68fd1c3e0ddaf6131",
+          "source_bundle_id": "75e84f29f08b93b7704086bb7cb233437da6b4f5f42a1cdae103b1540bc8f6b4",
+          "source_block_id": "doc_159b65f8205fd913_e37e7544e4e1_b000010",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\75e84f29f08b93b7704086bb7cb233437da6b4f5f42a1cdae103b1540bc8f6b4\\source\\Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\75e84f29f08b93b7704086bb7cb233437da6b4f5f42a1cdae103b1540bc8f6b4\\source\\Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "ca1f25868f90ba2b92b144a608a6c616e1b42cef364339c4f1dcda2d1e779738",
+      "doc_id": "doc_1d8cee91c9058ea1",
+      "category": "Zotero论文",
+      "text": "Classification of pathological images is the basis for\nautomatic cancer diagnosis. Despite that deep learning methods\nhave achieved remarkable performance, they heavily rely on\nlabeled data, demanding extensive human annotation efforts. In\nthis study, we present a novel human annotation-free method by\nleveraging pre-trained Vision-Language Models (VLMs). Without\nhuman annotation, pseudo-labels of the training set are obtained\nby utilizing the zero-shot inference capabilities of VLM, which\nmay contain a lot of noise due to the domain gap between\nthe pre-training and target datasets.",
+      "search_text": "IEEE, VOL. XX, NO. XX, XXXX 2020\n1",
+      "heading_path": [
+        "Pathological Image Classification"
+      ],
+      "type": "paragraph",
+      "length": 34,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_1d8cee91c9058ea1_08933a2a95eb_b000006",
+          "start": 9,
+          "end": 597
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\NZ5MNMHE\\Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+          "snapshot_path": "source/Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+          "rendered_pdf_path": "source/Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            48.96,
+            201.02,
+            300.02,
+            488.94
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_1d8cee91c9058ea1",
+          "revision": "08933a2a95ebf4d10b5bc328f72e29dd0910b2e3957c43644653803152aa4179",
+          "source_bundle_id": "a5f0d0d3e1d68f416aece1adcb64d5a1413c250e1adea11cf775353f6c4fcd09",
+          "source_block_id": "doc_1d8cee91c9058ea1_08933a2a95eb_b000006",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\a5f0d0d3e1d68f416aece1adcb64d5a1413c250e1adea11cf775353f6c4fcd09\\source\\Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\a5f0d0d3e1d68f416aece1adcb64d5a1413c250e1adea11cf775353f6c4fcd09\\source\\Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "d11de85d00a8492b280281c944689e41171cb1e6c227d951fa0247ea5c8fa2f8",
+      "doc_id": "doc_22aba4d13004bbd9",
+      "category": "Zotero论文",
+      "text": "With the rise of powerful pre-trained vision-language\nmodels like CLIP, it becomes essential to investigate ways\nto adapt these models to downstream datasets. A recently\nproposed method named Context Optimization (CoOp) in-\ntroduces the concept of prompt learning—a recent trend in\nNLP—to the vision domain for adapting pre-trained vision-\nlanguage models. Specifically, CoOp turns context words\nin a prompt into a set of learnable vectors and, with only a\nfew labeled images for learning, can achieve huge improve-\nments over intensively-tuned manual prompts.",
+      "search_text": "Conditional Prompt Learning for Vision-Language Models\n\u0000",
+      "heading_path": [
+        "Conditional Prompt Learning for Vision-Language Models"
+      ],
+      "type": "paragraph",
+      "length": 56,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_22aba4d13004bbd9_359fa900ef42_b000010",
+          "start": 0,
+          "end": 560
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\3GAFYPNT\\Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+          "snapshot_path": "source/Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+          "rendered_pdf_path": "source/Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            50.11,
+            246.2,
+            286.37,
+            543.08
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_22aba4d13004bbd9",
+          "revision": "359fa900ef42d47f9d4087cae89c2386df98f222de140c5ee66fb55564ec5d83",
+          "source_bundle_id": "9308bf1974398215710e2db58d7f26e86587a455ac33ccf795b31c4a8e4b744a",
+          "source_block_id": "doc_22aba4d13004bbd9_359fa900ef42_b000010",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\9308bf1974398215710e2db58d7f26e86587a455ac33ccf795b31c4a8e4b744a\\source\\Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\9308bf1974398215710e2db58d7f26e86587a455ac33ccf795b31c4a8e4b744a\\source\\Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "e6d2aa812992abfa59e4e0d5815df2019ea535023cead2066bb37548f390d725",
+      "doc_id": "doc_2b407d56738a2ad7",
+      "category": "Zotero论文",
+      "text": "We investigate how to organize a large collection of geotagged pho-\ntos, working with a dataset of about 35 million images collected\nfrom Flickr. Our approach combines content analysis based on text\ntags and image data with structural analysis based on geospatial\ndata. We use the spatial distribution of where people take photos\nto deﬁne a relational structure between the photos that are taken at\npopular places.",
+      "search_text": "WWW 2009 MADRID!\nTrack: Social Networks and Web 2.0 / Session: Photos and Web 2.0",
+      "heading_path": [
+        "ABSTRACT"
+      ],
+      "type": "paragraph",
+      "length": 81,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_2b407d56738a2ad7_032bf34d22bb_b000009",
+          "start": 0,
+          "end": 414
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\IU4FFHMS\\Crandall 等 - 2009 - Mapping the world's photos.pdf",
+          "snapshot_path": "source/Crandall 等 - 2009 - Mapping the world's photos.pdf",
+          "rendered_pdf_path": "source/Crandall 等 - 2009 - Mapping the world's photos.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            53.76,
+            223.83,
+            292.96,
+            368.76
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_2b407d56738a2ad7",
+          "revision": "032bf34d22bb85b4f7d4fc9e6dc0314dde869cac71c467c9ccc93b1f5db183c9",
+          "source_bundle_id": "05eee847e641e208fb28466aa036d891f25a25b2fc335475795d8d0a7bae3f89",
+          "source_block_id": "doc_2b407d56738a2ad7_032bf34d22bb_b000009",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\05eee847e641e208fb28466aa036d891f25a25b2fc335475795d8d0a7bae3f89\\source\\Crandall 等 - 2009 - Mapping the world's photos.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\05eee847e641e208fb28466aa036d891f25a25b2fc335475795d8d0a7bae3f89\\source\\Crandall 等 - 2009 - Mapping the world's photos.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "b032ae24d00410a01532bc4f21cdacf658719532aabaa5db7217d32597e2d924",
+      "doc_id": "doc_373c1729d193969d",
+      "category": "Zotero论文",
+      "text": "Chain-of-Thought (CoT) prompting has im-\nproved LLM reasoning, but models often gen-\nerate explanations that appear coherent while\ncontaining unfaithful intermediate steps. Ex-\nisting self-evaluation approaches are prone to\ninherent biases: the model may confidently\nendorse coherence even when the step-to-step\nimplication is not valid, leading to unreliable\nfaithfulness evaluation.\nWe propose FACT-\nE, a causality-inspired framework for evalu-\nating CoT quality. FACT-E uses controlled\nperturbations as an instrumental signal to sepa-\nrate genuine step-to-step dependence from bias-\ndriven artifacts, producing more reliable faith-\nfulness estimates (intra-chain faithfulness).",
+      "search_text": "Chain-of-Thought Reasoning\nYuxi Sun1\nAoqi Zuo2\nHaotian Xie1\nWei Gao3\nMingming Gong2\nJing Ma1*\n\n1Hong Kong Baptist University 2The University of Melbourne 3Singapore Management University\n{csyxsun, jingma}@comp.hkbu.edu.hk\nazuo@student.unimelb.edu.au\nweigao@smu.edu.sg\nmingming.gong@unimelb.edu.au",
+      "heading_path": [
+        "Chain-of-Thought Reasoning"
+      ],
+      "type": "paragraph",
+      "length": 296,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_373c1729d193969d_842c284226a0_b000011",
+          "start": 0,
+          "end": 680
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\FXLNUQ8B\\Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf",
+          "snapshot_path": "source/Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf",
+          "rendered_pdf_path": "source/Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            87.87,
+            239.13,
+            273.79,
+            550.03
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_373c1729d193969d",
+          "revision": "842c284226a0259e361b636a28d082770ce60cc48c44e06ded6799239f5a4156",
+          "source_bundle_id": "c854ac2458b22dce02d72fa58e4bc2393db7062f53191f4a772b93828e95fdf8",
+          "source_block_id": "doc_373c1729d193969d_842c284226a0_b000011",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\c854ac2458b22dce02d72fa58e4bc2393db7062f53191f4a772b93828e95fdf8\\source\\Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\c854ac2458b22dce02d72fa58e4bc2393db7062f53191f4a772b93828e95fdf8\\source\\Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "a8e256ebc52f4fa953cf3898ce9bf9d6dd422a0c1ea18a0d9aa71fa4fd7f58e1",
+      "doc_id": "doc_43c2348badf58d40",
+      "category": "Zotero论文",
+      "text": "Human body trajectories are a salient cue to identify\nactions in the video.\nSuch body trajectories are mainly\nconveyed by hands and face across consecutive frames in\nsign language.\nHowever, current methods in continuous\nsign language recognition (CSLR) usually process frames\nindependently, thus failing to capture cross-frame trajec-\ntories to effectively identify a sign. To handle this limita-\ntion, we propose correlation network (CorrNet) to explic-\nitly capture and leverage body trajectories across frames to\nidentify signs. In specific, a correlation module is first pro-\nposed to dynamically compute correlation maps between\nthe current frame and adjacent frames to identify trajec-\ntories of all spatial patches.",
+      "search_text": "Continuous Sign Language Recognition with Correlation Network\nLianyu Hu, Liqing Gao, Zekang Liu, Wei Feng",
+      "heading_path": [
+        "arXiv:2303.03202v3  [cs.CV]  18 Mar 2023"
+      ],
+      "type": "paragraph",
+      "length": 105,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_43c2348badf58d40_55fe1bc1a44a_b000015",
+          "start": 0,
+          "end": 722
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\VLLWRMV5\\Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf",
+          "snapshot_path": "source/Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf",
+          "rendered_pdf_path": "source/Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            50.11,
+            247.25,
+            286.37,
+            532.18
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_43c2348badf58d40",
+          "revision": "55fe1bc1a44ae5d5f09f7ccccb9fd4363ee01e0c23cfcbe4530af04763f12f69",
+          "source_bundle_id": "931e5b6e24ddd5917bd1917f8ff56ea1952ceb924b3744aa8b85bf8a7a0542f4",
+          "source_block_id": "doc_43c2348badf58d40_55fe1bc1a44a_b000015",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\931e5b6e24ddd5917bd1917f8ff56ea1952ceb924b3744aa8b85bf8a7a0542f4\\source\\Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\931e5b6e24ddd5917bd1917f8ff56ea1952ceb924b3744aa8b85bf8a7a0542f4\\source\\Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "b9e675544c5fedd0751edc72efbc226f2953260d4ea038eee919a1549c37b4f6",
+      "doc_id": "doc_43e429241eac9981",
+      "category": "Zotero论文",
+      "text": "Fine-tuning vision-language models (VLMs) with\nabundant unlabeled data recently has attracted in-\ncreasing attention. Existing methods that resort\nto the pseudolabeling strategy would suffer from\nheavily incorrect hard pseudolabels when VLMs\nexhibit low zero-shot performance in downstream\ntasks.\nTo alleviate this issue, we propose a\nCandidate Pseudolabel Learning method, termed\nCPL, to fine-tune VLMs with suitable candidate\npseudolabels of unlabeled data in downstream\ntasks.",
+      "search_text": "Prompt Tuning with Unlabeled Data\nJiahan Zhang * 1 Qi Wei * 2 Feng Liu 3 Lei Feng 1",
+      "heading_path": [
+        "arXiv:2406.10502v1  [cs.LG]  15 Jun 2024"
+      ],
+      "type": "paragraph",
+      "length": 83,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_43e429241eac9981_a16317a8c692_b000012",
+          "start": 0,
+          "end": 479
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\Z49M5RDW\\Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+          "snapshot_path": "source/Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+          "rendered_pdf_path": "source/Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            75.37,
+            214.59,
+            271.17,
+            487.49
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_43e429241eac9981",
+          "revision": "a16317a8c69205369bfe9f2826bfd6ededd49f57979848454da901857645e6cd",
+          "source_bundle_id": "2924448abbd55c93ba21c1ead1fc8843507b14bb39cfdcaabd870d1cb1b0ae3f",
+          "source_block_id": "doc_43e429241eac9981_a16317a8c692_b000012",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\2924448abbd55c93ba21c1ead1fc8843507b14bb39cfdcaabd870d1cb1b0ae3f\\source\\Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\2924448abbd55c93ba21c1ead1fc8843507b14bb39cfdcaabd870d1cb1b0ae3f\\source\\Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "bc241e63a312c2efa4982e93627a530db576a7581a88d473269fc67c1513dddd",
+      "doc_id": "doc_502321bb8ec981f0",
+      "category": "Zotero论文",
+      "text": "Inference time scaling drives extended reasoning to enhance the performance\nof Vision-Language Models (VLMs), thus forming powerful Vision-Language\nReasoning Models (VLRMs). However, long reasoning dilutes visual tokens, caus-\ning visual information to receive less attention and may trigger hallucinations.\nAlthough introducing text-only reflection processes shows promise in language\nmodels, we demonstrate that it is insufficient to suppress hallucinations in VLMs.\nTo address this issue, we introduce Qwen-LookAgain (Qwen-LA), a novel VLRM\ndesigned to mitigate hallucinations by incorporating a vision-text reflection pro-\ncess that guides the model to re-attention visual information during reasoning.\nWe first propose a r",
+      "search_text": "Qwen Look Again: Guiding Vision-Language\nReasoning Models to Re-attention Visual Information\nXu Chu1,†, Xinrong Chen1,†, Guanyu Wang1,†, Zhijie Tan1\n\nKui Huang2, Wenyu Lv2, Tong Mo1, Weiping Li1,*",
+      "heading_path": [
+        "arXiv:2505.23558v2  [cs.CV]  30 May 2025"
+      ],
+      "type": "paragraph",
+      "length": 196,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_502321bb8ec981f0_ba7f4c81336a_b000010",
+          "start": 0,
+          "end": 727
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\9YWAB42D\\Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+          "snapshot_path": "source/Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+          "rendered_pdf_path": "source/Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            143.4,
+            322.1,
+            469.88,
+            539.66
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_502321bb8ec981f0",
+          "revision": "ba7f4c81336a9ef3fd52c23c25560f49a2b24b0c8ded52f66f3d1eb9eeed8405",
+          "source_bundle_id": "d3ec027ea8c1e3787931ac99575713dda40a491a76c520d57f0beba0eed8cbfe",
+          "source_block_id": "doc_502321bb8ec981f0_ba7f4c81336a_b000010",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\d3ec027ea8c1e3787931ac99575713dda40a491a76c520d57f0beba0eed8cbfe\\source\\Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\d3ec027ea8c1e3787931ac99575713dda40a491a76c520d57f0beba0eed8cbfe\\source\\Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "31b768a7ce80c98fc8f423cb4f00e4e1c5c952faffaaefdcfd48c0b14a41b41d",
+      "doc_id": "doc_55864547fa53d1c7",
+      "category": "Zotero论文",
+      "text": "disambiguation allows each candidate label to contribute\nevenly to model training, with the final prediction derived\nby averaging the outputs of all candidate labels (H¨ullermeier\nand Beringer 2006; Cour, Sapp, and Taskar 2011; Cour\net al. 2009; Zhang and Yu 2015). However, this strategy\nis susceptible to the adverse influence of false positive la-\nbels within the candidate label set. On the other hand,\nidentification-based disambiguation considers the ground-\ntruth label as a latent variable and iteratively predicts it\nduring optimization.",
+      "search_text": "Robust Representation Learning for Unreliable Partial Label Learning\nYu Shi*, Dong-Dong Wu*, Xin Geng†, Min-Ling Zhang†",
+      "heading_path": [
+        "arXiv:2308.16718v1  [cs.LG]  31 Aug 2023"
+      ],
+      "type": "paragraph",
+      "length": 119,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_55864547fa53d1c7_4faf76607df5_b000007",
+          "start": 0,
+          "end": 546
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\CSB8MAZ3\\Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+          "snapshot_path": "source/Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+          "rendered_pdf_path": "source/Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            319.5,
+            218.41,
+            558.0,
+            568.1
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_55864547fa53d1c7",
+          "revision": "4faf76607df5c35543ce29ce6458f6580e6d461a82338dd1961b3d622b9f3b81",
+          "source_bundle_id": "d3d117782a9df51e5b94e24eaca350a2726d57b3bd958bea78e34c544de5ad59",
+          "source_block_id": "doc_55864547fa53d1c7_4faf76607df5_b000007",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\d3d117782a9df51e5b94e24eaca350a2726d57b3bd958bea78e34c544de5ad59\\source\\Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\d3d117782a9df51e5b94e24eaca350a2726d57b3bd958bea78e34c544de5ad59\\source\\Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "6ce0c5fbd8e8b4e1c1a3d90255e2b9497cdf8fc1d718f0249f7841a09fbc5617",
+      "doc_id": "doc_6c514ff465792361",
+      "category": "Zotero论文",
+      "text": "This paper studies the semi-supervised partial label learning (SS-\nPLL) problem, which aims to improve the partial label learning\n(PLL) by leveraging unlabeled samples. Both the existing SSPLL\nmethods and the semi-supervised learning methods exploit the\ninformation in unlabeled samples by selecting high-confidence\nunlabeled samples as the pseudo labels based on the maximum\nvalue of the model output. However, the scarcity of labeled sam-\nples and the ambiguity from partial labels skew this strategy to-\nwards an unfair selection of high-confidence samples on each class,\nmost notably during the initial phases of training, resulting in\nslower training and performance degradation.",
+      "search_text": "Jiahao Jiang\nCollege of Software Engineering, Southeast University\nSchool of Computer Science and Engineering, Southeast",
+      "heading_path": [
+        "Hui Liu\nSchool of Computing & InformationSciences, Saint Francis"
+      ],
+      "type": "paragraph",
+      "length": 120,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_6c514ff465792361_b07e6e6c9078_b000017",
+          "start": 0,
+          "end": 684
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\EBKW2KII\\Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf",
+          "snapshot_path": "source/Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf",
+          "rendered_pdf_path": "source/Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            53.47,
+            284.25,
+            295.55,
+            523.42
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_6c514ff465792361",
+          "revision": "b07e6e6c9078de9ff9e81c5d92b1c6150dd4aa251aa3c56713acba42f06289a4",
+          "source_bundle_id": "f5959e931d99806a9a38d3b1057a970f9fb8068ff1b45b7caa876bd454347424",
+          "source_block_id": "doc_6c514ff465792361_b07e6e6c9078_b000017",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\f5959e931d99806a9a38d3b1057a970f9fb8068ff1b45b7caa876bd454347424\\source\\Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\f5959e931d99806a9a38d3b1057a970f9fb8068ff1b45b7caa876bd454347424\\source\\Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "542f1b53f9e13ebce759c5114ea5b8beb87edee050c2c19286581954e95badeb",
+      "doc_id": "doc_6c9ffb4518a40274",
+      "category": "Zotero论文",
+      "text": "Continuous Sign Language Recognition (CSLR) fo-\ncuses on the interpretation of a sequence of sign language\ngestures performed continually without pauses. In this study, we\nconduct an empirical evaluation of recent deep learning CSLR\ntechniques and assess their performance across various datasets\nand sign languages. The models selected for analysis implement\na range of approaches for extracting meaningful features and\nemploy distinct training strategies. To determine their efficacy in\nmodeling different sign languages, these models were evaluated\nusing multiple datasets, specifically RWTH-PHOENIX-Weather-\n2014, ArabSign, and GrSL, each representing a unique sign\nlanguage.",
+      "search_text": "1",
+      "heading_path": [
+        "arXiv:2406.12369v1  [cs.CL]  18 Jun 2024"
+      ],
+      "type": "paragraph",
+      "length": 1,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_6c9ffb4518a40274_bf61c9f4b810_b000009",
+          "start": 9,
+          "end": 688
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\TBLIKNR4\\Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+          "snapshot_path": "source/Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+          "rendered_pdf_path": "source/Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            48.96,
+            224.93,
+            300.02,
+            383.33
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_6c9ffb4518a40274",
+          "revision": "bf61c9f4b810899864a7fb50fe8e0b088b41c519d1326b4a4fe33d5b87698405",
+          "source_bundle_id": "2ed9d2a67adfc63d04bf7b500842f7b4b111d8fb8923d70f9bc939bfdb7f91af",
+          "source_block_id": "doc_6c9ffb4518a40274_bf61c9f4b810_b000009",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\2ed9d2a67adfc63d04bf7b500842f7b4b111d8fb8923d70f9bc939bfdb7f91af\\source\\Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\2ed9d2a67adfc63d04bf7b500842f7b4b111d8fb8923d70f9bc939bfdb7f91af\\source\\Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "976d300828461e96f7a1f4e6467c90ce71d6611a02c4c6716fb1e73e3f0e4edc",
+      "doc_id": "doc_71d594dabdf0064e",
+      "category": "Zotero论文",
+      "text": "2022 IEEE 8th International Conference on Computing, Engineering and Design (ICCED) | 978-1-6654-5389-9/22/$31.00 ©2022 IEEE | DOI: 10.1109/ICCED56140.2022.10010351",
+      "search_text": "2022 IEEE 8th International Conference on Computing, Engineering and Design (ICCED) | 978-1-6654-5389-9/22/$31.00 ©2022 IEEE | DOI: 10.1109/ICCED56140.2022.10010351",
+      "heading_path": [],
+      "type": "paragraph",
+      "length": 164,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_71d594dabdf0064e_d8b21249dfc3_b000003",
+          "start": 0,
+          "end": 164
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\HJJZJXLX\\Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf",
+          "snapshot_path": "source/Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf",
+          "rendered_pdf_path": "source/Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            9.28,
+            128.79,
+            20.06,
+            713.13
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_71d594dabdf0064e",
+          "revision": "d8b21249dfc3ae72ac95c0fc8edd4211d1fa8165f1eedb5ebdba66f258eaf498",
+          "source_bundle_id": "dc5487b0d1734f6f780dcc4f449c42fb63818bf9ec0e673f6b6fcf259e8e1823",
+          "source_block_id": "doc_71d594dabdf0064e_d8b21249dfc3_b000003",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\dc5487b0d1734f6f780dcc4f449c42fb63818bf9ec0e673f6b6fcf259e8e1823\\source\\Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\dc5487b0d1734f6f780dcc4f449c42fb63818bf9ec0e673f6b6fcf259e8e1823\\source\\Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "670835535307d07fc3b6bb9c7e262225fac248e127121ece4ba5dc7c578d9f12",
+      "doc_id": "doc_73e170ae5be6eded",
+      "category": "Zotero论文",
+      "text": "In recent years, there have been attempts to increase the\nkernel size of Convolutional Neural Nets (CNNs) to mimic the global\nreceptive ﬁeld of Vision Transformers’ (ViTs) self-attention blocks. That\napproach, however, quickly hit an upper bound and saturated way before\nachieving a global receptive ﬁeld. In this work, we demonstrate that by\nleveraging the Wavelet Transform (WT), it is, in fact, possible to obtain\nvery large receptive ﬁelds without suﬀering from over-parameterization,\ne.g., for a k × k receptive ﬁeld, the number of trainable parameters in\nthe proposed method grows only logarithmically with k.",
+      "search_text": "Fields\nShahaf E. Finder(B)\n, Roy Amoyal\n, Eran Treister\n, and Oren Freifeld\n\nThe Department of Computer Science, Ben-Gurion University of the Negev,\n\nBe’er Sheva, Israel\n{finders,amoyalr}@post.bgu.ac.il, {erant,orenfr}@cs.bgu.ac.il",
+      "heading_path": [
+        "Fields"
+      ],
+      "type": "paragraph",
+      "length": 231,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_73e170ae5be6eded_ec10a714fe8a_b000010",
+          "start": 10,
+          "end": 625
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\GQXIAQQF\\Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf",
+          "snapshot_path": "source/Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf",
+          "rendered_pdf_path": "source/Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            81.92,
+            195.8,
+            371.04,
+            380.16
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_73e170ae5be6eded",
+          "revision": "ec10a714fe8a27f2da79d4900c7e34c0bef0e35ef0bee97da2a06e4b48b47016",
+          "source_bundle_id": "cf78ac77518b2452112a4f47e550923c7979070c24f18b864901ad4dd1587f7f",
+          "source_block_id": "doc_73e170ae5be6eded_ec10a714fe8a_b000010",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\cf78ac77518b2452112a4f47e550923c7979070c24f18b864901ad4dd1587f7f\\source\\Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\cf78ac77518b2452112a4f47e550923c7979070c24f18b864901ad4dd1587f7f\\source\\Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "1617a55e96c1bf9a9cbd0354c925020c6507d3d97f503dcf3818b4d16ed7a959",
+      "doc_id": "doc_8a4641781fe79035",
+      "category": "Zotero论文",
+      "text": "Popular zero-shot models suffer due to artifacts inherited from pretraining. One\nparticularly detrimental issue, caused by unbalanced web-scale pretraining data,\nis mismatched label distribution. Existing approaches that seek to repair the label\ndistribution are not suitable in zero-shot settings, as they have mismatching require-\nments, such as needing access to labeled downstream task data or knowledge of\nthe true label balance in the pretraining distribution. We sidestep these challenges\nand introduce a simple and lightweight approach to adjust pretrained model predic-\ntions via optimal transport. Our technique requires only an estimate of the label\ndistribution of a downstream task.",
+      "search_text": "Zero-shot Models\nChangho Shin, Jitian Zhao, Sonia Cromp, Harit Vishwakarma, Frederic Sala",
+      "heading_path": [
+        "arXiv:2404.08461v2  [cs.LG]  30 Oct 2024"
+      ],
+      "type": "paragraph",
+      "length": 89,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_8a4641781fe79035_b43017fb4556_b000010",
+          "start": 0,
+          "end": 695
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\MT43T7BY\\Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf",
+          "snapshot_path": "source/Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf",
+          "rendered_pdf_path": "source/Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            135.15,
+            273.57,
+            461.42,
+            425.42
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_8a4641781fe79035",
+          "revision": "b43017fb45566bf7db3ce6572fc987c8965b8e0793c2fd490362276eb2210cd0",
+          "source_bundle_id": "980342e7fb5fa75c77b9f65eb812742a34cdab4faa13e9a812d639f30847cc14",
+          "source_block_id": "doc_8a4641781fe79035_b43017fb4556_b000010",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\980342e7fb5fa75c77b9f65eb812742a34cdab4faa13e9a812d639f30847cc14\\source\\Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\980342e7fb5fa75c77b9f65eb812742a34cdab4faa13e9a812d639f30847cc14\\source\\Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "9ed8c1e54516791d283d4c2146bfac165456302ac8c70a3d21b70ed0dd0a8dae",
+      "doc_id": "doc_8a9c1768ecc46553",
+      "category": "Zotero论文",
+      "text": "Transduction is a powerful paradigm that leverages the structure of unlabeled\ndata to boost predictive accuracy. We present TransCLIP, a novel and compu-\ntationally efficient transductive approach designed for Vision-Language Models\n(VLMs). TransCLIP is applicable as a plug-and-play module on top of popular\ninductive zero- and few-shot models, consistently improving their performances.\nOur new objective function can be viewed as a regularized maximum-likelihood\nestimation, constrained by a KL divergence penalty that integrates the text-encoder\nknowledge and guides the transductive learning process.",
+      "search_text": "Boosting Vision-Language Models with Transduction\nMaxime Zanella∗",
+      "heading_path": [
+        "arXiv:2406.01837v1  [cs.CV]  3 Jun 2024"
+      ],
+      "type": "paragraph",
+      "length": 65,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_8a9c1768ecc46553_5fab44dd71fd_b000013",
+          "start": 0,
+          "end": 605
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\7T35AUB7\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "snapshot_path": "source/Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "rendered_pdf_path": "source/Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            143.54,
+            269.4,
+            469.88,
+            443.07
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_8a9c1768ecc46553",
+          "revision": "5fab44dd71fdb24cdf2cf5645eedeaaf1d9e46f41e0253d8815154f60c927699",
+          "source_bundle_id": "8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861",
+          "source_block_id": "doc_8a9c1768ecc46553_5fab44dd71fd_b000013",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861\\source\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\8add695839cff2929cd5c63b9a2d388d6a6dd72bf7d903e929337a5aa1692861\\source\\Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "4e2f26e6ec15fb215fba6867c78bd4b9cc64b0511f43b76dc590efa8205ed958",
+      "doc_id": "doc_8c92e5190119c818",
+      "category": "Zotero论文",
+      "text": "X-ray computed tomography (CT) is of great\nclinical signiﬁcance in medical practice because it can pro-\nvide anatomical information about the human body without\ninvasion, while its radiation risk has continued to attract\npublic concerns. Reducing the radiation dose may induce\nnoise and artifacts to the reconstructed images, which\nwill interfere with the judgments of radiologists. Previous\nstudies have conﬁrmed that deep learning (DL) is promising\nfor improving low-dose CT imaging. However, almost all the\nDL-based methods suffer from subtle structure degenera-",
+      "search_text": "IEEE TRANSACTIONS ON MEDICAL IMAGING, VOL. 40, NO. 11, NOVEMBER 2021\n3089",
+      "heading_path": [
+        "Enhanced Low-Dose CT Imaging"
+      ],
+      "type": "paragraph",
+      "length": 73,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_8c92e5190119c818_b96a571485d0_b000007",
+          "start": 10,
+          "end": 575
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\PHUA82F5\\Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+          "snapshot_path": "source/Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+          "rendered_pdf_path": "source/Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            48.96,
+            251.58,
+            300.36,
+            350.19
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_8c92e5190119c818",
+          "revision": "b96a571485d016fb8d15969219886b3559530d99a6a00ba83d940dd4cc0b25b0",
+          "source_bundle_id": "fec533113ce1043840ef7ab54848c5d863ab7a4309b3af56ec3e267b6567c0bf",
+          "source_block_id": "doc_8c92e5190119c818_b96a571485d0_b000007",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\fec533113ce1043840ef7ab54848c5d863ab7a4309b3af56ec3e267b6567c0bf\\source\\Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\fec533113ce1043840ef7ab54848c5d863ab7a4309b3af56ec3e267b6567c0bf\\source\\Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "b8043171784f566dc607de0c8264c4be67522ae8d311a6a8e93efc44b6c9f399",
+      "doc_id": "doc_8ce88dde3aec708d",
+      "category": "Zotero论文",
+      "text": "Pooling methods are necessities for modern neural networks\nfor increasing receptive ﬁelds and lowering down computational costs.\nHowever, commonly used hand-crafted pooling approaches, e.g., max\npooling and average pooling, may not well preserve discriminative fea-\ntures. While many researchers have elaborately designed various pool-\ning variants in spatial domain to handle these limitations with much\nprogress, the temporal aspect is rarely visited where directly applying\nhand-crafted methods or these specialized spatial variants may not be\noptimal. In this paper, we derive temporal lift pooling (TLP) from the\nLifting Scheme in signal processing to intelligently downsample features\nof diﬀerent temporal hierarchies.",
+      "search_text": "Sign Language Recognition\nLianyu Hu\n, Liqing Gao\n, Zekang Liu\n, and Wei Feng(B)\n\nTianjin University, Tianjin 300350, China\n{hly2021,lqgao,lzk100953}@tju.edu.cn, wfeng@ieee.org",
+      "heading_path": [
+        "Sign Language Recognition"
+      ],
+      "type": "paragraph",
+      "length": 175,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_8ce88dde3aec708d_0f8bdc58cc75_b000009",
+          "start": 10,
+          "end": 734
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\INYW5IEV\\_.pdf",
+          "snapshot_path": "source/_.pdf",
+          "rendered_pdf_path": "source/_.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            81.92,
+            177.66,
+            371.05,
+            449.69
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_8ce88dde3aec708d",
+          "revision": "0f8bdc58cc75ff674300eb5fbf00b8646fd1b5202c87c96fe678868910f771ad",
+          "source_bundle_id": "87e0001c43c674b17899d1bdda6ce22d25b264ced5907a230aa322624dcfd9c4",
+          "source_block_id": "doc_8ce88dde3aec708d_0f8bdc58cc75_b000009",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\87e0001c43c674b17899d1bdda6ce22d25b264ced5907a230aa322624dcfd9c4\\source\\_.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\87e0001c43c674b17899d1bdda6ce22d25b264ced5907a230aa322624dcfd9c4\\source\\_.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "019d3585106e6186829342909c2119d1944b02257c4a408d0a499ec63f63f1b8",
+      "doc_id": "doc_9eb6efbac1cc8ead",
+      "category": "Zotero论文",
+      "text": "Instruction tuning large language models (LLMs) using machine-generated\ninstruction-following data has been shown to improve zero-shot capabilities on\nnew tasks, but the idea is less explored in the multimodal field. We present the\nfirst attempt to use language-only GPT-4 to generate multimodal language-image\ninstruction-following data. By instruction tuning on such generated data, we in-\ntroduce LLaVA: Large Language and Vision Assistant, an end-to-end trained\nlarge multimodal model that connects a vision encoder and an LLM for general-\npurpose visual and language understanding.",
+      "search_text": "Visual Instruction Tuning\nHaotian Liu1∗, Chunyuan Li2∗, Qingyang Wu3, Yong Jae Lee1",
+      "heading_path": [
+        "arXiv:2304.08485v2  [cs.CV]  11 Dec 2023"
+      ],
+      "type": "paragraph",
+      "length": 83,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_9eb6efbac1cc8ead_dc8bace378a2_b000006",
+          "start": 0,
+          "end": 586
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\GDE4E9NP\\Liu 等 - Visual Instruction Tuning.pdf",
+          "snapshot_path": "source/Liu 等 - Visual Instruction Tuning.pdf",
+          "rendered_pdf_path": "source/Liu 等 - Visual Instruction Tuning.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            143.62,
+            247.25,
+            469.79,
+            420.93
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_9eb6efbac1cc8ead",
+          "revision": "dc8bace378a282ea78caa9b5959306202fbfa3b8cedaf8a66541a9af18f4d3bf",
+          "source_bundle_id": "84d0428ba5bce26ed8cbddc50bf14b697eaa319c325afede903f3b32335746dc",
+          "source_block_id": "doc_9eb6efbac1cc8ead_dc8bace378a2_b000006",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\84d0428ba5bce26ed8cbddc50bf14b697eaa319c325afede903f3b32335746dc\\source\\Liu 等 - Visual Instruction Tuning.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\84d0428ba5bce26ed8cbddc50bf14b697eaa319c325afede903f3b32335746dc\\source\\Liu 等 - Visual Instruction Tuning.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "2ad6e2c2c236e5e78ee7ed4c1800a5b0faa17f347d5a002c0047c21a04d7bdc7",
+      "doc_id": "doc_a54cebabc9796abf",
+      "category": "Zotero论文",
+      "text": "Fine-tuning vision-language models (VLMs) like CLIP to downstream tasks is\noften necessary to optimize their performance. However, a major obstacle is\nthe limited availability of labeled data. We study the use of pseudolabels, i.e.,\nheuristic labels for unlabeled data, to enhance CLIP via prompt tuning. Conven-\ntional pseudolabeling trains a model on labeled data and then generates labels for\nunlabeled data. VLMs’ zero-shot capabilities enable a “second generation” of\npseudolabeling approaches that do not require task-specific training on labeled\ndata.",
+      "search_text": "Enhancing CLIP with CLIP: Exploring\nPseudolabeling for Limited-Label Prompt Tuning\nCristina Menghini",
+      "heading_path": [
+        "Enhancing CLIP with CLIP: Exploring\nPseudolabeling for Limited-Label Prompt Tuning"
+      ],
+      "type": "paragraph",
+      "length": 100,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_a54cebabc9796abf_639b056c9154_b000008",
+          "start": 0,
+          "end": 558
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\HX7WZAF7\\Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf",
+          "snapshot_path": "source/Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf",
+          "rendered_pdf_path": "source/Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            143.87,
+            268.32,
+            469.79,
+            496.54
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_a54cebabc9796abf",
+          "revision": "639b056c9154c0ad5557f2ca27315de7ca6ff1e56aa6a1447876ff2f2989c867",
+          "source_bundle_id": "5fd3afbfacc3da7e6860c57044bb21998a1b93f24949d1b64d3d77c11d6868dc",
+          "source_block_id": "doc_a54cebabc9796abf_639b056c9154_b000008",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\5fd3afbfacc3da7e6860c57044bb21998a1b93f24949d1b64d3d77c11d6868dc\\source\\Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\5fd3afbfacc3da7e6860c57044bb21998a1b93f24949d1b64d3d77c11d6868dc\\source\\Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "f41ab19570f35a2a7e2c50ec53482e4427893e0af5cf8bef2482c92d87e62a47",
+      "doc_id": "doc_a98ba421638eb04c",
+      "category": "Zotero论文",
+      "text": "Symmetric\nnonnegative\nmatrix\nfactorization\n(SNMF) has demonstrated to be a powerful method for data\nclustering. However, SNMF is mathematically formulated as a\nnon-convex optimization problem, making it sensitive to the\ninitialization of variables. Inspired by ensemble clustering that\naims to seek a better clustering result from a set of clustering\nresults, we propose self-supervised SNMF (S3NMF), which is\ncapable of boosting clustering performance progressively by\ntaking advantage of the sensitivity to initialization characteristic\nof\nSNMF, without relying on\nany additional information.\nSpeciﬁcally,\nwe\nﬁrst\nperform\nSNMF\nrepeatedly\nwith\na\nrandom positive matrix for initialization each time, leading\nto multiple decompo",
+      "search_text": "4526\nIEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO TECHNOLOGY, VOL. 32, NO. 7, JULY 2022",
+      "heading_path": [
+        "I. INTRODUCTION\nN"
+      ],
+      "type": "paragraph",
+      "length": 94,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_a98ba421638eb04c_76e1e46a12a7_b000007",
+          "start": 9,
+          "end": 736
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\EME8LF29\\Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf",
+          "snapshot_path": "source/Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf",
+          "rendered_pdf_path": "source/Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            48.96,
+            179.85,
+            300.22,
+            428.69
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_a98ba421638eb04c",
+          "revision": "76e1e46a12a71a83d16646661189e8dc39035ba899bd16e1c362e514c3813ec1",
+          "source_bundle_id": "e0df6ac762b1510c961c748164ede11759b7abd64dd987d93b42571295f322a8",
+          "source_block_id": "doc_a98ba421638eb04c_76e1e46a12a7_b000007",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\e0df6ac762b1510c961c748164ede11759b7abd64dd987d93b42571295f322a8\\source\\Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\e0df6ac762b1510c961c748164ede11759b7abd64dd987d93b42571295f322a8\\source\\Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "68abe566ab91c9c11c6e1eae719d0822fe72de2f9dbe1aec102094024004b4e6",
+      "doc_id": "doc_ad356fb7082aa56b",
+      "category": "Zotero论文",
+      "text": "Contrastive vision-language models like CLIP have shown\ngreat progress in transfer learning. In the inference stage, the\nproper text description, also known as prompt, needs to be\ncarefully designed to correctly classify the given images. In\norder to avoid laborious prompt engineering, recent works\nsuch as CoOp, CLIP-Adapter and Tip-Adapter propose to\nadapt vision-language models for downstream image recog-\nnition tasks on a small set of labeled data. Though promis-\ning improvements are achieved, requiring labeled data from\nthe target datasets may restrict the scalability.",
+      "search_text": "Unsupervised Prompt Learning for Vision-Language Models\nTony Huang1*, Jack Chu1*, Fangyun Wei2*†",
+      "heading_path": [
+        "arXiv:2204.03649v2  [cs.CV]  22 Aug 2022"
+      ],
+      "type": "paragraph",
+      "length": 96,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_ad356fb7082aa56b_3791459d7b50_b000011",
+          "start": 0,
+          "end": 579
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\6KGVXQ6D\\Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf",
+          "snapshot_path": "source/Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf",
+          "rendered_pdf_path": "source/Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            63.96,
+            235.5,
+            282.54,
+            453.68
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_ad356fb7082aa56b",
+          "revision": "3791459d7b500b8413eae81a1941be665734d1fcb6a28527b80d29289452d9b3",
+          "source_bundle_id": "586b3a205dfcee18154d579fff7599a8c58a457f9987396ea3a927fed4abcb11",
+          "source_block_id": "doc_ad356fb7082aa56b_3791459d7b50_b000011",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\586b3a205dfcee18154d579fff7599a8c58a457f9987396ea3a927fed4abcb11\\source\\Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\586b3a205dfcee18154d579fff7599a8c58a457f9987396ea3a927fed4abcb11\\source\\Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "d64044a0e9246b1351cb700db598c917aff5928c767eab1a6f0f1b06253ecbc0",
+      "doc_id": "doc_ad3faa3fab5e31ea",
+      "category": "Zotero论文",
+      "text": "Continuous Sign Language Recognition (CSLR) is a long challenging task in Computer Vision due to the diffi­\nculties in detecting the explicit boundaries between the words in a sign sentence. To deal with this challenge, we \npropose a two-stage model. In the first stage, the predictor model, which includes a combination of CNN, SVD, \nand LSTM, is trained with the isolated signs. In the second stage, we apply a post-processing algorithm to the \nSoftmax outputs obtained from the first part of the model in order to separate the isolated signs in the continuous \nsigns.",
+      "search_text": "Expert Systems With Applications 249 (2024) 123695",
+      "heading_path": [
+        "Razieh Rastgoo a, Kourosh Kiani a,*, Sergio Escalera b"
+      ],
+      "type": "paragraph",
+      "length": 50,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_ad3faa3fab5e31ea_49233dc6b3b0_b000019",
+          "start": 0,
+          "end": 570
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\Y6QBAZS8\\ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+          "snapshot_path": "source/ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+          "rendered_pdf_path": "source/ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            202.0,
+            288.21,
+            559.78,
+            424.26
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_ad3faa3fab5e31ea",
+          "revision": "49233dc6b3b0cf8bb7f406b352f8910a8c05bf4999386a6b0aaaca3670240aca",
+          "source_bundle_id": "2075c3d48c882a30012a93527214005c6874676aad350fe750a5ee344b3a333f",
+          "source_block_id": "doc_ad3faa3fab5e31ea_49233dc6b3b0_b000019",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\2075c3d48c882a30012a93527214005c6874676aad350fe750a5ee344b3a333f\\source\\ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\2075c3d48c882a30012a93527214005c6874676aad350fe750a5ee344b3a333f\\source\\ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "d2f5cbfc465714def5ddc7b684e12cf0da4375ace8c43a00f1dd83b48e42ac0e",
+      "doc_id": "doc_b0247c1369a54287",
+      "category": "Zotero论文",
+      "text": "Course Model is relatively simple. We only care about whether there \nis a turn at a certain position on the race schedule, and do not consider the size of the corner",
+      "search_text": "Team Control Number",
+      "heading_path": [
+        "7 Model Evaluation and Further Discussion"
+      ],
+      "type": "paragraph",
+      "length": 19,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_b0247c1369a54287_c0223c676276_b001495",
+          "start": 108,
+          "end": 273
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\SMSUK5RQ\\2022年A题获奖论文合集.pdf",
+          "snapshot_path": "source/2022年A题获奖论文合集.pdf",
+          "rendered_pdf_path": "source/2022年A题获奖论文合集.pdf",
+          "page_index": 69,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            72.02,
+            718.41,
+            526.26,
+            764.09
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_b0247c1369a54287",
+          "revision": "c0223c6762763a14d8f1bb2e443755bfe1ead597ca338bedf7c8dd0a44b5358a",
+          "source_bundle_id": "af46b8aed2ad85de066a5fdd7fb78ebff5cdda7cc9aeaa4fcce79f3bd85b23ab",
+          "source_block_id": "doc_b0247c1369a54287_c0223c676276_b001495",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\af46b8aed2ad85de066a5fdd7fb78ebff5cdda7cc9aeaa4fcce79f3bd85b23ab\\source\\2022年A题获奖论文合集.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\af46b8aed2ad85de066a5fdd7fb78ebff5cdda7cc9aeaa4fcce79f3bd85b23ab\\source\\2022年A题获奖论文合集.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "090f99b122762bae71ad1c1e8c2a41d20805995f95685f5df0dfacf648d22497",
+      "doc_id": "doc_b4d5d40ddacf0b14",
+      "category": "Zotero论文",
+      "text": "Large-scale contrastive vision-language pretraining has shown significant progress in visual representa-\ntion learning. Unlike traditional visual systems trained by a fixed set of discrete labels, a new paradigm\nwas introduced in [50] to directly learn to align images with raw texts in an open-vocabulary setting.\nOn downstream tasks, a carefully chosen text prompt is employed to make zero-shot predictions. To\navoid non-trivial prompt engineering, context optimization [75] has been proposed to learn continuous\nvectors as task-specific prompts with few-shot training examples. In this paper, we show that there is\nan alternative path to achieve better vision-language models other than prompt tuning.",
+      "search_text": "Springer Nature 2021 LATEX template",
+      "heading_path": [
+        "arXiv:2110.04544v2  [cs.CV]  25 Mar 2025"
+      ],
+      "type": "paragraph",
+      "length": 35,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000011",
+          "start": 0,
+          "end": 704
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\9TU58I3T\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "snapshot_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "rendered_pdf_path": "source/Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            71.2,
+            371.74,
+            479.11,
+            512.63
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_b4d5d40ddacf0b14",
+          "revision": "a9b8f48159d60cfc58446d6b50c0d2f180617e01f0f0dda3d7632ba51a2320c8",
+          "source_bundle_id": "5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5",
+          "source_block_id": "doc_b4d5d40ddacf0b14_a9b8f48159d6_b000011",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\5b125b1c9e961d053fa4bde45f884d392b8e53dd69b8dd707a16b07f0dc4f9c5\\source\\Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "424928aceabc1f3feb1dadd22d85a8a7fcb798fffe8d5f68c3f240c1c5b4b420",
+      "doc_id": "doc_bc38c59f35223730",
+      "category": "Zotero论文",
+      "text": "Although Large Language Models (LLMs)\nexhibit advanced reasoning ability, conven-\ntional alignment remains largely dominated by\noutcome reward models (ORMs) that judge\nonly final answers. Process Reward Models\n(PRMs) address this gap by evaluating and\nguiding reasoning at the step or trajectory level.\nThis survey provides a systematic overview\nof PRMs through the full loop: how to gen-\nerate process data, build PRMs, and use PRMs\nfor test-time scaling and reinforcement learn-\ning.",
+      "search_text": "Supervisions for Large Language Models\nCongmin Zheng*1, Jiachen Zhu∗1, Zhuoying Ou∗1, Yuxiang Chen2,\n\nKangning Zhang1,Rong Shan1Zeyu Zheng3, Mengyue Yang4,",
+      "heading_path": [
+        "Supervisions for Large Language Models"
+      ],
+      "type": "paragraph",
+      "length": 155,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_bc38c59f35223730_d6fd92213c42_b000011",
+          "start": 0,
+          "end": 485
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\7SRZYS73\\Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf",
+          "snapshot_path": "source/Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf",
+          "rendered_pdf_path": "source/Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            87.54,
+            244.72,
+            273.87,
+            495.84
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_bc38c59f35223730",
+          "revision": "d6fd92213c429a834067643a0b437364257b32771e3206f05c803977f4ae2d28",
+          "source_bundle_id": "259956fcf6e30225860c066c11c042ef47cb7099cab80a7440384ad93cd5e842",
+          "source_block_id": "doc_bc38c59f35223730_d6fd92213c42_b000011",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\259956fcf6e30225860c066c11c042ef47cb7099cab80a7440384ad93cd5e842\\source\\Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\259956fcf6e30225860c066c11c042ef47cb7099cab80a7440384ad93cd5e842\\source\\Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "496e7ab5b14c4bb84df218bb7372d433d45480476d6cea19aefb608efb0d5ec2",
+      "doc_id": "doc_c3739570e5ebf996",
+      "category": "Zotero论文",
+      "text": "1.1 开发背景..................................................................................................................................................1\n1.1.1 现实背景..................................................................................................................................... 1\n1.1.2 政策支持.....................................................................................................................................",
+      "search_text": "中国大学生计算机设计大赛\n软件开发类作品文档简要要求",
+      "heading_path": [
+        "第一章需求分析......................................................................................... 1"
+      ],
+      "type": "paragraph",
+      "length": 26,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_c3739570e5ebf996_d75e2fd8a331_b000014",
+          "start": 0,
+          "end": 445
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\QFNBX69B\\中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf",
+          "snapshot_path": "source/中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf",
+          "rendered_pdf_path": "source/中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf",
+          "page_index": 2,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            110.88,
+            152.69,
+            505.42,
+            227.69
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_c3739570e5ebf996",
+          "revision": "d75e2fd8a331f9f39a77c9dc7846f02b0ea232611774decf10d782c91e3391e6",
+          "source_bundle_id": "19ec9e688ebdae76ca6ed612d88dcf4954b3f3166b16effe118c324e3df6cefa",
+          "source_block_id": "doc_c3739570e5ebf996_d75e2fd8a331_b000014",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\19ec9e688ebdae76ca6ed612d88dcf4954b3f3166b16effe118c324e3df6cefa\\source\\中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\19ec9e688ebdae76ca6ed612d88dcf4954b3f3166b16effe118c324e3df6cefa\\source\\中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "97ce0f1a1a995cd4ad22399460882c9883f6bfd2375b020ce5710c36a4a067d9",
+      "doc_id": "doc_c3fbc0d7bddb84e9",
+      "category": "Zotero论文",
+      "text": "Automated GUI testing through the reuse of existing\ntests has recently gained prominence in research. Cross-platform\nmigration of GUI tests between different platform versions of an\napplication offers a promising opportunity for test reuse. Widget\nmapping, identifying similarities between source and target\napplication widgets and connecting semantically analogous pairs,\nis central to these approaches. Vision-based widget mapping\napproaches are supposed to provide platform-agnostic solutions\nmore suitable for cross-platform migration, considering that dif-\nferent platform versions frequently display strong resemblances\nin the appearance of their semantically similar widgets.",
+      "search_text": "Software Engineering Group\nDepartment of Computer Science\nNanjing University\nhttp://seg.nju.edu.cn",
+      "heading_path": [
+        "For Research Only"
+      ],
+      "type": "paragraph",
+      "length": 98,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_c3fbc0d7bddb84e9_b3210fdb5d8e_b000025",
+          "start": 9,
+          "end": 691
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\6TXVJU3I\\Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf",
+          "snapshot_path": "source/Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf",
+          "rendered_pdf_path": "source/Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf",
+          "page_index": 2,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            64.15,
+            261.38,
+            295.54,
+            379.83
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_c3fbc0d7bddb84e9",
+          "revision": "b3210fdb5d8e5bf599d24da562f78bd9c4eb911dfbdb7fc8e87cb82c72f22102",
+          "source_bundle_id": "d7848ebeba019ce23f3812687d32ddfef63451b60544da5572569d1ed092d2d1",
+          "source_block_id": "doc_c3fbc0d7bddb84e9_b3210fdb5d8e_b000025",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\d7848ebeba019ce23f3812687d32ddfef63451b60544da5572569d1ed092d2d1\\source\\Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\d7848ebeba019ce23f3812687d32ddfef63451b60544da5572569d1ed092d2d1\\source\\Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "e941ffd798d73614e3394d905b47bc8e9352ccc5cf33380e56d0889b415d4a64",
+      "doc_id": "doc_cd0e83c8cfd50e30",
+      "category": "Zotero论文",
+      "text": "frame-wise features, and then applies 1D-CNN to extract the local visual\ninformation with ∆t temporal receptive field. The outputs of 1D-CNN noted as visual features are sent to the alignment model and\nthe auxiliary classifier. Two auxiliary losses are adopted during training: the visual enhancement loss (LV E) aligns visual features and\nthe target sequence, and the visual alignment loss (LV A) aligns short-term visual predictions and long-term context predictions through\nknowledge distillation.",
+      "search_text": "Visual Alignment Constraint for Continuous Sign Language Recognition\nYuecong Min1,2, Aiming Hao1,2, Xiujuan Chai3, Xilin Chen1,2",
+      "heading_path": [
+        "Visual Alignment Constraint for Continuous Sign Language Recognition"
+      ],
+      "type": "paragraph",
+      "length": 128,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_cd0e83c8cfd50e30_5cee4fbdd5d2_b000083",
+          "start": 198,
+          "end": 698
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\IF49KMWZ\\Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf",
+          "snapshot_path": "source/Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf",
+          "rendered_pdf_path": "source/Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf",
+          "page_index": 3,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            50.11,
+            230.67,
+            545.12,
+            294.43
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_cd0e83c8cfd50e30",
+          "revision": "5cee4fbdd5d2f6c70f96c34e5128911f7dcafc92c6d15e3e72bbb96e750a45cb",
+          "source_bundle_id": "8f5d6c6c1443e5e22ba977200c7f737c327ef735b14c603624fd1edc7d29a014",
+          "source_block_id": "doc_cd0e83c8cfd50e30_5cee4fbdd5d2_b000083",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\8f5d6c6c1443e5e22ba977200c7f737c327ef735b14c603624fd1edc7d29a014\\source\\Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\8f5d6c6c1443e5e22ba977200c7f737c327ef735b14c603624fd1edc7d29a014\\source\\Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "1b529f2d8624a680ac2e5e7c7b9c2d9914db5cca83f4461a833a0396bfdfe71b",
+      "doc_id": "doc_d7345e8856cf7d8a",
+      "category": "Zotero论文",
+      "text": "Obtaining high-quality labels for large datasets is expensive, requiring massive an-\nnotations from human experts. While AI models offer a cost-effective alternative\nby predicting labels, their label quality is compromised by the unavoidable label-\ning errors. Existing methods mitigate this issue through selective labeling, where\nAI labels a subset and human labels the remainder. However, these methods lack\ntheoretical guarantees on the quality of AI-assigned labels, often resulting in un-\nacceptably high labeling error within the AI-labeled subset. To address this, we\nintroduce Conformal Labeling, a novel method to identify subsets where AI pre-\ndictions can be provably trusted.",
+      "search_text": "Under review as a conference paper at ICLR 2026",
+      "heading_path": [
+        "SELECTIVE LABELING WITH FALSE DISCOVERY RATE\nCONTROL"
+      ],
+      "type": "paragraph",
+      "length": 47,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_d7345e8856cf7d8a_76cd04a18d1c_b000008",
+          "start": 0,
+          "end": 688
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\64CHMWKL\\11198_Selective_Labeling_with_.pdf",
+          "snapshot_path": "source/11198_Selective_Labeling_with_.pdf",
+          "rendered_pdf_path": "source/11198_Selective_Labeling_with_.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            143.87,
+            211.95,
+            468.14,
+            408.21
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_d7345e8856cf7d8a",
+          "revision": "76cd04a18d1c7ae30d2712a2e4aa03abaf9ad0e4aa5bfdfb5074061ce19fde20",
+          "source_bundle_id": "0e15111ef5d0fac27e7e8dba4f1c6c111c194a7efac83ba0c1a6a15f2ca58ff8",
+          "source_block_id": "doc_d7345e8856cf7d8a_76cd04a18d1c_b000008",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\0e15111ef5d0fac27e7e8dba4f1c6c111c194a7efac83ba0c1a6a15f2ca58ff8\\source\\11198_Selective_Labeling_with_.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\0e15111ef5d0fac27e7e8dba4f1c6c111c194a7efac83ba0c1a6a15f2ca58ff8\\source\\11198_Selective_Labeling_with_.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "244746a0e9d840eb84a3a4d98125d5887444fba1e72bdf93ff48e8ebbde8c8ac",
+      "doc_id": "doc_db320756c4438ffa",
+      "category": "Zotero论文",
+      "text": "Annotating user interfaces (UIs) that involves localization and clas-\nsification of meaningful UI elements on a screen is a critical step for\nmany mobile applications such as screen readers and voice control\nof devices. Annotating object icons, such as menu, search, and arrow\nbackward, is especially challenging due to the lack of explicit labels\non screens, their similarity to pictures, and their diverse shapes.\nExisting studies either use view hierarchy or pixel based methods\nto tackle the task.",
+      "search_text": "Jindong Chen\njdchen@google.com\nyingxuv@google.com",
+      "heading_path": [
+        "Jindong Chen\njdchen@google.com"
+      ],
+      "type": "paragraph",
+      "length": 49,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_db320756c4438ffa_20c1e12cd29a_b000035",
+          "start": 0,
+          "end": 501
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\X2282EHB\\Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+          "snapshot_path": "source/Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+          "rendered_pdf_path": "source/Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            53.47,
+            443.5,
+            295.56,
+            605.82
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_db320756c4438ffa",
+          "revision": "20c1e12cd29a1d69aca87b73c3548148704104177059b8e51e952e310e004214",
+          "source_bundle_id": "8e681b8202d43962d3b05577833f4a673db86a618356952a1b20b7c909e41c6b",
+          "source_block_id": "doc_db320756c4438ffa_20c1e12cd29a_b000035",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\8e681b8202d43962d3b05577833f4a673db86a618356952a1b20b7c909e41c6b\\source\\Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\8e681b8202d43962d3b05577833f4a673db86a618356952a1b20b7c909e41c6b\\source\\Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "1d047001446532878d84695cd4e5bc5731ce4e922ed4b55a693fe3ad2160ba31",
+      "doc_id": "doc_db4466281d4d7841",
+      "category": "Zotero论文",
+      "text": "In the context of noisy partial label learning (NPLL), each training sample is associated\nwith a set of candidate labels annotated by multiple noisy annotators. With the emer-\ngence of high-performance pre-trained vision-language models (VLMs) such as CLIP,\nLLaVA, and GPT-4V, leveraging these models to replace time-consuming manual anno-\ntation and enable annotation-free training has become a promising research direction.\nThis paper studies learning from noisy partial labels generated by pre-trained VLMs and\nproposes a collaborative consistency regularization (Co-Reg) framework.",
+      "search_text": "January 30, 2026\n2:6\nws-ijprai",
+      "heading_path": [
+        "arXiv:2506.03229v3  [cs.CV]  29 Jan 2026"
+      ],
+      "type": "paragraph",
+      "length": 30,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_db4466281d4d7841_2868de22a798_b000011",
+          "start": 0,
+          "end": 585
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\VAJZWDFT\\Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf",
+          "snapshot_path": "source/Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf",
+          "rendered_pdf_path": "source/Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            140.33,
+            367.7,
+            463.03,
+            545.04
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_db4466281d4d7841",
+          "revision": "2868de22a7988c5008bb5f4cf7faa54a58a5c3a7bf56c9a63ae2cf4e3ff9724f",
+          "source_bundle_id": "40b0ff05466638176c776b1e1ce6a15df300a230797f538a038cfc0461736800",
+          "source_block_id": "doc_db4466281d4d7841_2868de22a798_b000011",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\40b0ff05466638176c776b1e1ce6a15df300a230797f538a038cfc0461736800\\source\\Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\40b0ff05466638176c776b1e1ce6a15df300a230797f538a038cfc0461736800\\source\\Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    },
+    {
+      "chunk_id": null,
+      "artifact_id": "9a3bd0307a69de1ff58965880ac6dd09fd76285a763273ead61713c7d2877bcf",
+      "doc_id": "doc_e2b7bd635ba00ea6",
+      "category": "Zotero论文",
+      "text": "Label distribution learning (LDL) is an effective\nmethod to predict the label description degree\n(a.k.a. label distribution) of a sample. However,\nannotating label distribution (LD) for training sam-\nples is extremely costly. So recent studies often\nfirst use label enhancement (LE) to generate the es-\ntimated label distribution from the logical label and\nthen apply external LDL algorithms on the recov-\nered label distribution to predict the label distribu-\ntion for unseen samples. But this step-wise manner\noverlooks the possible connections between LE and\nLDL.",
+      "search_text": "Label Distribution Learning from Logical Label\nYuheng Jia1,2 , Jiawei Tang1,2 , Jiahao Jiang1,2",
+      "heading_path": [
+        "arXiv:2303.06847v2  [cs.LG]  12 May 2024"
+      ],
+      "type": "paragraph",
+      "length": 95,
+      "length_unit": "characters",
+      "block_ranges": [
+        {
+          "block_id": "doc_e2b7bd635ba00ea6_5f2862adf317_b000008",
+          "start": 0,
+          "end": 566
+        }
+      ],
+      "content_origin": [
+        "native_text"
+      ],
+      "sources": [
+        {
+          "original_path": "C:\\Users\\Lenovo\\Zotero\\storage\\QQQSCJ9K\\Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+          "snapshot_path": "source/Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+          "rendered_pdf_path": "source/Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+          "page_index": 1,
+          "printed_page_label": null,
+          "slide_number": null,
+          "anchor": null,
+          "bbox": [
+            73.92,
+            238.53,
+            277.07,
+            533.42
+          ],
+          "image_path": null,
+          "figure_id": null,
+          "doc_id": "doc_e2b7bd635ba00ea6",
+          "revision": "5f2862adf317f8d2c2fa196bcdf00a8e0fe17c27e5e510af87bbe148ac00b210",
+          "source_bundle_id": "dece35c80ef6d8dfe629db6a574d3087701d3eac73ea22d727a5af6802951471",
+          "source_block_id": "doc_e2b7bd635ba00ea6_5f2862adf317_b000008",
+          "snapshot_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\dece35c80ef6d8dfe629db6a574d3087701d3eac73ea22d727a5af6802951471\\source\\Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+          "rendered_pdf_path_absolute": "E:\\project_files\\agenticdocbase\\DocBase\\storage\\source_store\\dece35c80ef6d8dfe629db6a574d3087701d3eac73ea22d727a5af6802951471\\source\\Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf"
+        }
+      ],
+      "quality_warnings": [
+        "doc2md 文档为 partial，仅索引成功块"
+      ],
+      "section_role": "body",
+      "evidence_kind": "overview_excerpt"
+    }
+  ],
+  "documents": [
+    {
+      "doc_id": "doc_06377371190dd362",
+      "name": "Kuang 等 - 2012 - Symmetric Nonnegative Matrix Factorization for Graph Clustering.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_159b65f8205fd913",
+      "name": "Liang 等 - 2026 - Hidden States as Early Signals Step-level Trace Evaluation and Pruning for Efficient Test-Time Scal.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_1d8cee91c9058ea1",
+      "name": "Zhong 等 - 2025 - VLM-CPL Consensus Pseudo Labels from Vision-Language Models for Annotation-Free Pathological Image.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_22aba4d13004bbd9",
+      "name": "Zhou 等 - 2022 - Conditional Prompt Learning for Vision-Language Models.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_2b407d56738a2ad7",
+      "name": "Crandall 等 - 2009 - Mapping the world's photos.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_373c1729d193969d",
+      "name": "Sun 等 - FACT-E Causality-Inspired Evaluation for Trustworthy Chain-of-Thought Reasoning.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_43c2348badf58d40",
+      "name": "Hu 等 - 2023 - Continuous Sign Language Recognition with Correlation Network.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_43e429241eac9981",
+      "name": "Zhang 等 - 2024 - Candidate Pseudolabel Learning Enhancing Vision-Language Models by Prompt Tuning with Unlabeled Dat.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_502321bb8ec981f0",
+      "name": "Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_55864547fa53d1c7",
+      "name": "Shi 等 - 2023 - Robust Representation Learning for Unreliable Partial Label Learning.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_6c514ff465792361",
+      "name": "Jiang 等 - 2024 - FairMatch Promoting Partial Label Learning by Unlabeled Samples.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_6c9ffb4518a40274",
+      "name": "Alyami和Luqman - 2024 - A Comparative Study of Continuous Sign Language Recognition Techniques.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_71d594dabdf0064e",
+      "name": "Sagala和Amien Ibrahim - 2022 - A Comparative Study of Different Boosting Algorithms for Predicting Olympic Medal.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_73e170ae5be6eded",
+      "name": "Finder 等 - 2025 - Wavelet Convolutions for Large Receptive Fields.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_8a4641781fe79035",
+      "name": "Shin 等 - 2024 - OTTER Effortless Label Distribution Adaptation of Zero-shot Models.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_8a9c1768ecc46553",
+      "name": "Zanella 等 - 2024 - Boosting Vision-Language Models with Transduction.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_8c92e5190119c818",
+      "name": "Zhang 等 - 2021 - CLEAR Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-D.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_8ce88dde3aec708d",
+      "name": "_.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_9eb6efbac1cc8ead",
+      "name": "Liu 等 - Visual Instruction Tuning.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_a54cebabc9796abf",
+      "name": "Menghini 等 - Enhancing CLIP with CLIP Exploring Pseudolabeling for Limited-Label Prompt Tuning.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_a98ba421638eb04c",
+      "name": "Jia 等 - Self-Supervised Symmetric Nonnegative Matrix Factorization.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_ad356fb7082aa56b",
+      "name": "Huang 等 - 2022 - Unsupervised Prompt Learning for Vision-Language Models.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_ad3faa3fab5e31ea",
+      "name": "ESA_2024_Word separation in continuous sign language using isolated signs and post-processing.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_b0247c1369a54287",
+      "name": "2022年A题获奖论文合集.pdf",
+      "excerpted": true,
+      "page_index": 69
+    },
+    {
+      "doc_id": "doc_b4d5d40ddacf0b14",
+      "name": "Gao 等 - 2025 - CLIP-Adapter Better Vision-Language Models with Feature Adapters.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_bc38c59f35223730",
+      "name": "Zheng 等 - A Survey of Process Reward Models From Outcome Signals to Process Supervisions for Large Language M.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_c3739570e5ebf996",
+      "name": "中国大学生计算机设计大赛软件开发类作品设计和开发文档.pdf",
+      "excerpted": true,
+      "page_index": 2
+    },
+    {
+      "doc_id": "doc_c3fbc0d7bddb84e9",
+      "name": "Ji 等 - 2023 - Vision-Based Widget Mapping for Test Migration Across Mobile Platforms Are We There Yet.pdf",
+      "excerpted": true,
+      "page_index": 2
+    },
+    {
+      "doc_id": "doc_cd0e83c8cfd50e30",
+      "name": "Min 等 - 2021 - Visual Alignment Constraint for Continuous Sign Language Recognition.pdf",
+      "excerpted": true,
+      "page_index": 3
+    },
+    {
+      "doc_id": "doc_d7345e8856cf7d8a",
+      "name": "11198_Selective_Labeling_with_.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_db320756c4438ffa",
+      "name": "Zang 等 - 2021 - Multimodal Icon Annotation For Mobile Applications.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_db4466281d4d7841",
+      "name": "Wang 等 - 2026 - Bridging Weakly-Supervised Learning and VLM Distillation Noisy Partial Label Learning for Efficient.pdf",
+      "excerpted": true,
+      "page_index": 1
+    },
+    {
+      "doc_id": "doc_e2b7bd635ba00ea6",
+      "name": "Jia 等 - 2024 - Label Distribution Learning from Logical Label.pdf",
+      "excerpted": true,
+      "page_index": 1
+    }
+  ],
+  "coverage": {
+    "mode": "document_overview",
+    "eligible_documents": 33,
+    "represented_documents": 33,
+    "omitted_documents": 0,
+    "excerpt_chars": 19095,
+    "method": "one verified abstract/early-body excerpt per document"
+  },
+  "note": "这是逐文档摘要/正文代表片段，不是全文阅读。非论文材料也保留文件名，须分别说明。"
+}

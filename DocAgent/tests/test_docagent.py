@@ -263,7 +263,7 @@ def test_http_errors_redacted(status, code):
 
 
 def test_rate_retry_is_counted():
-    codes = iter([429, 500, 200])
+    codes = iter([429, 429, 200])
     client = DeepSeekClient(Settings(api_key='fake'), sleeper=lambda _: None,
         transport=httpx.MockTransport(lambda r: httpx.Response(next(codes), json={
             'choices': [{'message': {'role': 'assistant', 'content': 'ok'}}]})))

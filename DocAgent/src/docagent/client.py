@@ -21,19 +21,18 @@ class DeepSeekClient:
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 raise AgentError('TIMEOUT', '问答总时限已到')
+            if self.stats['requests'] >= self.cfg.max_model_calls:
+                raise AgentError('MODEL_BUDGET', '本轮模型请求预算已用完')
             self.stats['requests'] += 1
             try:
                 response = self.http.post(self.cfg.base_url.rstrip('/') + '/chat/completions', json=body,
                     headers={'Authorization': 'Bearer ' + self.cfg.api_key},
                     timeout=min(self.cfg.request_timeout_seconds, remaining))
             except httpx.TransportError as exc:
-                if attempt == 2:
-                    raise AgentError('MODEL_NETWORK', '模型请求超时或网络不可用') from exc
-                self._pause(attempt, deadline)
-                continue
-            if response.status_code == 429 or response.status_code >= 500:
+                raise AgentError('MODEL_NETWORK', '模型请求超时或网络不可用；计费状态未知，未自动重试') from exc
+            if response.status_code == 429:
                 if attempt < 2:
-                    self._pause(attempt, deadline)
+                    self._pause(attempt, deadline, response.headers.get('retry-after'))
                     continue
                 raise AgentError('MODEL_BUSY', f'模型服务暂不可用（HTTP {response.status_code}）')
             if response.status_code in (401, 403):
@@ -65,13 +64,23 @@ class DeepSeekClient:
                     raise ValueError('duplicate call id')
                 self.stats['responses'] += 1
                 self.stats['usage_records'].append(data.get('usage'))
-                return {'message': {'role': 'assistant', 'content': message.get('content'), 'tool_calls': calls},
+                return {'finish_reason': data['choices'][0].get('finish_reason'),
+                        'message': {'role': 'assistant', 'content': message.get('content'), 'tool_calls': calls},
                         'model': data.get('model'), 'usage': data.get('usage')}
             except (KeyError, IndexError, ValueError, TypeError, AttributeError) as exc:
                 raise AgentError('MODEL_PROTOCOL', '模型响应不符合工具调用协议') from exc
 
-    def _pause(self, attempt, deadline):
+    def _pause(self, attempt, deadline, retry_after=None):
         delay = 0.5 * (2 ** attempt)
+        if retry_after:
+            try:
+                delay = max(delay, float(retry_after))
+            except ValueError:
+                try:
+                    from email.utils import parsedate_to_datetime
+                    delay = max(delay, parsedate_to_datetime(retry_after).timestamp() - time.time())
+                except (ValueError, TypeError, OverflowError):
+                    pass
         if time.monotonic() + delay >= deadline:
             raise AgentError('TIMEOUT', '重试前已达到问答总时限')
         self.sleeper(delay)

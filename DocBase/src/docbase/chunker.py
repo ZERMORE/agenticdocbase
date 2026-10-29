@@ -103,6 +103,7 @@ def _make_block_chunks(artifacts, cfg):
                               source_block_id=block['block_id'], source_bundle_id=artifact['bundle_id'])
                 origin = {'figure_description': 'model_description', 'vision_transcription': 'model_transcription',
                           'ocr_text': 'ocr'}.get(block['type'], 'native_text')
+                if block.get('content_origin') == 'human_correction': origin = 'human_correction'
                 body = prefix + content
                 identity = [artifact['artifact_id'], cfg.chunk_config(), block['block_id'], start, end, body]
                 chunks.append({'chunk_id': 'c_' + digest(identity)[:32], 'artifact_id': artifact['artifact_id'],
@@ -155,6 +156,7 @@ def make_chunks(artifacts, cfg):
                 previous = pending[-1]
                 compatible = joinable and adjacent_prose(previous, block) and previous['type'] == block['type'] and previous['heading_path'] == block['heading_path']
                 compatible = compatible and previous['source'].get('page_index') == block['source'].get('page_index')
+                compatible = compatible and previous.get('content_origin') == block.get('content_origin')
                 text = '\n\n'.join(b['text'] for b in pending + [block])
                 if not compatible or budget.count(text) > cfg.chunk_size - 160:
                     flush()

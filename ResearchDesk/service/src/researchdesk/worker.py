@@ -32,6 +32,13 @@ class Worker:
             row = s.one('SELECT state,token,cancel FROM jobs WHERE id=?', (key,))
             if not row or row['token'] != token or row['cancel'] or row['state'] != 'running':
                 raise Cancelled('任务已停止')
+            if job['kind'] in {'parse', 'revise'}:
+                live = s.one('SELECT external_enabled,deleted FROM kbs WHERE id=?', (job['kb'],))
+                member = s.one('SELECT active FROM members WHERE kb=? AND doc=?', (job['kb'], payload.get('doc')))
+                if not live or live['deleted'] or not member or not member['active']:
+                    raise Cancelled('文档或知识库已移出')
+                if not payload.get('offline', True) and not live['external_enabled']:
+                    raise Cancelled('外部模型授权已撤销')
             if time.time() - last_renew > 3:
                 s.execute('UPDATE jobs SET lease=?,updated=? WHERE id=? AND token=?', (time.time() + 30, time.time(), key, token))
                 s.set_setting('worker_heartbeat', str(time.time()))
@@ -52,6 +59,8 @@ class Worker:
         try:
             check()
             if job['kind'] == 'parse':
+                from .reliability import ensure_space
+                ensure_space(s.data)
                 doc = s.one('SELECT * FROM docs WHERE id=?', (payload['doc'],))
                 member = s.one('SELECT * FROM members WHERE kb=? AND doc=?', (kb['id'], doc['id']))
                 if not member or not member['active']:
@@ -59,7 +68,15 @@ class Worker:
                 if not payload.get('offline', True) and not kb['external_enabled']:
                     raise RuntimeError('请先为此知识库启用外部模型处理')
                 stage('parsing')
-                output = s.data / 'parsed' / key
+                output = Path(payload.get('resume_output') or (s.data / 'parsed' / key)).resolve()
+                if not output.is_relative_to((s.data / 'parsed').resolve()):
+                    raise RuntimeError('输入断点目录越界')
+                output.mkdir(parents=True, exist_ok=True)
+                # Only our own parse-output locks, and only proven dead PIDs, are reclaimed.
+                import psutil, re
+                for lock in output.glob('doc_*.lock'):
+                    match = re.fullmatch(r'pid=(\d+)', lock.read_text(encoding='utf-8').strip())
+                    if match and not psutil.pid_exists(int(match[1])): lock.unlink()
                 args = ['parse', doc['path'], '--output', str(output)] + (['--offline'] if payload.get('offline', True) else [])
                 call('doc2md', 'doc2md', args, 'parse', 3600)
                 report = json.loads((output / 'batch_report.json').read_text(encoding='utf-8'))
@@ -75,6 +92,13 @@ class Worker:
                     c.execute('UPDATE kbs SET generation=generation+1 WHERE id=?', (kb['id'],))
                 s.enqueue(kb['id'], 'reindex', {})
                 result = {'document_id': doc['id'], 'quality': manifest['status']}
+            elif job['kind'] == 'revise':
+                from .quality import revise_job
+                result = revise_job(s, kb, payload, folder, call, check, stage)
+            elif job['kind'] == 'backup':
+                from .manage import backup
+                stage('backing_up')
+                result = {'backup_name': backup(s, check=check).name}
             elif job['kind'] == 'reindex':
                 stage('indexing')
                 # Only reclaim this service's own stale collection lock after proving its writer is gone.
@@ -134,6 +158,8 @@ class Worker:
                     'recent_messages': history, 'preferences': preferences, 'allowed_doc_ids': allowed,
                     'conversation_summary': summary}
                 request['docbase_storage'] = str(s.docbase_storage)
+                request['model_call_budget'] = payload.get('model_call_budget')
+                request['support_check_level'] = preferences.get('support_check_level','advisory')
                 atomic(folder / 'request.json', request)
                 stage('retrieving')
                 call('DocAgent', 'docagent.service_bridge', ['--request-file', folder / 'request.json',
@@ -169,12 +195,15 @@ class Worker:
             s.event(key, 'cancelled')
         except Exception as exc:
             # Tool failures are concise; secrets are never included in exception payloads by adapters.
-            message = str(exc)[:400] if isinstance(exc, RuntimeError) else '本地任务数据或文件处理失败，请检查诊断日志'
+            from .reliability import failure
+            message = failure(exc)['message']
             s.execute("UPDATE jobs SET state='failed',error=?,updated=? WHERE id=? AND token=?", (message, time.time(), key, token))
             s.execute("UPDATE messages SET status='failed',content=? WHERE job=? AND role='assistant' AND status='pending'", (message, key))
             if job['kind'] == 'parse':
                 s.execute("UPDATE members SET status='failed' WHERE kb=? AND doc=?", (job['kb'], payload.get('doc')))
-            s.event(key, 'failed', {'error': message})
+            from .reliability import failure
+            detail = failure(exc)
+            s.event(key, 'failed', detail)
         return True
 
     def run(self):
@@ -184,4 +213,6 @@ class Worker:
             if not self.once():
                 from .watches import scan_watches
                 scan_watches(self.store)
+                from .reliability import schedule_backup
+                schedule_backup(self.store)
                 time.sleep(.7)

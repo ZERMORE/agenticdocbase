@@ -85,7 +85,9 @@ def main(argv=None) -> int:
         parser.error("retries 应在 0～5，timeout/max-tokens 应为正数")
     from .pipeline import parse_path
     try:
-        report = parse_path(args.input, args.output, settings, recursive=args.recursive)
+        import contextlib
+        with contextlib.redirect_stdout(sys.stderr):
+            report = parse_path(args.input, args.output, settings, recursive=args.recursive)
         emit(report)
         return report["exit_code"]
     except (ValueError, OSError) as exc:

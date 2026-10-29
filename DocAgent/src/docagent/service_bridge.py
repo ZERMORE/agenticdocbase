@@ -19,13 +19,20 @@ def main():
     def progress(event):
         with args.events_file.open('a', encoding='utf-8') as f:
             f.write(json.dumps(event, ensure_ascii=False) + '\n')
-    result = AgentRunner(storage=args.result_file.parent).ask(
+    from .config import Settings
+    from dataclasses import replace
+    cfg = Settings.load()
+    budget = request.get('model_call_budget')
+    if budget is not None:
+        if type(budget) is not int or not 1 <= budget <= 6: raise ValueError('invalid model budget')
+        cfg = replace(cfg,max_model_calls=min(cfg.max_model_calls,budget))
+    result = AgentRunner(cfg,storage=args.result_file.parent).ask(
         request['question'], collection=request['collection'], index_version=request.get('index_version'),
         retrieval_profile='bm25-only', recent_messages=request.get('recent_messages'),
         preferences=request.get('preferences'), allowed_doc_ids=request.get('allowed_doc_ids'),
         conversation_summary=request.get('conversation_summary'),
         docbase_storage=request.get('docbase_storage'),
-        cancel=cancel, progress=progress)
+        verify_support=request.get('verify_support', True), support_level=request.get('support_check_level','advisory'), cancel=cancel, progress=progress)
     write_json(args.result_file, result)
 
 

@@ -11,7 +11,9 @@ def evaluate(runner, dataset, **options):
         raise AgentError('DATASET', '题集需有question与answerability（answerable/unanswerable）')
     results = []
     for i, row in enumerate(rows):
-        answer = runner.ask(row['question'], **options)
+        scoped = dict(options)
+        if 'allowed_doc_ids' in row: scoped['allowed_doc_ids'] = row['allowed_doc_ids']
+        answer = runner.ask(row['question'], **scoped)
         results.append({'id': row.get('id', i), 'answerability': row['answerability'],
                         'status': answer['status'], 'answer_json_path': answer['answer_json_path'],
                         'seconds': answer['timings']['total_seconds'], 'usage': answer['usage'],

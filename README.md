@@ -21,3 +21,17 @@
 索引和不可变来源：DocBase/storage。历史记录中的原路径是溯源信息，不是运行时依赖。
 Key仅保存在各项目.env，不进入前端。原目录完整保留，迁移副本独立运行。
 旧.venv、测试缓存和历史报告为完整复制保留，不参与当前运行；不自动删除。
+
+## V1 质量版
+
+知识库中打开文件的“质量与修订”，可查看待处理内容、纠错或局部重解析。聊天引用可定位原文，新网页问答增加模型辅助支持性检查；设置页可配置定期备份。
+
+- [质量版操作与实现说明](plans/iterations/V1-IMPLEMENTATION.md)
+- [质量版验收记录及未完成的人工质量门槛](plans/iterations/V1-VALIDATION.md)
+- [评估集审核与冻结](evaluations/README.md)
+
+运行 `quality.cmd validate` 检查候选题集；`quality.cmd baseline --split dev --allow-draft` 仅做离线候选诊断，不能当正式质量成绩。
+
+全库概括、中文PDF断行/字形和输出截断修复见 [概览修复记录](plans/iterations/OVERVIEW-FIX.md)。
+
+支持性检查已可在网页设为关闭/宽松/标准/严格，默认宽松。[设置与行为说明](plans/iterations/SUPPORT-CHECK-LEVELS.md)。

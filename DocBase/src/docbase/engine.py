@@ -422,6 +422,7 @@ def get_context(chunk_id, storage=None, *, collection='default', index_version=N
                           type=block['type'], heading_path=block.get('heading_path', []),
                           block_ranges=[{'block_id': block['block_id'], 'start': 0, 'end': len(block['text'])}],
                           sources=[src])
+            record['content_origin'] = [block.get('content_origin') or {'figure_description':'model_description', 'vision_transcription':'model_transcription', 'ocr_text':'ocr'}.get(block['type'], 'native_text')]
             record['sources'] = resolve_sources(record, storage)
             results.append(record)
     return {'status': 'ok', 'index_version': target['index_version'], 'results': results}

@@ -70,6 +70,8 @@ def main(argv=None):
             p.add_argument('--question', required=True)
         if name in ('ask', 'evaluate'):
             p.add_argument('--storage', type=Path, default=ROOT / 'storage')
+            p.add_argument('--verify-support', action='store_true', help='在总调用预算内额外核查结论支持性')
+            p.add_argument('--support-level',choices=['off','advisory','balanced','strict'],default='strict')
         if name == 'evaluate':
             p.add_argument('--dataset', type=Path, required=True)
     args = parser.parse_args(argv)
@@ -91,6 +93,8 @@ def main(argv=None):
                 result = adapter.search(args.question)
                 result['note'] = '仅检查检索，不调用DeepSeek，不生成答案。'
             else:
+                options['verify_support'] = args.verify_support
+                options['support_level'] = args.support_level
                 runner = AgentRunner(cfg, storage=args.storage.resolve())
                 if args.command == 'ask':
                     result = runner.ask(args.question, **options)

@@ -1,0 +1,25 @@
+// Read-only browser acceptance: view the authorized existing result, no model requests.
+import {chromium} from 'playwright';
+import fs from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const out=new URL('../design/overview-fix/',import.meta.url);await fs.mkdir(out,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:8765');
+await page.locator('.history-list>button').filter({hasText:'修复验收 · 33份资料研究方向'}).click();
+const stats=page.locator('.support-notice').filter({hasText:'概览范围 33'});
+await stats.waitFor();
+const text=await stats.innerText();if(!text.includes('回答引用 31'))throw new Error(text);
+await page.getByText('已对先前输出完成离线引用重验，未新增模型请求。语义支持性仍请结合原文核验。',{exact:true}).waitFor();
+await page.screenshot({path:fileURLToPath(new URL('overview-1440.png',out)),fullPage:true});
+await page.locator('.message.assistant').last().locator('.citation').first().click();
+await page.locator('.evidence-location img').waitFor({timeout:60000});
+await page.screenshot({path:fileURLToPath(new URL('citation-1440.png',out)),fullPage:true});
+await page.getByRole('button',{name:'关闭证据'}).click();
+await page.setViewportSize({width:390,height:900});
+if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error('mobile overflow');
+await page.screenshot({path:fileURLToPath(new URL('overview-390.png',out)),fullPage:true});
+await fs.writeFile(new URL('browser-report.json',out),JSON.stringify({status:'passed',coverage:text,errors,newModelRequests:0},null,2));
+await browser.close();if(errors.length)throw new Error(errors.join('\n'));
+console.log(JSON.stringify({status:'passed',coverage:text,errors,newModelRequests:0}));

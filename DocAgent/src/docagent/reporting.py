@@ -5,12 +5,17 @@ from .common import write_json, sanitize
 
 def render(result):
     lines = [f"# {result['question']}", '', f"状态：{result['status']}", '']
+    completeness = result.get('answer_completeness') or {}
+    if completeness.get('omitted_claims'):
+        lines += [f"仅完成{completeness['accepted_claims']}/{completeness['proposed_claims']}项结论核验；当前为部分结果。", '']
     if result.get('error'):
         lines += [f"{result.get('code', 'ERROR')}：{result['error']}", '']
     for claim in result.get('claims', []):
         prefix = '推断：' if claim['kind'] == 'inference' else ''
         refs = list(dict.fromkeys(s['evidence_id'] for s in claim['supports']))
         lines += [prefix + claim['text'] + ' ' + ' '.join(f'[{e}]' for e in refs), '']
+    if result.get('claims'):
+        lines += ['支持性：' + ('模型辅助检查，尚需人工核验。' if result.get('support_check') == 'model_reviewed' else '未核验；引文匹配不代表结论成立。'), '']
     if result.get('limitations'):
         lines += ['## 限制与缺口', ''] + ['- ' + x for x in result['limitations']] + ['']
     if result.get('mermaid'):

@@ -11,7 +11,7 @@
 以后从 CMD / Anaconda Prompt 启动：
 
 ```bat
-cd /d "C:\Users\Lenovo\Desktop\研一\大模型软件开发\ResearchDesk"
+cd /d "E:\project_files\agenticdocbase\ResearchDesk"
 start.cmd
 ```
 
@@ -94,7 +94,7 @@ API只返回受控asset_id，浏览器无需也不能用file://访问任意磁�
 恢复到**不存在的新目录**，不会覆盖当前应用：
 
 ```bat
-service\.conda\python.exe -X utf8 -m researchdesk restore --backup-path "data\backups\备份目录" --destination "C:\Users\Lenovo\Desktop\研一\大模型软件开发\ResearchDesk\recovered-data"
+service\.conda\python.exe -X utf8 -m researchdesk restore --backup-path "data\backups\备份目录" --destination "E:\project_files\agenticdocbase\ResearchDesk\recovered-data"
 ```
 
 使用前先`stop.cmd`，在CMD中设置`RESEARCHDESK_DATA`为恢复后的绝对目录，再`start.cmd`。恢复过程重映射托管资源、索引和来源目录，刷新本机会话凭据，暂停目录监控，将未完成任务标为中断。保留`restore-mappings.json`用于检查；恢复后先检查资料预览和检索，再开启新问答。
@@ -111,3 +111,7 @@ service\.conda\python.exe -X utf8 -m researchdesk restore --backup-path "data\ba
 本次构建没有新增外部模型请求。网页到真实模型的首次新问答、多轮答案质量和完整图像理解需用户开启对应库授权后实际检查。
 
 首版本机单用户，固定127.0.0.1:8765，没有多人账户/权限体系，不开放公网；没有彻底物理删除、Token逐字流、自动原图核验或云部署。数据库采用SQLite原生事务和版本表，未引入SQLAlchemy/Alembic；PDF采用浏览器原生阅读器，未引入PDF.js。上述是此次实际实现与方案中可选技术选型的差异。
+
+## V1 质量版
+
+新增质量报告、文字纠错、单页重解析、图像补识别、原文定位、结论支持性检查与备份策略。操作与边界见 [V1 实现说明](../plans/iterations/V1-IMPLEMENTATION.md)，实测见 [V1 验收记录](../plans/iterations/V1-VALIDATION.md)。

@@ -95,9 +95,20 @@ class Store:
             CREATE TABLE IF NOT EXISTS watches(id TEXT PRIMARY KEY,kb TEXT NOT NULL,path TEXT NOT NULL,
               enabled INTEGER DEFAULT 1,last_scan REAL DEFAULT 0,error TEXT);
             ''')
+            c.executescript("""
+            CREATE TABLE IF NOT EXISTS document_revisions(id INTEGER PRIMARY KEY AUTOINCREMENT,
+              kb TEXT,doc TEXT,artifact TEXT UNIQUE,parent TEXT,action TEXT,reason TEXT,created REAL);
+            CREATE TABLE IF NOT EXISTS backup_records(id INTEGER PRIMARY KEY AUTOINCREMENT,
+              path TEXT UNIQUE,state TEXT,scheduled INTEGER DEFAULT 0,created REAL);
+            """)
+            c.execute('UPDATE schema_version SET version=2 WHERE version<2')
             c.execute('INSERT OR IGNORE INTO settings VALUES (?,?)', ('session', secrets.token_urlsafe(32)))
             c.execute('INSERT OR IGNORE INTO settings VALUES (?,?)', ('preferences', dump({
                 'language': '中文', 'length': '适中', 'research_focus': '', 'background': '研究生', 'structure': '先结论'})))
+        prefs=json.loads(self.setting('preferences'))
+        if 'support_check_level' not in prefs:
+            prefs['support_check_level']='advisory'
+            self.set_setting('preferences',dump(prefs))
         if seed and not self.setting('seeded'):
             for catalog_name, name in [('catalog_zotero_third_20261028.json', 'Zotero · 论文资料'), ('catalog.json', '示例 · 工具验证')]:
                 path = WORKSPACE / 'DocBase' / 'storage' / catalog_name

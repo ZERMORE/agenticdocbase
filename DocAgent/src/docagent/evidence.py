@@ -8,6 +8,11 @@ from .common import AgentError
 def _quote_view(text, line_hyphen='keep'):
     """Normalize layout only, retaining an offset map into the exact original."""
     omitted = set()
+    # PDF presentation ligatures and discretionary word hyphens are layout, not paraphrases.
+    for match in re.finditer(r'(?<=[A-Za-zﬀ-ﬆ])­(?:[ \t]*\r?\n[ \t]*)?(?=[A-Za-z])', text):
+        omitted.update(range(match.start(), match.end()))
+    for match in re.finditer(r'(?<=[\u3400-\u9fff])[ \t]*\r?\n[ \t]*(?=[\u3400-\u9fff])', text):
+        omitted.update(range(match.start(), match.end()))
     if line_hyphen != 'keep':
         for match in re.finditer(r'(?<=[A-Za-z])-[ \t]*\r?\n[ \t]*(?=[A-Za-z])', text):
             start = match.start() if line_hyphen == 'remove' else match.start() + 1
@@ -16,11 +21,13 @@ def _quote_view(text, line_hyphen='keep'):
     for i, char in enumerate(text):
         if i in omitted:
             continue
-        char = ' ' if char.isspace() else char
-        if char == ' ' and chars and chars[-1] == ' ':
-            continue
-        chars.append(char)
-        offsets.append(i)
+        presentation = {'ﬀ':'ff','ﬁ':'fi','ﬂ':'fl','ﬃ':'ffi','ﬄ':'ffl','ﬅ':'st','ﬆ':'st'}.get(char,char)
+        for unit in presentation:
+            unit = ' ' if unit.isspace() else unit
+            if unit == ' ' and chars and chars[-1] == ' ':
+                continue
+            chars.append(unit)
+            offsets.append(i)
     return ''.join(chars), offsets
 
 
@@ -36,8 +43,13 @@ def match_quote(text, quote):
         if not needle:
             continue
         index = view.find(needle)
-        if index >= 0:
-            return offsets[index], offsets[index + len(needle) - 1] + 1, 'layout-' + mode
+        while index >= 0:
+            end = index + len(needle)
+            left_boundary = index == 0 or offsets[index] != offsets[index-1]
+            right_boundary = end == len(offsets) or offsets[end-1] != offsets[end]
+            if left_boundary and right_boundary:
+                return offsets[index], offsets[end-1] + 1, 'layout-' + mode
+            index = view.find(needle,index+1)
     return None
 
 
@@ -75,8 +87,25 @@ class EvidenceLedger:
                 'heading_path': headings, 'content_origin': row.get('content_origin'),
                 'quality_warnings': row.get('quality_warnings', []),
                 'low_information': reference or len(row['text'].strip()) < 40,
+                'quote_options': self.quote_options(eid),
                 'sources': [{'file': Path(s.get('original_path', '')).name, 'page_index': s.get('page_index'),
                              'figure_id': s.get('figure_id')} for s in row['sources']]}
+
+    def quote_options(self, eid):
+        text = self.require(eid)['text']
+        # These are exact original spans, including native PDF line breaks.
+        parts = re.split(r'(?<=[。！？])|(?<=\.)\s+(?=[A-Z])', text)
+        return [p[:180] for p in parts if p.strip()][:3]
+
+    def quote_errors(self, submission):
+        errors = []
+        for i, claim in enumerate(submission.claims):
+            for support in claim.supports:
+                row = self.records.get(support.evidence_id)
+                if not row or match_quote(row['text'], support.quote) is None:
+                    errors.append({'claim_index':i, 'evidence_id':support.evidence_id,
+                                   'exact_quote_options':self.quote_options(support.evidence_id) if row else []})
+        return errors[:12]
 
     def validate(self, submission):
         if submission.status == 'answered' and not submission.claims:

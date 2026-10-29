@@ -6,6 +6,7 @@ import mimetypes
 from pathlib import Path
 import time
 from urllib.parse import urlsplit
+from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
@@ -31,6 +32,7 @@ class Question(BaseModel):
     model_config = ConfigDict(extra='forbid')
     question: str = Field(min_length=1, max_length=12000)
     request_id: str = Field(min_length=1, max_length=100)
+    model_call_budget: int | None = Field(default=None, ge=1, le=6)
 
 
 class Conversation(BaseModel):
@@ -46,6 +48,7 @@ class Preferences(BaseModel):
     background: str = Field(default='研究生', max_length=100)
     structure: str = Field(default='先结论', max_length=80)
     name: str = Field(default='', max_length=80)
+    support_check_level: Literal['off','advisory','balanced','strict'] = 'advisory'
 
 
 class WatchRequest(BaseModel):
@@ -66,7 +69,7 @@ def public_result(value):
         return None
     result = json.loads(value) if isinstance(value, str) else value
     return {k: result.get(k) for k in ['status', 'claims', 'limitations', 'index_version', 'model_returned',
-        'usage', 'timings', 'visual_verified']} | {'citations': [
+        'usage', 'timings', 'visual_verified', 'claim_checks', 'support_check', 'retrieval_coverage', 'revalidation', 'answer_completeness', 'support_check_level', 'support_warnings']} | {'citations': [
             {'evidence_id': c['evidence_id'], 'quote': c['quote'], 'type': c.get('type'),
              'content_origin': c.get('content_origin'), 'sources': [
                  {'asset_id': s.get('asset_id'), 'name': Path(s.get('original_path', '')).name,
@@ -162,7 +165,7 @@ def create_app(store=None, seed=True):
         return {'status': 'recycled', 'note': '已回收知识库，原始文件和历史快照保留'}
 
     @app.get('/api/knowledge-bases/{key}/documents')
-    def documents(key: str, q: str = '', state: str = 'all', offset: int = 0, limit: int = 50):
+    def documents(key: str, q: str = '', state: str = 'all', offset: int = 0, limit: int = 50, quality: str = 'all'):
         kb(key)
         if offset < 0 or not 1 <= limit <= 100:
             raise HTTPException(422, '分页参数不正确')
@@ -171,6 +174,13 @@ def create_app(store=None, seed=True):
         if state in {'active', 'removed'}:
             condition += ' AND m.active=?'
             args.append(int(state == 'active'))
+        if quality not in {'all','ok','partial','failed','pending'}:
+            raise HTTPException(422, '解析质量筛选参数不正确')
+        if quality == 'failed':
+            condition += " AND m.status='failed'"
+        elif quality != 'all':
+            condition += ' AND m.quality=?'
+            args.append(quality)
         total = s.one('SELECT COUNT(*) n FROM members m JOIN docs d ON d.id=m.doc WHERE ' + condition, args)['n']
         rows = s.all('SELECT m.*,d.name,d.size,d.created FROM members m JOIN docs d ON d.id=m.doc WHERE ' + condition + ' ORDER BY d.created DESC LIMIT ? OFFSET ?', [*args, limit, offset])
         return {'total': total, 'items': [{k: v for k, v in r.items() if k != 'artifact'} for r in rows]}
@@ -184,6 +194,11 @@ def create_app(store=None, seed=True):
         suffix = Path(name).suffix.lower()
         if suffix not in {'.pdf', '.docx', '.pptx', '.doc', '.ppt', '.png', '.jpg', '.jpeg'}:
             raise HTTPException(415, '不支持该文件类型')
+        from .reliability import ensure_space
+        try:
+            ensure_space(s.data, 100 * 1024**2)
+        except RuntimeError as exc:
+            raise HTTPException(507, str(exc))
         upload_dir = s.data / 'uploads'
         upload_dir.mkdir(exist_ok=True)
         tmp = upload_dir / (uid('incoming') + '.tmp')
@@ -326,8 +341,10 @@ def create_app(store=None, seed=True):
     @app.patch('/api/conversations/{key}/preferences')
     def conversation_preferences(key: str, data: Preferences):
         convo(key)
-        s.execute('UPDATE conversations SET preferences=? WHERE id=?', (dump(data.model_dump()), key))
-        return data
+        current=json.loads(convo(key)['preferences'])
+        merged=current | data.model_dump(exclude_unset=True)
+        s.execute('UPDATE conversations SET preferences=? WHERE id=?', (dump(merged),key))
+        return merged
 
     @app.get('/api/conversations/{key}/messages')
     def messages(key: str):
@@ -335,6 +352,9 @@ def create_app(store=None, seed=True):
         rows = s.all('SELECT * FROM messages WHERE conversation=? ORDER BY created', (key,))
         for row in rows:
             row['result'] = public_result(row['result'])
+            if row['result']:
+                for i, citation in enumerate(row['result']['citations']):
+                    citation['locator_url'] = f'/messages/{row["id"]}/citations/{i}/locator'
         return rows
 
     @app.get('/api/conversations/{key}/scope')
@@ -370,7 +390,7 @@ def create_app(store=None, seed=True):
             if c.execute("SELECT 1 FROM messages WHERE conversation=? AND status='pending'", (key,)).fetchone():
                 raise HTTPException(409, '请等待或停止上一轮回答')
             job, now = uid('job'), time.time()
-            payload = {'question': data.question, 'conversation': key, 'message_time': now}
+            payload = {'question': data.question, 'conversation': key, 'message_time': now, 'model_call_budget': data.model_call_budget}
             c.execute('INSERT INTO jobs(id,kb,kind,payload,created,updated) VALUES(?,?,?,?,?,?)', (job, library['id'], 'chat', dump(payload), now, now))
             c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?,?,?)', (uid('msg'), key, 'user', data.question, 'sent', job, None, now))
             c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?,?,?)', (uid('msg'), key, 'assistant', '', 'pending', job, None, now + .0001))
@@ -381,13 +401,19 @@ def create_app(store=None, seed=True):
 
     @app.get('/api/jobs')
     def jobs():
-        return s.all('SELECT id,kb,kind,state,stage,error,created,updated FROM jobs WHERE kb IS NULL OR kb IN (SELECT id FROM kbs WHERE deleted=0) ORDER BY created DESC LIMIT 100')
+        rows = s.all('SELECT id,kb,kind,state,stage,error,created,updated FROM jobs WHERE kb IS NULL OR kb IN (SELECT id FROM kbs WHERE deleted=0) ORDER BY created DESC LIMIT 100')
+        for row in rows:
+            event = s.one("SELECT payload FROM events WHERE job=? AND type='failed' ORDER BY id DESC LIMIT 1", (row['id'],))
+            row['failure'] = json.loads(event['payload']) if event else None
+        return rows
 
     @app.get('/api/jobs/{key}')
     def job_status(key: str):
         row = s.one('SELECT id,kb,kind,state,stage,error,created,updated FROM jobs WHERE id=?', (key,))
         if not row:
             raise HTTPException(404)
+        event = s.one("SELECT payload FROM events WHERE job=? AND type='failed' ORDER BY id DESC LIMIT 1", (key,))
+        row['failure'] = json.loads(event['payload']) if event else None
         return row
 
     @app.post('/api/jobs/{key}/cancel')
@@ -404,7 +430,11 @@ def create_app(store=None, seed=True):
             raise HTTPException(409, '该任务不能重试')
         if row['kind'] == 'chat':
             raise HTTPException(409, '问答请在会话中重新发送或重新生成，避免自动重复计费')
-        return {'job_id': s.enqueue(row['kb'], row['kind'], json.loads(row['payload']))}
+        payload = json.loads(row['payload'])
+        if row['kb']: kb(row['kb'])
+        if row['kind'] == 'parse':
+            payload['resume_output'] = payload.get('resume_output') or str(s.data / 'parsed' / row['id'])
+        return {'job_id': s.enqueue(row['kb'], row['kind'], payload)}
 
     @app.get('/api/jobs/{key}/events')
     async def job_events(key: str, request: Request, after: int = 0):
@@ -433,8 +463,9 @@ def create_app(store=None, seed=True):
 
     @app.patch('/api/preferences')
     def save_preferences(data: Preferences):
-        s.set_setting('preferences', dump(data.model_dump()))
-        return data
+        merged=json.loads(s.setting('preferences')) | data.model_dump(exclude_unset=True)
+        s.set_setting('preferences',dump(merged))
+        return merged
 
     @app.get('/api/watches')
     def watches():
@@ -463,6 +494,9 @@ def create_app(store=None, seed=True):
             raise HTTPException(404, '来源已不可用')
         s.asset(row['path'], row['name'], row['mime'], row['doc'])
         return FileResponse(row['path'], media_type=row['mime'], filename=row['name'], content_disposition_type='inline')
+
+    from .quality_routes import install
+    install(app, s, kb, cancel_chats)
 
     dist = ROOT / 'web' / 'dist'
     if dist.is_dir():

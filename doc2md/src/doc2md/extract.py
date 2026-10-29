@@ -173,6 +173,10 @@ class Extractor:
                 raise RuntimeError("PDF 没有页面")
             self.page_count = document.page_count
             for page in document:
+                if page.number in getattr(self, 'completed_pages', set()):
+                    continue
+                if getattr(self, 'selected_pages', None) is not None and page.number not in self.selected_pages:
+                    continue
                 number = page.number + 1
                 slide = number if slides else None
                 raw_text = page.get_text("text", sort=True).strip()
@@ -181,6 +185,7 @@ class Extractor:
                     image = self.render(page, page.rect, f"p{number:04}_scan.png")
                     self.analyze_image(image, self.origin.name + f" 第{number}页", page=number,
                                        slide=slide, bbox=page.rect, scanned=True, local_text=self.local_ocr(image))
+                    if getattr(self, 'on_page', None): self.on_page(page.number)
                     continue
                 tables = []
                 try:
@@ -248,6 +253,7 @@ class Extractor:
                         image = self.render(page, rect, name)
                         self.analyze_image(image, self.origin.name + "\n" + raw_text[:4000],
                                            page=number, slide=slide, bbox=rect)
+                if getattr(self, 'on_page', None): self.on_page(page.number)
 
     def render(self, page, rect, name: str) -> Path:
         target = self.workspace / "images" / name

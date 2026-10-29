@@ -21,14 +21,14 @@ def main(argv=None):
             stream.reconfigure(encoding='utf-8', errors='replace')
     parser = argparse.ArgumentParser(description='DocBase 图文知识库与混合检索')
     sub = parser.add_subparsers(dest='command', required=True)
-    for command in ('doctor', 'probe', 'scan', 'select', 'build', 'query', 'get', 'context', 'test', 'status'):
+    for command in ('doctor', 'probe', 'scan', 'select', 'build', 'query', 'get', 'context', 'test', 'status', 'overview'):
         p = sub.add_parser(command)
         p.add_argument('--env-file', type=Path)
         p.add_argument('--storage', type=Path, default=ROOT / 'storage')
         p.add_argument('--collection', default='default')
         if command in ('build', 'query', 'test'):
             p.add_argument('--profile', choices=['bm25-only', 'hybrid', 'full'])
-        if command in ('query', 'get', 'context', 'test', 'status'):
+        if command in ('query', 'get', 'context', 'test', 'status', 'overview'):
             p.add_argument('--index-version')
         if command in ('query', 'test'):
             p.add_argument('--top-k', type=int, default=5)
@@ -45,6 +45,10 @@ def main(argv=None):
             p.add_argument('--catalog', type=Path)
             p.add_argument('--incremental', action='store_true')
             p.add_argument('--quality', choices=['usable', 'strict'], default='usable')
+        if command == 'overview':
+            p.add_argument('--allowed-doc-ids-file', type=Path)
+            p.add_argument('--category')
+            p.add_argument('--budget', type=int, default=24000)
         if command == 'query':
             p.add_argument('--allowed-doc-ids-file', type=Path)
             p.add_argument('--question', required=True)
@@ -111,6 +115,10 @@ def main(argv=None):
             report = build_index(args.catalog or storage / 'catalog.json', storage, cfg,
                                  collection=args.collection, profile=profile,
                                  incremental=args.incremental, quality=args.quality, allow_empty=args.allow_empty)
+        elif args.command == 'overview':
+            from .overview import overview
+            report = overview(storage,collection=args.collection,index_version=args.index_version,category=args.category,budget=args.budget,
+                              allowed_doc_ids=read_json(args.allowed_doc_ids_file) if args.allowed_doc_ids_file else None)
         elif args.command == 'query':
             from .engine import query
             report = query(args.question, storage, cfg, collection=args.collection,

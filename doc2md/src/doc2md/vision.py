@@ -121,7 +121,7 @@ class VisionClient:
                                                headers={"Authorization": f"Bearer {cfg.api_key}"}, json=payload)
                         if response.status_code in {401, 403}:
                             raise VisionError(f"HTTP {response.status_code}：请检查 API Key 和模型权限")
-                        if response.status_code == 429 or response.status_code >= 500:
+                        if response.status_code == 429:
                             error = f"HTTP {response.status_code}：限流或服务暂不可用"
                         elif response.status_code != 200:
                             raise VisionError(f"HTTP {response.status_code}：检查地址、模型名及图片输入支持")
@@ -139,15 +139,28 @@ class VisionClient:
                             temporary.replace(cache)
                             return {"status": "ok", "data": data, "cached": False}
                     except (httpx.TimeoutException, httpx.NetworkError):
-                        error = "模型请求超时或网络连接失败"
+                        error = "模型请求超时或网络连接失败，计费状态未知，未自动重放"
+                        break
                     except VisionError as exc:
                         error = str(exc)
-                        if response.status_code in {401, 403} or (response.status_code != 200 and response.status_code < 500 and response.status_code != 429):
-                            break
+                        break
                     except (ValueError, TypeError, KeyError, IndexError):
                         error = "模型响应结构无效"
+                        break
                     if attempt < cfg.retries:
-                        self.sleeper(min(2 ** attempt, 8))
+                        delay = min(2 ** attempt, 8)
+                        header = response.headers.get('retry-after')
+                        if header:
+                            try: delay = max(delay, float(header))
+                            except ValueError:
+                                try:
+                                    from email.utils import parsedate_to_datetime
+                                    delay = max(delay, parsedate_to_datetime(header).timestamp() - time.time())
+                                except (ValueError, TypeError, OverflowError): pass
+                        if delay > cfg.timeout:
+                            error = '限流等待超过单次请求预算，请稍后手动重试'
+                            break
+                        self.sleeper(delay)
         except httpx.HTTPError:
             error = "模型 HTTP 连接失败"
         finally:
