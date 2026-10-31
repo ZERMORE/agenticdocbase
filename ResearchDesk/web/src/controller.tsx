@@ -1,0 +1,40 @@
+import {useEffect,useRef,useState} from 'react';
+import {api,post,patch} from './api';
+export function useWorkspaceController(){
+  const [ready,setReady]=useState(false),[page,setPage]=useState('chat'),[libraries,setLibraries]=useState<any[]>([]),[kb,setKb]=useState('');
+  const [convos,setConvos]=useState<any[]>([]),[conversation,setConversation]=useState(''),[messages,setMessages]=useState<any[]>([]),[jobs,setJobs]=useState<any[]>([]);
+  const [error,setError]=useState(''),[notice,setNotice]=useState(''),[input,setInput]=useState(''),[sending,setSending]=useState(false),[health,setHealth]=useState<any>({});
+  const [documents,setDocuments]=useState<any>({items:[],total:0}),[filter,setFilter]=useState(''),[docState,setDocState]=useState('active'),[qualityFilter,setQualityFilter]=useState('all'),[offset,setOffset]=useState(0);
+  const [searchText,setSearchText]=useState(''),[results,setResults]=useState<any>(null),[preview,setPreview]=useState<any>(null),[previewTab,setPreviewTab]=useState('pdf');
+  const [citations,setCitations]=useState<any[]>([]),[selectedCitation,setSelectedCitation]=useState(''),[navOpen,setNavOpen]=useState(false),[modal,setModal]=useState('');
+  const [name,setName]=useState(''),[offline,setOffline]=useState(true),[uploading,setUploading]=useState(false),[uploadStatus,setUploadStatus]=useState('');
+  const [prefs,setPrefs]=useState<any>({}),[prefScope,setPrefScope]=useState('default'),[historySearch,setHistorySearch]=useState('');
+  const [branchRevision,setBranchRevision]=useState(0),[metaFilters,setMetaFilters]=useState<any>({});
+  const files=useRef<HTMLInputElement>(null), scroll=useRef<HTMLDivElement>(null), bottom=useRef(true), compose=useRef(false);
+  const current=libraries.find(x=>x.id===kb), activeConvo=convos.find(x=>x.id===conversation);
+  const pending=messages.find(x=>x.role==='assistant'&&x.status==='pending'), pendingJob=jobs.find(x=>x.id===pending?.job);
+  const total=libraries.reduce((n,x)=>n+Number(x.active_count||0),0);
+  const safe=async(fn:()=>Promise<any>)=>{setError('');try{return await fn();}catch(e){setError(e.message);return null;}};
+  const refresh=async()=>{const [ls,cs,js,h]=await Promise.all([api('/knowledge-bases'),api('/conversations?include_archived=true'),api('/jobs'),api('/health')]); setLibraries(ls);setConvos(cs);setJobs(js);setHealth(h);return ls;};
+  useEffect(()=>{api('/bootstrap').then(b=>{setPrefs(b.preferences);return refresh();}).then(ls=>{setKb(ls[0]?.id||'');setReady(true);}).catch(e=>setError(e.message));},[]);
+  useEffect(()=>{if(!ready)return;const timer=setInterval(()=>refresh().catch(()=>setError('本地服务暂时不可用，任务不会因页面断开而重新提交。')),2500);return()=>clearInterval(timer);},[ready]);
+  useEffect(()=>{if(!ready||!conversation){setMessages([]);return;} let active=true;const load=()=>api(`/conversations/${conversation}/messages`).then(rows=>{if(active)setMessages(rows);}).catch(e=>{if(active)setError(e.message);});load();const t=setInterval(load,1500);return()=>{active=false;clearInterval(t);};},[conversation,ready,branchRevision]);
+  useEffect(()=>{if(bottom.current)scroll.current?.scrollTo({top:scroll.current.scrollHeight,behavior:'smooth'});},[messages.length,messages.map(m=>m.status).join(',')]);
+  useEffect(()=>{if(page!=='settings'||!ready)return;let active=true;api('/preferences').then(defaults=>{let overrides:any={};if(prefScope==='conversation'&&activeConvo){try{overrides=JSON.parse(activeConvo.preferences||'{}');}catch{}}if(active)setPrefs({...defaults,...overrides});}).catch(e=>setError(e.message));return()=>{active=false;};},[page,prefScope,conversation,ready]);
+  const [effectivePrefs,setEffectivePrefs]=useState<any>({});
+  useEffect(()=>{if(!ready||page!=='chat')return;let active=true;api('/preferences').then(defaults=>{let overrides={};try{overrides=JSON.parse(activeConvo?.preferences||'{}');}catch{}if(active)setEffectivePrefs({...defaults,...overrides});}).catch(e=>setError(e.message));return()=>{active=false;};},[ready,page,conversation,activeConvo?.preferences]);
+  const loadDocs=()=>kb?api(`/knowledge-bases/${kb}/documents?q=${encodeURIComponent(filter)}&state=${docState}&quality=${qualityFilter}&offset=${offset}&metadata_filters=${encodeURIComponent(JSON.stringify(metaFilters))}`).then(setDocuments):Promise.resolve();
+  useEffect(()=>{if(page!=='library'||!kb)return;loadDocs().catch(e=>setError(e.message));const t=setInterval(()=>loadDocs().catch(()=>{}),2500);return()=>clearInterval(t);},[page,kb,filter,docState,qualityFilter,offset,JSON.stringify(metaFilters)]);
+  function navigate(p:string){setPage(p);setNavOpen(false);setError('');setResults(null);}
+  function chooseConversation(c:any){setConversation(c.id);setKb(c.kb);navigate('chat');setCitations([]);bottom.current=true;}
+  async function newChat(){setConversation('');setMessages([]);setCitations([]);navigate('chat');setInput('');}
+  async function send(question=input){if(!question.trim()||sending||pending)return;setSending(true);await safe(async()=>{let id=conversation;if(!id){const c=await post('/conversations',{kb,title:'新的研究问题'});id=c.id;setConversation(id);} await post(`/conversations/${id}/messages`,{question:question.trim(),request_id:crypto.randomUUID()});setInput('');setMessages(await api(`/conversations/${id}/messages`));bottom.current=true;await refresh();});setSending(false);}
+  async function upload(list:FileList|null){if(!list?.length)return;if(list.length>20){setError('每批最多20个文件');return;}setUploading(true);await safe(async()=>{let n=0;for(const file of Array.from(list)){setUploadStatus(`${++n}/${list.length} · ${file.name}`);const form=new FormData();form.append('file',file);form.append('offline',String(offline));await api(`/knowledge-bases/${kb}/uploads`,{method:'POST',body:form});}setNotice('上传已完成，解析与入库将在后台继续。');setModal('');await refresh();await loadDocs();});setUploading(false);if(files.current)files.current.value='';}
+  async function membership(doc:any){await safe(async()=>{if(doc.active&&!confirm(`将“${doc.name}”移出此知识库？不会删除Zotero原件，历史引用仍保留。`))return;await api(`/knowledge-bases/${kb}/documents/${doc.doc}${doc.active?'':'/restore'}`,{method:doc.active?'DELETE':'POST'});await loadDocs();await refresh();});}
+  async function forkMessage(message:string,mode:string){if(pending)return;await safe(async()=>{const branch=await post(`/conversations/${conversation}/branches`,{message_id:message,mode,name:mode==='edit'?'修改问题':'重新生成'});setMessages(await api(`/conversations/${conversation}/messages`));setBranchRevision(n=>n+1);if(mode==='edit')setInput(branch.seed_question);else await send(branch.seed_question);});}
+  function evidence(result:any,eid:string){const message=messages.find(m=>m.result===result);setCitations((result?.citations||[]).map((c:any)=>({...c,message_id:message?.id}))); setSelectedCitation(eid);}
+  const selected=citations.find(c=>c.evidence_id===selectedCitation);
+  async function savePrefs(){await safe(async()=>{if(prefScope==='conversation'&&conversation)await patch(`/conversations/${conversation}/preferences`,prefs);else await patch('/preferences',prefs);setNotice('回答偏好已保存，下轮生效。');await refresh();});}
+
+ return {effectivePrefs,branchRevision,setBranchRevision,metaFilters,setMetaFilters,forkMessage,ready,setReady,page,setPage,libraries,setLibraries,kb,setKb,convos,setConvos,conversation,setConversation,messages,setMessages,jobs,setJobs,error,setError,notice,setNotice,input,setInput,sending,setSending,health,setHealth,documents,setDocuments,filter,setFilter,docState,setDocState,qualityFilter,setQualityFilter,offset,setOffset,searchText,setSearchText,results,setResults,preview,setPreview,previewTab,setPreviewTab,citations,setCitations,selectedCitation,setSelectedCitation,navOpen,setNavOpen,modal,setModal,name,setName,offline,setOffline,uploading,setUploading,uploadStatus,setUploadStatus,prefs,setPrefs,prefScope,setPrefScope,historySearch,setHistorySearch,files,scroll,bottom,compose,current,activeConvo,pending,pendingJob,total,safe,refresh,loadDocs,selected,navigate,chooseConversation,newChat,send,upload,membership,evidence,savePrefs};
+}

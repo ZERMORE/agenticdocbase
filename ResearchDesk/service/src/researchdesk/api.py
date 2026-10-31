@@ -48,6 +48,7 @@ class Preferences(BaseModel):
     background: str = Field(default='研究生', max_length=100)
     structure: str = Field(default='先结论', max_length=80)
     name: str = Field(default='', max_length=80)
+    query_expansion: Literal['off','glossary'] = 'off'
     support_check_level: Literal['off','advisory','balanced','strict'] = 'advisory'
 
 
@@ -61,6 +62,7 @@ class Enabled(BaseModel):
 
 
 class ScopeRequest(BaseModel):
+    filters: dict | None = None
     document_ids: list[str] | None = Field(default=None, max_length=200)
 
 
@@ -69,7 +71,7 @@ def public_result(value):
         return None
     result = json.loads(value) if isinstance(value, str) else value
     return {k: result.get(k) for k in ['status', 'claims', 'limitations', 'index_version', 'model_returned',
-        'usage', 'timings', 'visual_verified', 'claim_checks', 'support_check', 'retrieval_coverage', 'revalidation', 'answer_completeness', 'support_check_level', 'support_warnings']} | {'citations': [
+        'usage', 'timings', 'visual_verified', 'claim_checks', 'support_check', 'retrieval_coverage', 'revalidation', 'answer_completeness', 'support_check_level', 'support_warnings', 'model_snapshot', 'request_snapshot', 'retrieval_trace']} | {'citations': [
             {'evidence_id': c['evidence_id'], 'quote': c['quote'], 'type': c.get('type'),
              'content_origin': c.get('content_origin'), 'sources': [
                  {'asset_id': s.get('asset_id'), 'name': Path(s.get('original_path', '')).name,
@@ -79,6 +81,9 @@ def public_result(value):
 def create_app(store=None, seed=True):
     s = store or Store()
     s.init(seed=seed)
+    if seed:
+        from .model_profiles import ModelProfiles
+        ModelProfiles(s).ensure()
     app = FastAPI(title='研知 Research Desk', docs_url='/api/docs', openapi_url='/api/openapi.json')
     app.state.store = s
     secret = s.setting('session')
@@ -165,7 +170,7 @@ def create_app(store=None, seed=True):
         return {'status': 'recycled', 'note': '已回收知识库，原始文件和历史快照保留'}
 
     @app.get('/api/knowledge-bases/{key}/documents')
-    def documents(key: str, q: str = '', state: str = 'all', offset: int = 0, limit: int = 50, quality: str = 'all'):
+    def documents(key: str, q: str = '', state: str = 'all', offset: int = 0, limit: int = 50, quality: str = 'all', metadata_filters: str = '{}'):
         kb(key)
         if offset < 0 or not 1 <= limit <= 100:
             raise HTTPException(422, '分页参数不正确')
@@ -181,9 +186,15 @@ def create_app(store=None, seed=True):
         elif quality != 'all':
             condition += ' AND m.quality=?'
             args.append(quality)
-        total = s.one('SELECT COUNT(*) n FROM members m JOIN docs d ON d.id=m.doc WHERE ' + condition, args)['n']
-        rows = s.all('SELECT m.*,d.name,d.size,d.created FROM members m JOIN docs d ON d.id=m.doc WHERE ' + condition + ' ORDER BY d.created DESC LIMIT ? OFFSET ?', [*args, limit, offset])
-        return {'total': total, 'items': [{k: v for k, v in r.items() if k != 'artifact'} for r in rows]}
+        from .v2_store import metadata,filtered_documents,validate_filters
+        try:filters=validate_filters(json.loads(metadata_filters))
+        except (TypeError,ValueError):raise HTTPException(422,'筛选条件无效')
+        rows=s.all('SELECT m.*,d.name,d.size,d.created FROM members m JOIN docs d ON d.id=m.doc WHERE '+condition+' ORDER BY d.created DESC',args)
+        if filters:
+            allowed={r['doc'] for r in filtered_documents(s,key,filters)}
+            rows=[r for r in rows if r['doc'] in allowed]
+        total=len(rows)
+        return {'total':total,'items':[{k:v for k,v in row.items() if k!='artifact'}|{'metadata':metadata(s,key,row['doc'])} for row in rows[offset:offset+limit]]}
 
     @app.post('/api/knowledge-bases/{key}/uploads', status_code=202)
     async def upload(key: str, file: UploadFile = File(...), offline: bool = Form(True)):
@@ -313,8 +324,8 @@ def create_app(store=None, seed=True):
         return {'results': rows, 'index_version': result['index_version']}
 
     @app.get('/api/conversations')
-    def conversations(q: str = ''):
-        return s.all('SELECT c.* FROM conversations c JOIN kbs k ON k.id=c.kb WHERE k.deleted=0 AND c.title LIKE ? ORDER BY c.updated DESC', ('%' + q + '%',))
+    def conversations(q: str = '', include_archived: bool = False):
+        return s.all('SELECT c.*,EXISTS(SELECT 1 FROM conversation_archives a WHERE a.conversation=c.id) AS archived FROM conversations c JOIN kbs k ON k.id=c.kb WHERE k.deleted=0 AND c.title LIKE ? AND (? OR NOT EXISTS(SELECT 1 FROM conversation_archives a WHERE a.conversation=c.id)) ORDER BY c.updated DESC', ('%' + q + '%',int(include_archived)))
 
     @app.post('/api/conversations')
     def new_conversation(data: Conversation):
@@ -329,12 +340,29 @@ def create_app(store=None, seed=True):
         s.execute('UPDATE conversations SET title=?,updated=? WHERE id=?', (data.name, time.time(), key))
         return convo(key)
 
+    @app.post('/api/conversations/{key}/archive')
+    def archive_conversation(key: str):
+        convo(key)
+        if s.one("SELECT 1 FROM messages WHERE conversation=? AND status='pending'",(key,)):
+            raise HTTPException(409,'请先等待或停止正在生成的回答，再归档')
+        s.execute('INSERT OR IGNORE INTO conversation_archives VALUES(?,?)',(key,time.time()))
+        return {'status':'archived'}
+
+    @app.post('/api/conversations/{key}/unarchive')
+    def unarchive_conversation(key: str):
+        convo(key);s.execute('DELETE FROM conversation_archives WHERE conversation=?',(key,))
+        return {'status':'restored'}
+
     @app.delete('/api/conversations/{key}')
     def delete_conversation(key: str):
         convo(key)
         with s.connect() as c:
             c.execute("UPDATE jobs SET cancel=1 WHERE id IN(SELECT job FROM messages WHERE conversation=?)", (key,))
+            c.execute('DELETE FROM message_links WHERE message IN(SELECT id FROM messages WHERE conversation=?)',(key,))
+            c.execute('DELETE FROM saved_items WHERE conversation=?',(key,))
+            c.execute('DELETE FROM branches WHERE conversation=?',(key,))
             c.execute('DELETE FROM messages WHERE conversation=?', (key,))
+            c.execute('DELETE FROM conversation_archives WHERE conversation=?',(key,))
             c.execute('DELETE FROM conversations WHERE id=?', (key,))
         return {'status': 'deleted'}
 
@@ -349,8 +377,10 @@ def create_app(store=None, seed=True):
     @app.get('/api/conversations/{key}/messages')
     def messages(key: str):
         convo(key)
-        rows = s.all('SELECT * FROM messages WHERE conversation=? ORDER BY created', (key,))
+        from .v2_store import ancestors
+        rows = ancestors(s,key)
         for row in rows:
+            row['draft']=s.one('SELECT text,sequence,updated FROM message_drafts WHERE job=?',(row['job'],))
             row['result'] = public_result(row['result'])
             if row['result']:
                 for i, citation in enumerate(row['result']['citations']):
@@ -360,15 +390,19 @@ def create_app(store=None, seed=True):
     @app.get('/api/conversations/{key}/scope')
     def conversation_scope(key: str):
         convo(key)
-        return {'document_ids':json.loads(s.setting('scope:' + key) or 'null')}
+        return {'document_ids':json.loads(s.setting('scope:' + key) or 'null'),'filters':json.loads(s.setting('filters:'+key) or '{}')}
 
     @app.patch('/api/conversations/{key}/scope')
     def save_scope(key: str, data: ScopeRequest):
         row=convo(key)
+        from .v2_store import validate_filters
+        try:validate_filters(data.filters)
+        except ValueError as e:raise HTTPException(422,str(e))
         valid={r['doc'] for r in s.all('SELECT doc FROM members WHERE kb=? AND active=1',(row['kb'],))}
         if data.document_ids is not None and not set(data.document_ids).issubset(valid):
             raise HTTPException(422,'资料范围含有不存在或已移出的文档')
         s.set_setting('scope:' + key,dump(data.document_ids))
+        if data.filters is not None:s.set_setting('filters:'+key,dump(data.filters))
         s.execute("UPDATE jobs SET cancel=1 WHERE id IN (SELECT job FROM messages WHERE conversation=? AND status='pending')", (key,))
         s.execute("UPDATE messages SET status='cancelled',content='检索范围已变化，请重新提问' WHERE conversation=? AND role='assistant' AND status='pending'", (key,))
         return data
@@ -379,6 +413,13 @@ def create_app(store=None, seed=True):
         library = kb(conversation['kb'])
         if not library['external_enabled']:
             raise HTTPException(409, '请在知识库页面启用外部模型处理：问题及选中证据将发送至DeepSeek；完整解析会使用Qwen。')
+        from .v2_store import ensure_branch,filtered_documents
+        branch=ensure_branch(s,key)
+        selected=json.loads(s.setting('scope:'+key) or 'null')
+        filters=json.loads(s.setting('filters:'+key) or '{}')
+        allowed=[r['docbase_id'] for r in filtered_documents(s,library['id'],filters) if r['docbase_id'] and (selected is None or r['doc'] in selected)]
+        model_snapshot=__import__('researchdesk.model_profiles',fromlist=['ModelProfiles']).ModelProfiles(s).snapshot() if seed else {}
+        frozen_preferences=json.loads(s.setting('preferences')) | json.loads(conversation['preferences'])
         with s.connect() as c:
             c.execute('BEGIN IMMEDIATE')
             request_key = 'message:' + key + ':' + data.request_id
@@ -390,10 +431,16 @@ def create_app(store=None, seed=True):
             if c.execute("SELECT 1 FROM messages WHERE conversation=? AND status='pending'", (key,)).fetchone():
                 raise HTTPException(409, '请等待或停止上一轮回答')
             job, now = uid('job'), time.time()
-            payload = {'question': data.question, 'conversation': key, 'message_time': now, 'model_call_budget': data.model_call_budget}
+            payload = {'question': data.question, 'conversation': key, 'message_time': now, 'model_call_budget': data.model_call_budget, 'branch':branch,
+                'snapshot':{'allowed_doc_ids':allowed,'filters':filters,'generation':library['generation'],'index_version':library['index_version'],'preferences':frozen_preferences},'model_snapshot':model_snapshot}
             c.execute('INSERT INTO jobs(id,kb,kind,payload,created,updated) VALUES(?,?,?,?,?,?)', (job, library['id'], 'chat', dump(payload), now, now))
-            c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?,?,?)', (uid('msg'), key, 'user', data.question, 'sent', job, None, now))
-            c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?,?,?)', (uid('msg'), key, 'assistant', '', 'pending', job, None, now + .0001))
+            user_id,assistant_id=uid('msg'),uid('msg')
+            parent=c.execute('SELECT head FROM branches WHERE id=?',(branch,)).fetchone()['head']
+            c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?,?,?)',(user_id,key,'user',data.question,'sent',job,None,now))
+            c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?,?,?)',(assistant_id,key,'assistant','','pending',job,None,now+.0001))
+            c.execute('INSERT INTO message_links VALUES(?,?,?)',(user_id,branch,parent))
+            c.execute('INSERT INTO message_links VALUES(?,?,?)',(assistant_id,branch,user_id))
+            c.execute('UPDATE branches SET head=? WHERE id=?',(assistant_id,branch))
             c.execute('UPDATE conversations SET title=CASE WHEN title=\'新的研究问题\' THEN ? ELSE title END,updated=? WHERE id=?', (data.question[:50], now, key))
             result = {'job_id': job}
             c.execute('INSERT INTO settings VALUES(?,?)', (request_key, dump(result)))
@@ -401,7 +448,7 @@ def create_app(store=None, seed=True):
 
     @app.get('/api/jobs')
     def jobs():
-        rows = s.all('SELECT id,kb,kind,state,stage,error,created,updated FROM jobs WHERE kb IS NULL OR kb IN (SELECT id FROM kbs WHERE deleted=0) ORDER BY created DESC LIMIT 100')
+        rows = s.all("SELECT id,kb,kind,state,stage,error,created,updated,CASE WHEN kind='model_probe' THEN result ELSE NULL END AS result FROM jobs WHERE kb IS NULL OR kb IN (SELECT id FROM kbs WHERE deleted=0) ORDER BY created DESC LIMIT 100")
         for row in rows:
             event = s.one("SELECT payload FROM events WHERE job=? AND type='failed' ORDER BY id DESC LIMIT 1", (row['id'],))
             row['failure'] = json.loads(event['payload']) if event else None
@@ -409,7 +456,7 @@ def create_app(store=None, seed=True):
 
     @app.get('/api/jobs/{key}')
     def job_status(key: str):
-        row = s.one('SELECT id,kb,kind,state,stage,error,created,updated FROM jobs WHERE id=?', (key,))
+        row = s.one("SELECT id,kb,kind,state,stage,error,created,updated,CASE WHEN kind='model_probe' THEN result ELSE NULL END AS result FROM jobs WHERE id=?", (key,))
         if not row:
             raise HTTPException(404)
         event = s.one("SELECT payload FROM events WHERE job=? AND type='failed' ORDER BY id DESC LIMIT 1", (key,))
@@ -449,12 +496,13 @@ def create_app(store=None, seed=True):
                 events = s.all('SELECT * FROM events WHERE job=? AND id>? ORDER BY id', (key, cursor))
                 for event in events:
                     cursor = event['id']
-                    yield f'id: {cursor}\nevent: progress\ndata: {dump(event)}\n\n'
+                    envelope=event | {'version':2,'event_id':event['id'],'job_id':key,'sequence':event['id'],'message_id':(s.one("SELECT id FROM messages WHERE job=? AND role='assistant'",(key,)) or {}).get('id'),'run_id':key,'data':json.loads(event['payload'])}
+                    yield f'id: {cursor}\nevent: progress\ndata: {dump(envelope)}\n\n'
                 if job_status(key)['state'] not in {'queued', 'running'}:
                     yield 'event: done\ndata: {}\n\n'
                     break
                 yield ': heartbeat\n\n'
-                await asyncio.sleep(1)
+                await asyncio.sleep(.1)
         return StreamingResponse(stream(), media_type='text/event-stream', headers={'Cache-Control': 'no-cache'})
 
     @app.get('/api/preferences')
@@ -495,6 +543,8 @@ def create_app(store=None, seed=True):
         s.asset(row['path'], row['name'], row['mime'], row['doc'])
         return FileResponse(row['path'], media_type=row['mime'], filename=row['name'], content_disposition_type='inline')
 
+    from .v2_routes import install as install_v2
+    install_v2(app,s,kb,convo,public_result,cancel_chats)
     from .quality_routes import install
     install(app, s, kb, cancel_chats)
 

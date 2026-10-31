@@ -19,7 +19,7 @@
 
 数据：ResearchDesk/data；解析输出：doc2md/output 与 ResearchDesk/data/parsed；
 索引和不可变来源：DocBase/storage。历史记录中的原路径是溯源信息，不是运行时依赖。
-Key仅保存在各项目.env，不进入前端。原目录完整保留，迁移副本独立运行。
+独立CLI读取各项目.env；网页首次导入后使用版本化模型配置和Windows DPAPI加密凭据，不回显Key。原目录完整保留，迁移副本独立运行。
 旧.venv、测试缓存和历史报告为完整复制保留，不参与当前运行；不自动删除。
 
 ## V1 质量版
@@ -35,3 +35,12 @@ Key仅保存在各项目.env，不进入前端。原目录完整保留，迁移�
 全库概括、中文PDF断行/字形和输出截断修复见 [概览修复记录](plans/iterations/OVERVIEW-FIX.md)。
 
 支持性检查已可在网页设为关闭/宽松/标准/严格，默认宽松。[设置与行为说明](plans/iterations/SUPPORT-CHECK-LEVELS.md)。
+
+## V2 体验版
+
+增加流式草稿、会话分支、收藏导出、论文元数据与范围筛选、Zotero JSON增量同步、统一模型配置。前端使用taste app-screen流程保持瑞士黑白红风格。
+
+- [V2操作与实现说明](plans/iterations/V2-IMPLEMENTATION.md)
+- [V2验收与待完成质量门槛](plans/iterations/V2-VALIDATION.md)
+
+当前网页检索仍为BM25-only；向量模型配置保存不会触发全库重建。真实模型流与正式题集评估未在本轮执行。

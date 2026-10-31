@@ -13,6 +13,10 @@ class DeepSeekClient:
         self.http.close()
 
     def complete(self, messages, tools, deadline):
+        if self.cfg.stream_mode == 'auto' and getattr(self,'stream_capability',None) != 'unsupported':
+            from .streaming import complete_stream
+            streamed=complete_stream(self,messages,tools,deadline)
+            if streamed is not None:return streamed
         if not self.cfg.api_key.strip():
             raise AgentError('MODEL_NOT_CONFIGURED', '请在 DocAgent/.env 填写 DOCAGENT_API_KEY')
         body = {'model': self.cfg.model, 'messages': messages, 'tools': tools, 'stream': False,

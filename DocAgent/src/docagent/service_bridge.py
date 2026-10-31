@@ -21,7 +21,14 @@ def main():
             f.write(json.dumps(event, ensure_ascii=False) + '\n')
     from .config import Settings
     from dataclasses import replace
-    cfg = Settings.load()
+    from .common import AgentError
+    try:
+        cfg = Settings.load()
+    except AgentError as exc:
+        result={'status':'failed','code':exc.code,'error':exc.code+': '+str(exc)}
+        write_json(args.result_file,result)
+        print(json.dumps(result,ensure_ascii=False))
+        return
     budget = request.get('model_call_budget')
     if budget is not None:
         if type(budget) is not int or not 1 <= budget <= 6: raise ValueError('invalid model budget')

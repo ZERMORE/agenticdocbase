@@ -12,6 +12,7 @@ def failure(exc):
     text = re.sub(r'(?i)(Bearer\s+|(?:api[_-]?key|authorization)\s*[:=]\s*)[^\s,;]+', r'\1[REDACTED]', text)
     category, advice = 'local', '查看任务诊断；核对输入文件与依赖后手动重试。'
     mapping = [
+        ('configuration', ('CONFIG:',), '检查网页模型配置中的参数；保存后重新提问。'),
         ('quota', ('MODEL_QUOTA', '余额', '计费资源', 'HTTP 402'), '检查账户额度后再重试，不会自动重放问答。'),
         ('authentication', ('MODEL_AUTH', '401', '403'), '检查服务端模型配置和库级外部处理授权。'),
         ('rate_limit', ('MODEL_BUSY', '429'), '供应商限流，请稍后手动重试。'),

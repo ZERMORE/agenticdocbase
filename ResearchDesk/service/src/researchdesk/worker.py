@@ -49,12 +49,26 @@ class Worker:
             s.execute('UPDATE jobs SET stage=?,updated=? WHERE id=? AND token=?', (name, time.time(), key, token))
             s.event(key, name, data)
 
+        def relay(event):
+            name=event.get('event','working')
+            if name in {'draft','draft_reset'}:
+                check();text=event.get('text','')[:100000]
+                s.execute('INSERT INTO message_drafts VALUES(?,?,1,?) ON CONFLICT(job) DO UPDATE SET text=excluded.text,sequence=message_drafts.sequence+1,updated=excluded.updated', (key,text,time.time()))
+                s.event(key,name,{'text':text,'verified':False,'run_id':event.get('run_id')})
+            elif name=='claim_verified':
+                check();s.event(key,name,{'claim_index':event.get('claim_index'),'text':event.get('text',''),'verification':'quotation'})
+            else:stage(name)
+
         def call(project, module, args, label, timeout=600, events=None):
+            if project == 'doc2md' and 'parser' in payload.get('model_snapshot',{}):
+                from .model_profiles import ModelProfiles
+                config=ModelProfiles(s).get('parser',revision=payload['model_snapshot']['parser'])
+                args=[*args,'--timeout',str(config['timeout']),'--max-tokens',str(config['max_tokens'])]
             if project == 'DocBase':
                 args = [*args, '--storage', s.docbase_storage]
             return invoke(WORKSPACE / project / '.conda' / 'python.exe', module, args,
                 WORKSPACE / project, folder / label, check, timeout, events,
-                lambda event: stage(event.get('event', 'working')))
+                relay, env_overrides=__import__('researchdesk.model_profiles',fromlist=['ModelProfiles']).ModelProfiles(s).environment(payload.get('model_snapshot',{}),project))
 
         try:
             check()
@@ -95,6 +109,14 @@ class Worker:
             elif job['kind'] == 'revise':
                 from .quality import revise_job
                 result = revise_job(s, kb, payload, folder, call, check, stage)
+            elif job['kind'] == 'zotero_sync':
+                from .zotero import apply
+                stage('synchronizing')
+                result=apply(s,payload['sync_run'],check)
+            elif job['kind'] == 'model_probe':
+                from .model_probe import probe
+                stage('testing_connection')
+                result=probe(s,payload)
             elif job['kind'] == 'backup':
                 from .manage import backup
                 stage('backing_up')
@@ -143,20 +165,26 @@ class Worker:
                 if not kb['index_version']:
                     raise RuntimeError('知识库正在首次建库，请稍后重试')
                 conversation = s.one('SELECT * FROM conversations WHERE id=?', (payload['conversation'],))
-                history = s.all('SELECT role,content FROM messages WHERE conversation=? AND created<? AND status IN (\'sent\',\'answered\') ORDER BY created DESC LIMIT 8',
-                    (conversation['id'], payload['message_time']))[::-1]
+                from .v2_store import ancestors
+                chain=ancestors(s,conversation['id'],payload.get('branch'))
+                prior=[r for r in chain if r['created']<payload['message_time'] and r['status'] in {'sent','answered','insufficient_evidence'}]
+                history=[{'role':r['role'],'content':r['content']} for r in prior[-8:]]
                 preferences = json.loads(s.setting('preferences')) | json.loads(conversation['preferences'])
                 selected = json.loads(s.setting('scope:' + conversation['id']) or 'null')
                 allowed = s.scope(kb['id'])
                 if selected is not None:
                     allowed = [r['docbase_id'] for r in s.all('SELECT doc,docbase_id FROM members WHERE kb=? AND active=1',(kb['id'],))
                                if r['doc'] in selected and r['docbase_id']]
-                older = s.all("SELECT content FROM messages WHERE conversation=? AND role='user' AND created<? ORDER BY created DESC LIMIT 30 OFFSET 4",
-                              (conversation['id'],payload['message_time']))
-                summary = '\n'.join('- '+r['content'][:150] for r in reversed(older))[:4000]
+                summary = '\n'.join('- '+r['content'][:150] for r in prior[:-8] if r['role']=='user')[-4000:]
                 request = {'question': payload['question'], 'collection': kb['collection'], 'index_version': kb['index_version'],
                     'recent_messages': history, 'preferences': preferences, 'allowed_doc_ids': allowed,
                     'conversation_summary': summary}
+                snapshot=payload.get('snapshot')
+                if snapshot:
+                    if snapshot['generation']!=kb['generation']:raise Cancelled('排队期间资料范围已变化，请重新提问')
+                    request.update(allowed_doc_ids=snapshot['allowed_doc_ids'],index_version=snapshot['index_version'],preferences=snapshot['preferences'])
+                    preferences=snapshot['preferences']
+                    request['conversation_summary']='\n'.join('- '+r['content'][:150] for r in prior[:-8] if r['role']=='user')[-4000:]
                 request['docbase_storage'] = str(s.docbase_storage)
                 request['model_call_budget'] = payload.get('model_call_budget')
                 request['support_check_level'] = preferences.get('support_check_level','advisory')
@@ -176,6 +204,8 @@ class Worker:
                         path = source.get('snapshot_path_absolute') or source.get('rendered_pdf_path_absolute')
                         if path:
                             source['asset_id'] = s.asset(path, mime=mimetypes.guess_type(path)[0] or 'application/octet-stream')
+                result['model_snapshot']=payload.get('model_snapshot',{})
+                result['request_snapshot']=payload.get('snapshot',{})
                 result['claims'] = result.get('claims', [])
                 with s.connect() as c:
                     check_row = c.execute('SELECT token,cancel,state FROM jobs WHERE id=?', (key,)).fetchone()
@@ -211,8 +241,16 @@ class Worker:
         while True:
             self.store.set_setting('worker_heartbeat', str(time.time()))
             if not self.once():
+                if time.time()-float(self.store.setting('v2_retention') or 0)>3600:
+                    cutoff=time.time()-7*86400
+                    self.store.execute("DELETE FROM events WHERE created<? AND type IN ('draft','draft_reset','claim_verified') AND job IN(SELECT id FROM jobs WHERE state NOT IN ('queued','running'))",(cutoff,))
+                    self.store.execute("DELETE FROM message_drafts WHERE updated<? AND job IN(SELECT id FROM jobs WHERE state NOT IN ('queued','running'))",(cutoff,))
+                    self.store.execute("DELETE FROM sync_runs WHERE created<? AND state='preview' AND id NOT IN(SELECT json_extract(payload,'$.sync_run') FROM jobs WHERE kind='zotero_sync' AND state IN ('queued','running'))",(cutoff,))
+                    self.store.set_setting('v2_retention',str(time.time()))
                 from .watches import scan_watches
                 scan_watches(self.store)
+                from .zotero import scan
+                scan(self.store)
                 from .reliability import schedule_backup
                 schedule_backup(self.store)
                 time.sleep(.7)

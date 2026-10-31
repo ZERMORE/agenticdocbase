@@ -38,6 +38,8 @@ class AgentRunner:
                   'model_requested': cfg.model, 'model_returned': None, 'policy_sha256': None,
                   'usage': {}, 'timings': {}, 'retrieval_profile': retrieval_profile or cfg.retrieval_profile}
         client, own_client = self.client, self.client is None
+        support_client = None
+        retrieval_trace=[]
         model_calls, tool_calls, searches, submitted = 0, 0, 0, None
         cache, successful_search, unstructured = {}, False, 0
         schema_repairs, citation_repairs = 0, 0
@@ -59,7 +61,8 @@ class AgentRunner:
         def emit(event, **data):
             trace.append(dict(event=event, elapsed=round(time.monotonic() - started, 3), **data))
             if progress:
-                progress({'event': event, 'run_id': run_id})
+                public = {k:v for k,v in data.items() if event in {'draft','draft_reset','claim_verified'} and k in {'text','claim_index','verification'}}
+                progress({'event': event, 'run_id': run_id, **public})
 
         def register(rows):
             output = []
@@ -86,6 +89,8 @@ class AgentRunner:
                 if not cfg.api_key.strip():
                     raise AgentError('MODEL_NOT_CONFIGURED', '请在 DocAgent/.env 填写 DOCAGENT_API_KEY')
                 client = DeepSeekClient(cfg)
+                client.stream_event=lambda event,text: emit(event,text=text or '')
+                client.stream_check=check
             adapter = self.adapter_factory(cfg, result['collection'], result['retrieval_profile'], deadline, cancel)
             adapter.category = category
             adapter.allowed_doc_ids = allowed_doc_ids
@@ -112,11 +117,14 @@ class AgentRunner:
                 searches, successful_search = 0, True
                 emit('document_overview', coverage=overview_data)
             else:
+                from .query_terms import expand_query
+                retrieval_question=expand_query(retrieval_question,(preferences or {}).get('query_expansion','off'))
                 initial = adapter.search(retrieval_question, 8)
                 searches, successful_search = 1, True
             cache[('search_knowledge', question, 8, True)] = {'results': register(initial['results']),
                 'query_id': initial['query_id'], 'index_version': adapter.version,
                 **({'documents': initial['documents'], 'coverage': overview_data, 'note': initial['note']} if is_overview else {})}
+            retrieval_trace.append({'original_query':question,'actual_query':'逐文档代表片段' if is_overview else retrieval_question,'query_id':initial['query_id'],'candidates':[{'evidence_id':row.get('evidence_id'),'doc_id':row.get('doc_id'),'excerpt':row.get('text','')[:180]} for row in cache[('search_knowledge', question, 8, True)]['results'][:50]]})
             emit('initial_search', query=question, query_id=initial['query_id'],
                  diagnostics=initial.get('diagnostics'), evidence_ids=list(ledger.records))
             # No fabricated tool-call messages: initial evidence is ordinary user data.
@@ -136,6 +144,9 @@ class AgentRunner:
             while model_calls < cfg.max_model_calls and submitted is None:
                 check()
                 model_calls += 1
+                if support_client:
+                    from dataclasses import replace
+                    client.cfg=replace(client.cfg,max_model_calls=max(1,cfg.max_model_calls-support_client.stats.get('requests',0)))
                 response = client.complete(messages, tool_definitions(), deadline)
                 check()
                 result['model_returned'] = response.get('model')
@@ -216,7 +227,14 @@ class AgentRunner:
                                     model_calls += 1
                                     emit('checking_support')
                                     try:
-                                        judgments = review(client, args.claims, citations, deadline, evidence_records=ledger.records,
+                                        reviewer=client
+                                        if cfg.support_model:
+                                            from dataclasses import replace
+                                            if support_client is None:
+                                                support_client=DeepSeekClient(replace(cfg,model=cfg.support_model,base_url=cfg.support_base_url or cfg.base_url,api_key=cfg.support_api_key or cfg.api_key,stream_mode='off',request_timeout_seconds=cfg.support_request_timeout_seconds,max_output_tokens=cfg.support_max_output_tokens))
+                                            support_client.cfg=replace(support_client.cfg,max_model_calls=min(cfg.support_max_model_calls,max(0,cfg.max_model_calls-client.stats.get('requests',0))))
+                                            reviewer=support_client
+                                        judgments = review(reviewer, args.claims, citations, deadline, evidence_records=ledger.records,
                                                            task_mode='overview' if overview_data else 'question', level=support_level)
                                         check()
                                     except (AgentError, ValidationError, KeyError, ValueError, TypeError):
@@ -300,8 +318,11 @@ class AgentRunner:
                             data = {'error': '补检次数已用完，请依据现有证据提交或说明证据不足'}
                         else:
                             searches += 1
-                            query = adapter.search(args.query, args.top_k, args.prefer_body)
+                            from .query_terms import expand_query
+                            actual_query=expand_query(args.query,(preferences or {}).get('query_expansion','off'))
+                            query = adapter.search(actual_query, args.top_k, args.prefer_body)
                             data = {'query_id': query['query_id'], 'results': register(query['results'])}
+                            retrieval_trace.append({'original_query':args.query,'actual_query':actual_query,'query_id':query['query_id'],'candidates':[{'evidence_id':row.get('evidence_id'),'doc_id':row.get('doc_id'),'excerpt':row.get('text','')[:180]} for row in data['results']]})
                             emit('search_result', query_id=query['query_id'], diagnostics=query.get('diagnostics'))
                     else:
                         target = ledger.require(args.evidence_id)
@@ -326,6 +347,8 @@ class AgentRunner:
             warnings = sorted({w for row in ledger.records.values() for w in row.get('quality_warnings', [])})
             if warnings:
                 result['limitations'].append('部分来源为partial或存在解析警告，未完成的内容不在当前证据覆盖范围。')
+            for index,claim in enumerate(result.get('claims',[])):
+                emit('claim_verified',claim_index=index,text=claim['text'],verification='quotation')
             emit('finished', status=result['status'])
         except KeyboardInterrupt:
             result.update(status='cancelled', code='CANCELLED', error='用户取消问答')
@@ -336,10 +359,12 @@ class AgentRunner:
             result.update(status='failed', code='LOCAL_ERROR', error='本地配置、工具数据或文件访问错误；检查doctor与调用日志')
             emit('failure', code='LOCAL_ERROR', exception_type=type(exc).__name__)
         finally:
+            result['retrieval_trace']=retrieval_trace
             result['usage'] = {'model_calls': model_calls, 'tool_calls': tool_calls, 'searches': searches,
                                'schema_repairs': schema_repairs, 'citation_repairs': citation_repairs, 'support_repairs': support_repairs, 'coverage_repairs': coverage_repairs, 'output_repairs': output_repairs,
-                               'provider': client.stats if client else None}
+                               'provider': client.stats if client else None,'support_provider':support_client.stats if support_client else None}
             result['timings'] = {'total_seconds': round(time.monotonic() - started, 3)}
+            if support_client:support_client.close()
             if own_client and client:
                 client.close()
         return save_run(directory, result, trace, ledger, policy, cfg.api_key)

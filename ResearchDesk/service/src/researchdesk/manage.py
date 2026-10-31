@@ -38,7 +38,7 @@ def backup(store, check=lambda: None):
     bundles = store.docbase_storage / 'source_store'
     if bundles.exists():
         paths.update(p for p in bundles.rglob('*') if p.is_file())
-    for folder in ('uploads', 'catalogs', 'runs'):
+    for folder in ('uploads', 'catalogs', 'runs', 'secrets'):
         paths.update(p for p in (store.data / folder).rglob('*') if p.is_file())
     manifest = []
     with zipfile.ZipFile(directory / 'files.zip', 'w', compression=zipfile.ZIP_DEFLATED) as archive:
@@ -127,6 +127,7 @@ def restore(backup_path, destination):
             atomic(destination/'docbase_storage'/'collections'/collection/'CURRENT.json',{'schema_version':'1','index_version':version})
     c.execute("UPDATE settings SET value=? WHERE key='session'",(__import__('secrets').token_urlsafe(32),))
     c.execute('UPDATE watches SET enabled=0')
+    if c.execute("SELECT 1 FROM sqlite_master WHERE name='zotero_sources'").fetchone():c.execute('UPDATE zotero_sources SET enabled=0')
     c.execute("UPDATE jobs SET state='interrupted',error='从备份恢复，请手动重试' WHERE state IN ('queued','running')")
     c.commit()
     c.close()

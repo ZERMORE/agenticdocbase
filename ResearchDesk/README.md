@@ -115,3 +115,12 @@ service\.conda\python.exe -X utf8 -m researchdesk restore --backup-path "data\ba
 ## V1 质量版
 
 新增质量报告、文字纠错、单页重解析、图像补识别、原文定位、结论支持性检查与备份策略。操作与边界见 [V1 实现说明](../plans/iterations/V1-IMPLEMENTATION.md)，实测见 [V1 验收记录](../plans/iterations/V1-VALIDATION.md)。
+
+## V2 体验版入口
+
+- 聊天：编辑问题/重新生成会创建分支；顶部切换分支、导出，答案和引用可收藏。
+- 知识库：文献信息与标签、年份/作者/标签筛选；底部添加Zotero JSON只读同步来源，先预览再应用。
+- 个性化设置 → 模型配置：按角色更换模型和Key；首次从.env导入，之后网页保存的版本优先，运行任务冻结旧版本。
+- 草稿尚未核验；原文引用匹配始终保留，支持性检查强度继续可选。
+
+完整说明见 [V2使用与实现](../plans/iterations/V2-IMPLEMENTATION.md)，验收限制见 [V2验收](../plans/iterations/V2-VALIDATION.md)。

@@ -105,6 +105,8 @@ class Store:
             c.execute('INSERT OR IGNORE INTO settings VALUES (?,?)', ('session', secrets.token_urlsafe(32)))
             c.execute('INSERT OR IGNORE INTO settings VALUES (?,?)', ('preferences', dump({
                 'language': '中文', 'length': '适中', 'research_focus': '', 'background': '研究生', 'structure': '先结论'})))
+        from .v2_store import migrate
+        migrate(self)
         prefs=json.loads(self.setting('preferences'))
         if 'support_check_level' not in prefs:
             prefs['support_check_level']='advisory'
@@ -147,6 +149,9 @@ class Store:
         return doc
 
     def enqueue(self, kb, kind, payload):
+        if kind in {'chat','parse','revise','model_probe'} and 'model_snapshot' not in payload and self.one('SELECT 1 FROM model_profiles LIMIT 1'):
+            from .model_profiles import ModelProfiles
+            payload=dict(payload,model_snapshot=ModelProfiles(self).snapshot())
         key, now = uid('job'), time.time()
         with self.connect() as c:
             if kind == 'reindex':

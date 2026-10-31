@@ -34,8 +34,8 @@ def test_quality_and_copy_on_write_edit(tmp_path):
     assert revised[0]['content_origin']=='human_correction'
     assert revised[1:]==original[1:]
     assert revised[0]['block_id']!=block['block_id']
-    assert json.loads((child/'quality.json').read_text())['page_count']==2
-    assert json.loads((child/'manifest.json').read_text())['correction']['lineage']
+    assert json.loads((child/'quality.json').read_text(encoding='utf-8'))['page_count']==2
+    assert json.loads((child/'manifest.json').read_text(encoding='utf-8'))['correction']['lineage']
 
 def test_one_page_reparse_preserves_other_page(tmp_path):
     source=tmp_path/'source.pdf';make(source);cfg=Settings(offline=True)
@@ -70,7 +70,7 @@ def test_pdf_page_checkpoint_resumes_only_completed_pages(tmp_path,monkeypatch):
     with pytest.raises(RuntimeError):parse_document(source,tmp_path/'out',cfg)
     checkpoints=list((tmp_path/'out'/'.checkpoints').glob('*/checkpoint.json'))
     assert len(checkpoints)==1
-    assert json.loads(checkpoints[0].read_text())['completed_pages']==[0]
+    assert json.loads(checkpoints[0].read_text(encoding='utf-8'))['completed_pages']==[0]
     seen=[]
     def resumed(self,*args,**kw):
         seen.append(kw.get('page'));return original(self,*args,**kw)

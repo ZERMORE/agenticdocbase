@@ -1,0 +1,35 @@
+{
+  "drag_width": 420,
+  "persistence": "passed",
+  "sizes": [
+    {
+      "viewport": 2560,
+      "overflow": false,
+      "main": 2140,
+      "composer": 2140,
+      "reading": 2140
+    },
+    {
+      "viewport": 1440,
+      "overflow": false,
+      "main": 1020,
+      "composer": 1020,
+      "reading": 1020
+    },
+    {
+      "viewport": 1024,
+      "overflow": false,
+      "main": 614,
+      "composer": 614,
+      "reading": 614
+    },
+    {
+      "viewport": 390,
+      "overflow": false,
+      "main": 390,
+      "composer": 390,
+      "reading": 390
+    }
+  ],
+  "errors": []
+}
