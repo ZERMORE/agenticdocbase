@@ -1,11 +1,15 @@
 """Runs only local tools with offline parsing; external model processing remains disabled."""
+import argparse
 import json
 from pathlib import Path
 import time
 import httpx
 from researchdesk.store import ROOT, WORKSPACE, atomic
 
-client = httpx.Client(base_url='http://127.0.0.1:8765',timeout=30,trust_env=False)
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--base-url', default='http://127.0.0.1:8765')
+args = parser.parse_args()
+client = httpx.Client(base_url=args.base_url, timeout=30, trust_env=False)
 boot = client.get('/api/bootstrap').json()
 client.headers['X-CSRF-Token'] = boot['csrf']
 

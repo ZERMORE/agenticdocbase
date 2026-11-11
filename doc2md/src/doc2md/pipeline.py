@@ -40,6 +40,20 @@ def safe_remove_tree(path: Path, root: Path):
         shutil.rmtree(path)
 
 
+def rename_directory(source: Path, destination: Path):
+    # Windows file scanners can briefly hold a recently written file open.
+    for delay in (0.05, 0.15, 0.4, None):
+        try:
+            source.rename(destination)
+            return
+        except PermissionError as exc:
+            if delay is None or getattr(exc, "winerror", None) not in {5, 32, 33}:
+                raise
+            if destination.exists() or not source.is_dir():
+                raise
+            time.sleep(delay)
+
+
 def parse_document(source: str | Path, output: str | Path, settings: Settings | None = None,
                    *, vision: VisionClient | None = None) -> dict:
     cfg = settings or Settings.load()
@@ -145,12 +159,12 @@ def parse_document(source: str | Path, output: str | Path, settings: Settings | 
             # Same-document writer lock + sibling directory swap. Restore previous output on error.
             previous = destination.with_name(destination.name + ".previous-" + uuid.uuid4().hex)
             if destination.exists():
-                destination.rename(previous)
+                rename_directory(destination, previous)
             try:
-                workspace.rename(destination)
+                rename_directory(workspace, destination)
             except Exception:
                 if previous.exists():
-                    previous.rename(destination)
+                    rename_directory(previous, destination)
                 raise
             if previous.exists():
                 safe_remove_tree(previous, root)

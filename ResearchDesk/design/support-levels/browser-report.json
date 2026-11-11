@@ -1,9 +1,0 @@
-{
-  "status": "passed",
-  "defaultLevel": "advisory",
-  "globalSave": true,
-  "conversationOverride": true,
-  "partialCorrection": "3/8",
-  "newModelRequests": 0,
-  "errors": []
-}

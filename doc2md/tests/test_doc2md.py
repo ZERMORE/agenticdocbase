@@ -294,6 +294,27 @@ def test_lock_and_path_guards(tmp_path, cfg):
         parse_document(source, tmp_path / "out", cfg)
 
 
+def test_parse_retries_windows_directory_sharing_violation(tmp_path, cfg, monkeypatch):
+    source = tmp_path / "test.pdf"
+    make_pdf(source)
+    rename = Path.rename
+    attempts = []
+
+    def rename_with_transient_lock(path, destination):
+        attempts.append(path)
+        if len(attempts) == 1:
+            error = PermissionError("File in use")
+            error.winerror = 32
+            raise error
+        return rename(path, destination)
+
+    monkeypatch.setattr(Path, "rename", rename_with_transient_lock)
+    result = parse_document(source, tmp_path / "out", cfg)
+
+    assert len(attempts) == 2
+    assert Path(result["manifest"]).is_file()
+
+
 def test_fenced_json_and_table_escaping(payload):
     assert validate_payload("```json\n" + json.dumps(payload) + "\n```")["summary"]
     assert "a\\|b" in markdown_table([["a|b", "x\ny"], ["value"]])

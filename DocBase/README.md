@@ -1,8 +1,6 @@
 # DocBase：doc2md 图文知识库与检索
 
-代码已构建，位于 `C:\Users\Lenovo\Desktop\研一\大模型软件开发\DocBase`。设计基线见 `DocBase知识库与检索开发方案.md`，真实检验结果见 `验证记录.md`。
-
-**当前状态：BM25 的 doc2md 入库、查询、来源定位和评测已运行通过；hybrid/full 管线有模拟接口测试。真实 Embedding/Reranker 请求均返回 HTTP 400，其中 Embedding 进一步诊断为“当前账户没有可用的计费资源”。需在平台确认该 Key 的实际免费资格或可用资源后，再验证真实 hybrid 效果。**
+DocBase 将 doc2md 产物编入本地知识库，支持 BM25 检索、混合检索、上下文补取和原文定位。BM25 可离线使用。混合检索需要可用的 Embedding 和 Reranker 配置。
 
 ## 1. 环境隔离
 
@@ -13,21 +11,21 @@
 
 两边通过 JSON 文件交接，不混装依赖。安装脚本保留已有 `.env`；不修改 doc2md 的代码、配置或环境。后台可分别调用两个 `run.cmd`，无需把全部库装进一个环境。
 
-## 2. 立即可用的基础工作流（CMD / Anaconda Prompt）
+## 2. 离线示例
+
+先在仓库根目录运行一次安装脚本。从根目录的 CMD 或 Anaconda Prompt 执行：
 
 ```bat
-cd /d "C:\Users\Lenovo\Desktop\研一\大模型软件开发\DocBase"
+cd doc2md
+run.cmd parse "examples\sample.pdf" --offline --output "output\smoke"
+cd ..\DocBase
 run.cmd doctor
 run.cmd scan --input "..\doc2md\output\smoke"
-run.cmd build --profile bm25-only
-run.cmd query --profile bm25-only --question "1729" --top-k 5
-run.cmd query --profile bm25-only --question "INPUT OUTPUT TRANSFER" --top-k 5
-run.cmd test --profile bm25-only --dataset ".\eval\smoke.jsonl" --top-k 5
+run.cmd build --profile bm25-only --collection default
+run.cmd query --profile bm25-only --collection default --question "1729" --top-k 5
 ```
 
-本轮已创建 Conda 环境并安装依赖。以后重建/更新使用 `setup.cmd`；PowerShell 对应 `.\setup.ps1` / `.\run.ps1`。不想激活环境也可以使用 `.\.conda\python.exe -m docbase ...`。
-
-这些 bm25-only 命令不调用模型 API。当前样例已建库，共 5 个检索片，包含正文、表格、成功图片释义及图注。JSON 中 `report_path` 是完整报告路径，命中结果包含原文快照、页码及图片的完整路径。
+命中结果包含原文快照和页码。单独安装 DocBase 时，在本目录运行 setup.cmd。PowerShell 里使用 .\run.cmd。
 
 scan 输入也可换成其他 doc2md 输出根目录或单篇完整产物目录。有多个历史版本时编辑 `storage/catalog.json`，同一 doc_id 只启用一个 `active: true`；扫描不会擅自删除旧登记。停用文档时显式设 active 为 false，再建库。
 
@@ -60,7 +58,7 @@ run.cmd query --profile hybrid --question "资料中的版本号是什么？" --
 
 probe 绕过历史缓存，仅发送少量合成短句。不会打印 Key 或完整向量。MODEL_QUOTA 代表平台账户资源问题，不能用截图免费标价当成接口已可用的证据。
 
-当前 CURRENT 是 BM25 样例快照，hybrid 查询前必须成功构建 hybrid 快照；资源不足时请显式使用 `--profile bm25-only`，无须改写 `.env`。构建失败不覆盖旧版。
+hybrid 查询前先成功构建 hybrid 快照；资源不足时请显式使用 `--profile bm25-only`，无须改写 `.env`。构建失败不覆盖旧版。
 
 ## 4. 模式和稀疏扩展
 
@@ -70,7 +68,7 @@ probe 绕过历史缓存，仅发送少量合成短句。不会打印 Key 或完
 | hybrid | 稠密向量 + BM25 → RRF → Reranker |
 | full | 稠密向量 + BM25 + BGE-M3 sparse → RRF → Reranker |
 
-full 不自动降级。当前 sparse 为 unconfigured，因此 full 会明确报未配置。
+full 不自动降级。默认 sparse 为 unconfigured，因此 full 会明确报未配置。
 
 本地稀疏选项：设置 `DOCBASE_SPARSE_BACKEND=local`、`DOCBASE_SPARSE_MODEL=BAAI/bge-m3`，在该环境安装 `.[sparse]` 及权重。此选项代码已提供，但没有自动安装/下载，也未在本机真实推理验证。
 

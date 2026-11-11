@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="研知是 Windows 上的本地文献工作台。整理 Zotero 与 PDF，向自己的资料提问，沿引用回到原文。">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>研知 Research Desk｜让回答回到原文</title>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <header class="frame masthead">
+    <a class="brand" href="./" aria-label="研知首页"><span aria-hidden="true">[·]</span> 研知 <small>Research Desk</small></a>
+    <nav aria-label="主导航">
+      <a href="#demo">引用演示</a>
+      <a href="#workflow">工作流程</a>
+      <a href="#architecture">技术架构</a>
+      <a href="#install">安装</a>
+      <a href="https://github.com/ZERMORE/agenticdocbase">GitHub ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="frame hero" aria-labelledby="title">
+      <h1 id="title" data-reveal><span>研知，让回答</span> <img class="citation-strip" src="./assets/e42-strip.webp" width="545" height="120" alt=""> <span>回到原文</span></h1>
+      <div class="hero-copy">
+        <p data-reveal>研知是 Windows 上的本地文献工作台。整理 Zotero 与 PDF，向自己的知识库提问，把回答逐条核对到论文原文。</p>
+        <a class="action" href="#demo" data-reveal>体验引用定位 <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-figure" data-reveal>
+        <picture>
+          <source media="(max-width: 650px)" srcset="./assets/workspace-mobile.webp" width="980" height="525">
+          <img src="./assets/workspace.webp" width="1280" height="525" alt="研知工作台，左侧回答带有 E42 引用，右侧显示对应的论文引句和高亮位置">
+        </picture>
+        <figcaption>研知工作台 · 文献问答与原文核验</figcaption>
+      </figure>
+    </section>
+
+    <section class="demo-band" id="demo" aria-labelledby="demo-title">
+      <div class="frame">
+        <h2 id="demo-title" data-reveal>点开 E42，核对原文</h2>
+        <p class="section-intro" data-reveal>以一篇视觉语言模型论文为例，从回答中的引用回到论文第一页。</p>
+        <div class="demo" data-ui data-reveal>
+          <div class="demo-answer">
+            <p class="demo-label">示例提问</p>
+            <p class="question">UPL 如何适配视觉语言模型？</p>
+            <p class="demo-label">回答摘录</p>
+            <p>UPL 将无监督学习引入提示学习，用于适配 CLIP 一类视觉语言模型。 <a class="citation" href="#source-e42" aria-label="E42，查看 PDF 第 1 页原文" aria-controls="source-e42">[E42]</a></p>
+            <p class="demo-note">该引文定位在摘要中。核对结论时，可继续阅读原文上下文。</p>
+          </div>
+          <div class="demo-sources">
+            <div class="source-intro" hidden>
+              <h3>来源核验</h3>
+              <p>打开 E42 可查看引句和它在 PDF 上的位置。</p>
+              <img src="./assets/e42-strip.webp" width="545" height="120" alt="研知来源核验面板中的 PDF 页码与引句">
+            </div>
+            <article id="source-e42" class="source" tabindex="-1" aria-labelledby="source-title">
+              <p class="source-meta">E42 · PDF 第 1 页 · 原生文字</p>
+              <h3 id="source-title">无监督提示学习（UPL）</h3>
+              <blockquote lang="en">UPL is the first work to introduce unsupervised learning into prompt learning</blockquote>
+              <figure class="source-page">
+                <img src="./assets/e42-page.webp" width="791" height="499" alt="UPL 论文首页局部，摘要中关于无监督提示学习的原句以红框标出">
+                <figcaption>PDF 第 1 页局部 · 红框为原文匹配位置</figcaption>
+              </figure>
+              <div class="source-links">
+                <a href="https://arxiv.org/pdf/2204.03649v2#page=1" target="_blank" rel="noopener">打开 PDF 第 1 页 ↗</a>
+                <a href="./assets/e42-quote.webp" target="_blank" rel="noopener">放大高亮片段 ↗</a>
+                <button type="button" class="source-close" data-close-source hidden>收起</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="frame workflow" id="workflow" aria-labelledby="workflow-title">
+      <h2 id="workflow-title" data-reveal>从文献库到研究笔记</h2>
+      <p class="section-intro" data-reveal>把资料整理、限定范围的问答、证据复核和研究记录放在同一个工作台。</p>
+      <div class="workflow-row" data-reveal>
+        <div><h3>按主题整理文献</h3><p>按课题建立知识库，导入 PDF、Word、PPT 或图片。通过 Zotero JSON 和本地附件目录预览增量同步，按作者、年份、标签或指定文档限定问答范围。</p></div>
+        <img src="./assets/library.webp" width="980" height="640" loading="lazy" alt="研知知识库的文献列表和元数据筛选">
+      </div>
+      <div class="workflow-row" data-reveal>
+        <div><h3>在范围内检索与问答</h3><p>可先在库内做本地内容检索，也可请研知归纳多篇文献。流式草稿和最终回答分别展示，最终引用可打开原句、页码和高亮位置。支持性检查强度可按会话设置。</p></div>
+        <figure class="demo-film"><video width="960" height="540" controls muted loop playsinline preload="none" poster="./assets/citation-demo-poster.webp" aria-label="引用切换短片"><source src="./assets/citation-demo.webm" type="video/webm"></video><figcaption>引用定位短片 · 练习文档</figcaption></figure>
+      </div>
+      <div class="workflow-row" data-reveal>
+        <div><h3>分支追问，留下记录</h3><p>从当前讨论分支追问，保留原有回答。可收藏回答与引用、归档对话，或导出 Markdown 和 JSON，带走研究记录。</p></div>
+        <img src="./assets/branches.webp" width="980" height="245" loading="lazy" alt="研知聊天界面上的对话分支、分支创建和导出操作">
+      </div>
+    </section>
+
+    <section class="architecture-band" id="architecture" aria-labelledby="architecture-title">
+      <div class="frame architecture">
+        <h2 id="architecture-title" data-reveal>技术架构</h2>
+        <p class="section-intro" data-reveal>从文档入库到引用定位，四个组件共同保留回答与原文的联系。</p>
+        <ol class="pipeline" aria-label="从文档到可核对回答的处理流程">
+          <li data-reveal><h3>文档解析</h3><p class="component-name">doc2md</p><p>将输入转换为 Markdown 和结构化片段，保留页码与来源信息。</p></li>
+          <li data-reveal><h3>本地检索</h3><p class="component-name">DocBase</p><p>按库和资料范围检索。工作台当前使用 BM25Plus，索引按版本保存。</p></li>
+          <li data-reveal><h3>证据问答</h3><p class="component-name">DocAgent</p><p>调用检索与上下文工具，组织带引文的回答，并校验引句与来源文本。</p></li>
+          <li data-reveal><h3>原文核验</h3><p class="component-name">ResearchDesk</p><p>按证据编号打开页码、原句和页面定位，支持回看历史引用。</p></li>
+        </ol>
+        <dl class="runtime" data-reveal>
+          <div><dt>界面</dt><dd>React、TypeScript 与 Vite。通过 SSE 接收任务进度和流式草稿。</dd></div>
+          <div><dt>本机服务</dt><dd>FastAPI 提供接口，后台 Worker 执行入库和问答。各组件通过独立 Conda 环境运行。</dd></div>
+          <div><dt>本地数据</dt><dd>SQLite 保存知识库、会话和任务。磁盘保留文档产物、索引及来源快照，网页模型凭据使用 Windows DPAPI 保护。</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="frame install" id="install" aria-labelledby="install-title">
+      <h2 id="install-title" data-reveal>安装与常见问题</h2>
+      <div class="qa" data-reveal>
+        <h3>怎么在 Windows 上运行？</h3>
+        <div><p>准备 Conda 和 Node.js 22，在项目根目录的命令提示符中运行：</p><pre><code>setup.cmd
+start.cmd</code></pre><p>启动后，在浏览器打开本机地址 <code>127.0.0.1:8765</code>。</p></div>
+      </div>
+      <div class="qa" data-reveal><h3>怎么带入 Zotero 文献？</h3><p>在知识库中添加包含附件路径的 Zotero 导出 JSON，填写本机附件 storage 目录。预览新增、变更和重复项后，再应用同步。</p></div>
+      <div class="qa" data-reveal><h3>问答会使用哪些资料？</h3><p>知识库和索引保存在本机。使用模型问答时，先在「个性化设置」配置模型与 Key，再为目标库启用外部模型处理。问题和选中的证据会发送给所配置的服务。</p></div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="frame">
+        <h2 id="closing-title" data-reveal>用自己的资料提问</h2>
+        <a class="action" data-reveal href="https://github.com/ZERMORE/agenticdocbase/blob/HEAD/ResearchDesk/README.md">查看安装说明 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="frame footer"><span>研知 Research Desk</span><a href="https://arxiv.org/abs/2204.03649v2">演示论文 · Huang、Chu 与 Wei（2022） ↗</a><a href="https://github.com/ZERMORE/agenticdocbase">项目仓库 ↗</a></footer>
+</body>
+</html>
+

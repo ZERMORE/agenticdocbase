@@ -182,6 +182,12 @@ def main():
             raise SystemExit('需要 --backup-path 和 --destination')
         print(restore(args.backup_path, args.destination))
     elif args.command == 'start':
+        missing = [
+            name for name in ('doc2md', 'DocBase', 'DocAgent')
+            if not (WORKSPACE / name / '.conda' / 'python.exe').is_file()
+        ]
+        if missing:
+            raise SystemExit('缺少组件环境：' + '、'.join(missing) + '。请在项目根目录运行 setup.cmd')
         if not (ROOT / 'web' / 'dist' / 'index.html').is_file():
             raise SystemExit('请先运行 setup.cmd 构建网页')
         if pidfile.is_file():

@@ -1,7 +1,5 @@
 # doc2md：本地多模态文档转 Markdown
 
-工具位置：`C:\Users\Lenovo\Desktop\研一\大模型软件开发\doc2md`。
-
 支持 PDF、DOCX、PPTX、DOC、PPT 和 PNG/JPG/JPEG/WebP；输出 Markdown、结构化图文块、原图、原文快照和来源元数据。模型固定初始配置为 Gitee 的 `Qwen3.6-Plus`，密钥留空。运行时无需 Claude Code，也不读取/修改其 DeepSeek 配置。
 
 ## 1. 安装和配置
@@ -9,7 +7,7 @@
 **CMD / Anaconda Prompt 使用 `.cmd` 入口**。提示符通常为 `(环境名) C:\路径>`，没有 `PS`：
 
 ```bat
-cd /d "C:\Users\Lenovo\Desktop\研一\大模型软件开发\doc2md"
+cd doc2md
 setup.cmd
 run.cmd doctor
 ```
@@ -19,7 +17,7 @@ run.cmd doctor
 在 PowerShell 中：
 
 ```powershell
-cd 'C:\Users\Lenovo\Desktop\研一\大模型软件开发\doc2md'
+cd doc2md
 .\setup.ps1
 ```
 
@@ -59,13 +57,13 @@ DOC2MD_API_KEY=
 .\run.ps1 probe
 
 # 单文件（替换为你自己的输入路径）
-.\run.cmd parse 'C:\Users\Lenovo\Downloads\DNX16-AN126-PUB.pdf' --output '.\output'
+.\run.ps1 parse 'D:\资料\论文.pdf' --output '.\output'
 
 # 目录递归，跳过自身输出、缓存及虚拟环境
 .\run.ps1 parse 'D:\资料' --recursive --category '技术资料' --output '.\output'
 
 # 不联网的运行示例
-.\run.ps1 parse '.\examples\sample.pdf' --offline --output '.\examples\output'
+.\run.ps1 parse '.\examples\sample.pdf' --offline --output '.\output\smoke'
 
 # 正式解析 Office 时要求完整渲染，缺转换器则明确失败
 .\run.ps1 parse 'D:\资料\流程说明.pptx' --require-renderer
@@ -80,7 +78,7 @@ DOC2MD_API_KEY=
 
 ```bat
 run.cmd parse "D:\资料\技术文档.pdf" --output ".\output"
-run.cmd parse ".\examples\sample.pdf" --offline
+run.cmd parse ".\examples\sample.pdf" --offline --output ".\output\smoke"
 ```
 
 如果运行 `.ps1` 后显示源码，说明它未被 PowerShell 执行；请改用 `run.cmd`。也可明确指定解释器：`powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\run.ps1 doctor`。`.cmd` 封装只对该子进程指定执行策略，不改变系统设置或 `.ps1` 文件关联，也会自动选择项目 Conda 环境。
@@ -136,7 +134,7 @@ output/
 - 对外页序从 1 开始，坐标为保存 PDF 页面坐标；原生 DOCX 后备模式不填写虚假页码，PPTX 后备模式保留幻灯片号。
 - `snapshot_path`、图像路径等以单篇结果目录为根；`original_path` 记录输入来源，长期引用应使用快照。
 
-同一输入内容和配置重复运行更新同一个结果目录；图像成功释义复用 `.cache/vision`，上下文、模型或提示词版本变化会使缓存失效。无 Key/离线/失败不缓存为成功；填写 Key 后重新执行可补齐结果。正文仍会重新解析，当前未实现整篇文档跳过。
+同一输入内容和配置重复运行更新同一个结果目录；图像成功释义复用 `.cache/vision`，上下文、模型或提示词版本变化会使缓存失效。无 Key/离线/失败不缓存为成功；填写 Key 后重新执行可补齐结果。完整产物会在校验来源快照与内容后复用。
 
 每文档使用锁避免同时覆盖结果。正常退出自动释放；若进程被强制终止，确认该进程已退出后，仅移除报错中对应的 `<doc_id>.lock` 再重试。成功发布新产物前不会删除同文档旧结果；文档内容变化保留旧版本快照。
 

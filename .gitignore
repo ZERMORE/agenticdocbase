@@ -11,3 +11,31 @@ DocAgent/storage/
 doc2md/output/
 archive/legacy-runtimes/
 migration/*.log
+
+# Local environments, build output and checks
+**/.venv/
+**/dist/
+**/build/
+**/.service-test-tmp/
+**/playwright-report/
+**/test-results/
+*.log
+.taste-skill/
+ResearchDesk/.taste-skill/
+
+# Local research data and historical exports
+/imports/*
+!/imports/README.md
+/zotero/
+/archive/course-materials/
+/migration/
+/evaluations/datasets/
+/evaluations/runs/
+/evaluations/overview-fix/
+/evaluations/validation-round2/
+/ResearchDesk/design/*
+!/ResearchDesk/design/设计说明.md
+!/ResearchDesk/design/v2/
+/ResearchDesk/design/v2/*
+!/ResearchDesk/design/v2/critique.md
+/workflows/finalize_migration.py

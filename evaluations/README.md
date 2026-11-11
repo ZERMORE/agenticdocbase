@@ -1,6 +1,6 @@
 # V1 质量评估
 
-从项目根目录的 CMD 运行：
+先在工作台准备一个名称以 Zotero 开头的知识库，完成至少 12 篇文档的解析和索引。数据集在本机生成。从项目根目录的 CMD 运行：
 
 ```bat
 DocBase\.conda\python.exe -X utf8 workflows\quality_eval.py seed
@@ -8,7 +8,7 @@ DocBase\.conda\python.exe -X utf8 workflows\quality_eval.py validate
 DocBase\.conda\python.exe -X utf8 workflows\quality_eval.py baseline --split dev --allow-draft
 ```
 
-seed 拒绝覆盖已有目录。当前 v1 是 12 篇真实快照、60 道自动编制候选，开发20/测试40，不能当人工金标准。自动候选证据只是供审阅的线索，可能不充分支持问题，必须核对并替换。版式类型待人工登记。
+seed 拒绝覆盖已有目录。初次生成会选取 12 篇文档快照，构造 60 道待人工审核的候选题，分为开发集 20 道和测试集 40 道。自动候选证据只是供审阅的线索，可能不充分支持问题，必须核对并替换。版式类型待人工登记。
 
 ## 人工审核与冻结
 

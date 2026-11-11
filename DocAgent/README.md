@@ -1,10 +1,6 @@
 # DocAgent 使用说明
 
-2026-10-29整合补充：ResearchDesk已提供浏览器入口，见`../ResearchDesk/README.md`。本项目新增受控`docagent.service_bridge`文件请求接口，支持最近消息、偏好、资料范围、主题摘录和指定DocBase存储；旧ask命令兼容。真实deepseek-flash单轮问答已由用户此前运行成功，本文后续“Key留空/未联调”为初次构建记录，不代表用户当前配置。
-
-DocAgent 使用 `deepseek-flash` 调用 DocBase，完成检索、上下文补取和带引用的中文回答。AGENTS.md 由运行器实际读取并注入模型请求；它不是仅供展示的文件。
-
-代码和独立 Conda 环境已构建。DeepSeek Key 留空；真实模型联调和论文问答质量验收尚未完成。已有本地测试包括真实 DocBase 检索与模拟模型生成的闭环，模拟结果不代表 DeepSeek 实测能力。
+DocAgent 使用 deepseek-flash 调用 DocBase 完成检索、上下文补取和带引用的回答。运行器会将 AGENTS.md 中的规则注入模型请求。网页入口见 [ResearchDesk 使用手册](../ResearchDesk/README.md)。
 
 ## 1. 填写 Key
 
@@ -18,44 +14,24 @@ DOCAGENT_API_KEY="你的DeepSeek API Key"
 
 配置文件的相对路径按项目目录解析；启动脚本默认使用 `DocAgent\.conda`。三个项目环境互相独立。若需要重建环境，运行 `setup.cmd`，已有 `.env` 不会被覆盖。
 
-## 2. 从 CMD / Anaconda Prompt 使用
+## 2. 从 CMD 或 Anaconda Prompt 使用
+
+先用 [DocBase 离线示例](../DocBase/README.md#2-离线示例) 建立 default 知识库，再从仓库根目录执行：
 
 ```bat
-cd /d "C:\Users\Lenovo\Desktop\研一\大模型软件开发\DocAgent"
+cd DocAgent
 run.cmd doctor
+run.cmd inspect --collection default --profile bm25-only --question "1729"
+```
+
+inspect 返回候选及来源。填写 DeepSeek Key 后，可运行 probe 检查模型工具调用，再用同一知识库验证问答：
+
+```bat
 run.cmd probe
+run.cmd ask --collection default --profile bm25-only --question "测试文档中的版本号是什么？"
 ```
 
-doctor 只检查本地环境和配置，`key_configured: true`不等于模型已经验证可用。probe 使用合成文本完成一次真实工具调用往返，会产生少量 API 消耗。
-
-先测试默认示例库：
-
-```bat
-run.cmd ask --collection default --question "测试文档中的版本号是什么？"
-```
-
-人工核对答案应为1729且有真实来源。再查询33篇Zotero论文：
-
-```bat
-run.cmd ask --question "CLIP-Adapter如何调整预训练视觉语言模型？"
-run.cmd ask --question "这些论文中有哪些提示学习方法？请比较其主要差异，并分别提供证据。"
-```
-
-默认collection为`zotero_third_20261028`，profile为`bm25-only`。如需显式指定：
-
-```bat
-run.cmd ask --collection zotero_third_20261028 --profile bm25-only --question "你的问题"
-```
-
-路径和参数在CMD中使用双引号。`bm25-only`表示检索不调用Embedding/Reranker；问答仍会调用DeepSeek并产生消耗。当前Gitee检索模型账户资源问题不会因为填写DeepSeek Key而自动解决。
-
-无需Key，只看检索：
-
-```bat
-run.cmd inspect --question "vision language model"
-```
-
-inspect返回候选和来源，不生成自然语言答案。`ask`还支持`--category`、`--index-version`、`--storage`；同一问答内的版本不会随CURRENT更新而变化。
+预期答案为 1729，并附原文引文。probe 和 ask 都会调用 DeepSeek。使用其他知识库时，通过 --collection 指定集合。还可用 --storage 和 --index-version 指定存储和索引版本。
 
 ## 3. 查看结果
 
@@ -75,23 +51,14 @@ PDF引用允许空白、换行及英文行末断词连字符的排版差异，�
 
 ## 4. 检索质量调整与索引更新
 
-本次在DocBase增加：
+DocBase 提供以下检索能力：
 
 - `context`只读接口，补取登记来源中的相邻有效块。
 - `status --index-version`，不产生模型请求即可验证指定版本。
 - 可选`context-v2`切片策略（当前配置指纹为context-v2.1），过滤明显数字页码/arXiv假标题，识别独立References段落，只合并同页同节、位置相邻的正文段落，保留各块来源和字符范围。
 - `query --prefer-body`，BM25优先正文并降低参考文献/孤立短标签优先级。Agent默认启用，检索参考文献时模型可将search_knowledge的prefer_body设为false。
 
-已用新策略重建Zotero集合；旧索引仍保留，默认示例集合未更换。普通DocBase query的默认排序保持原行为；要使用正文优先，应加`--prefer-body`。
-
-以后新增/更新论文后，先按原工作流完成doc2md解析和DocBase select/scan，再从DocBase目录构建：
-
-```bat
-cd /d "C:\Users\Lenovo\Desktop\研一\大模型软件开发\DocBase"
-run.cmd build --collection zotero_third_20261028 --catalog "storage\catalog_zotero_third_20261028.json" --env-file "..\DocAgent\configs\docbase-context.env" --incremental
-```
-
-这里使用独立构建配置，没有覆盖DocBase/.env或API Key。语料仍为partial，待完成的图像释义不因重切片而补齐。
+新增或更新文档后，先运行 doc2md，再按 DocBase 文档扫描、选择产物并重建相应集合。需要正文优先排序时，可为 DocBase query 添加 --prefer-body。
 
 ## 5. 测试与评测
 
@@ -107,13 +74,13 @@ run.cmd build --collection zotero_third_20261028 --catalog "storage\catalog_zote
 run.cmd evaluate --collection default --dataset "eval\dev.jsonl"
 ```
 
-evaluate逐题调用模型，会产生消耗；报告位于storage/evaluations。它记录执行状态、时延和usage，答案正确率与引用语义支持率留给人工标注。该题集不代表33篇论文的质量测试。冻结论文题集尚需人工标注，没有生成虚构的正确率。
+evaluate逐题调用模型，会产生消耗；报告位于storage/evaluations。它记录执行状态、时延和usage，答案正确率与引用语义支持率留给人工标注。示例题集用于流程检查。评估研究资料时，请使用人工审核的题集。
 
 `scripts/verify_integration.py`用于开发验证，真实调用本地DocBase、重建Zotero集合、模拟模型回答，不调用任何模型API；报告在storage/integration。它会更新CURRENT，不是普通只读测试命令。
 
 ## 6. 当前能力范围
 
-本次交付文本/已有图像释义的问答闭环。原图模型核验、Mermaid自动渲染、40题冻结论文评测、后台Service与Web均尚未完成。若模型提交Mermaid，保存为明确标注“未验证”的草稿；不能声称已查看原图。
+问答使用文档正文和已有图像释义。若模型提交 Mermaid，系统保存为标注“未验证”的草稿。通过网页打开来源面板，可直接核对原图和原文。
 
 默认最多6次逻辑模型调用、3次搜索、10次检索工具调用，总时限180秒；HTTP临时故障最多重试2次并记录物理请求。原始证据总字符预算24000，单条超过预算时不暗中截断后冒充完整证据。
 

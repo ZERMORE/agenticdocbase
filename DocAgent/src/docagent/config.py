@@ -23,7 +23,7 @@ class Settings:
     support_max_model_calls: int = 6
     support_api_key: str = field(default='',repr=False)
     docbase_root: str = '../DocBase'
-    collection: str = 'zotero_third_20261028'
+    collection: str = 'default'
     retrieval_profile: str = 'bm25-only'
     max_model_calls: int = 6
     max_tool_calls: int = 10

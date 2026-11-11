@@ -1,31 +1,22 @@
-# 代码与运行架构
+# 研知技术架构
 
-浏览器 → ResearchDesk API → 持久SQLite任务 → Worker → 独立解析/检索/Agent进程。
-Agent → DocBase query/get/context → 证据台账 → 本地引用校验 → 最终答案。
+浏览器提交问题、上传资料和订阅任务状态。ResearchDesk API 把长任务写入 SQLite，后台 Worker 调用对应组件。四个 Python 组件分别运行在 Conda 环境中。
 
-## 责任边界
+## 从文件到可核对的答案
 
-| 目录 | 职责 | 禁止混入 |
-|---|---|---|
-| doc2md/src/doc2md | 文档解析与来源块 | 网页业务、会话状态 |
-| DocBase/src/docbase | 切片、召回、版本化索引 | 用户偏好与聊天生成 |
-| DocAgent/src/docagent | 模型工具循环、证据和回答 | HTTP路由、上传管理 |
-| ResearchDesk/service/src/researchdesk | 业务、队列、权限、进程、来源访问 | 重复实现解析或检索算法 |
-| ResearchDesk/web/src | 页面和用户交互 | Key、磁盘任意路径、模型直连 |
+| 阶段 | 组件 | 数据流 |
+| --- | --- | --- |
+| 解析 | [doc2md](doc2md/) | 文件 → Markdown、结构化块、页码与来源记录 |
+| 入库与召回 | [DocBase](DocBase/) | 解析产物 → 文段、BM25Plus 索引、不可变来源快照 |
+| 证据问答 | [DocAgent](DocAgent/) | 问题与范围 → 检索和上下文工具 → 结构化回答与引文校验 |
+| 交互和定位 | [ResearchDesk](ResearchDesk/) | 任务事件与答案 → 对话分支、引用面板和 PDF 页定位 |
 
-应用模块：store负责事务和登记；api负责请求/资源边界；worker负责执行；
-processes负责进程树/超时；watches负责只读扫描；manage负责启停/备份恢复。
-前端main为页面编排，ScopeControl与WatchPanel分离资料范围和监控设置，api统一HTTP。
+## 运行边界
 
-## 一致性与鲁棒性
+- **网页**使用 React、TypeScript 和 Vite。浏览器通过 SSE 接收任务进度和草稿，通过受控资源接口访问来源。
+- **服务**使用 FastAPI 提供本机接口。Worker 负责进程运行、超时、取消、任务租约和发布结果。
+- **存储**使用 SQLite 记录业务状态。文档、来源快照和索引存在磁盘上，构建完成后发布新索引版本。问答固定范围、索引和配置版本。
+- **模型**由工作台设置管理。Key 使用 Windows DPAPI 保护，按任务冻结配置。网页当前查询走 BM25Plus，CLI 的向量与重排需单独配置并建索引。
+- **宣传页**是 [docs](docs/) 内的静态站点，使用公开演示数据。完整文献工作台在访客安装后的本机运行。
 
-- 独立环境由Conda克隆后重新安装editable包，避免复制后仍import旧目录。
-- 应用数据库和catalog的路径已迁移；不可变来源/索引元数据不直接改字节。
-- 删除以成员关系和运行时允许范围立即排除，重建后原子发布空/完整索引。
-- Worker租约、取消、幂等、generation和固定索引版本防止迟到结果覆盖。
-- 启动先校验真实进程身份和端口，再等待API与Worker就绪；失败回收本次进程。
-- 使用 verify.cmd 回归四组件与前端构建；迁移记录放migration。
-
-本次不合并四个环境、不重写已验证算法、不丢弃缓存/旧报告来制造整洁。
-course-materials仅保存课程资料，不参与运行；原始数据、来源和历史快照保留。
-后续若拆分前端页面或引入数据库迁移框架，应另配行为回归，不与本次路径迁移混改。
+[安装与日常操作](README.md) · [备份恢复](ResearchDesk/README.md#备份与恢复) · [评测流程](evaluations/README.md)

@@ -28,8 +28,8 @@ def save(path, data):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--source', type=Path, default=Path(r'C:\Users\Lenovo\Zotero\storage'))
-    parser.add_argument('--batch', default='zotero_third_20261028')
+    parser.add_argument('--source', type=Path, required=True, help='Zotero storage directory to scan')
+    parser.add_argument('--batch', required=True, help='Unique name for this import batch')
     args = parser.parse_args()
     if not args.batch.replace('_', '').isalnum():
         raise ValueError('Invalid batch ID')
