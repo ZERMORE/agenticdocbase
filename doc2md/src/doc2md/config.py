@@ -51,6 +51,9 @@ class Settings:
             data[name] = os.environ.get(key, values.get(key) or "").strip()
         data["base_url"] = data["base_url"] or cls.base_url
         data["model"] = data["model"] or cls.model
+        if (PROJECT_ROOT.parent / 'ResearchDesk' / 'bundled').is_file():
+            data['cache_dir'] = Path(os.environ.get('RESEARCHDESK_DATA') or
+                                     (Path(os.environ['LOCALAPPDATA']) / 'ResearchDesk' / 'Data')) / 'vision_cache'
         data.update({k: v for k, v in overrides.items() if v is not None})
         return cls(**data)
 

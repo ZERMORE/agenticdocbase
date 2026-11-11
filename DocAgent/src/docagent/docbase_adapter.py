@@ -21,7 +21,7 @@ class DocBaseAdapter:
         python = self.cfg.base_root / '.conda' / 'python.exe'
         if not python.is_file():
             raise AgentError('DOCBASE_ENV', '未找到 DocBase 独立 Conda Python')
-        argv = [str(python), '-m', 'docbase', command, '--collection', self.collection]
+        argv = [str(python), '-X', 'utf8', '-m', 'docbase', command, '--collection', self.collection]
         if self.storage:
             argv += ['--storage', str(self.storage)]
         if self.version:

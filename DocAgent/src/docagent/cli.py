@@ -14,7 +14,7 @@ from .runner import AgentRunner
 
 def doctor(cfg):
     packages = {}
-    for name in ('httpx', 'python-dotenv', 'pydantic', 'pytest'):
+    for name in ('httpx', 'python-dotenv', 'pydantic'):
         try:
             packages[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:

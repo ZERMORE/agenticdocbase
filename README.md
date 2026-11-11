@@ -4,6 +4,10 @@
 
 ## 安装与启动
 
+已有 Windows x64 安装包时，双击 `ResearchDesk-Setup-x64.exe` 安装，再从开始菜单打开研知。构建方法和数据位置见 [Windows 打包说明](packaging/windows/README.md)。
+
+### 从源码运行
+
 需要 Windows、可用的 Conda 和 Node.js 22.12 或更新版本（含 npm）。安装依赖时需要访问 Conda、Python 和 npm 软件源。建议从 Anaconda Prompt 进入项目根目录执行：
 
 ```bat

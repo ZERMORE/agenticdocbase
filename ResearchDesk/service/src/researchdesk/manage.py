@@ -140,7 +140,12 @@ def main():
     parser.add_argument('command', choices=['init', 'worker', 'start', 'stop', 'status', 'backup', 'restore', 'import-history'])
     parser.add_argument('--backup-path')
     parser.add_argument('--destination')
+    parser.add_argument('--port', type=int, default=8765)
+    parser.add_argument('--reuse', action='store_true', help='Reuse an active instance on the requested port')
     args = parser.parse_args()
+    if not 1024 <= args.port <= 65535:
+        parser.error('--port must be between 1024 and 65535')
+    address = f'http://127.0.0.1:{args.port}'
     s = Store()
     s.init()
     pidfile = s.data / 'processes.json'
@@ -193,21 +198,29 @@ def main():
         if pidfile.is_file():
             import psutil
             saved = json.loads(pidfile.read_text(encoding='utf-8'))
+            active = {}
             for item in saved:
                 try:
                     process = psutil.Process(item['pid'])
+                    command = process.cmdline()
                     if (Path(process.exe()).resolve() == Path(sys.executable).resolve()
-                            and 'researchdesk' in ' '.join(process.cmdline())):
-                        raise SystemExit('本项目已启动，请运行 status.cmd 查看')
+                            and any(part.startswith('researchdesk') for part in command)):
+                        active[item['name']] = command
                 except (psutil.NoSuchProcess, psutil.AccessDenied):
                     continue
+            if active:
+                api_command = active.get('api', [])
+                if args.reuse and 'worker' in active and api_command[-2:] == ['--port', str(args.port)]:
+                    print('研知已就绪：' + address)
+                    return
+                raise SystemExit('本项目已启动，请先停止后台服务。')
         # Refuse to start a second application on an occupied port.
         import socket
         with socket.socket() as probe:
             try:
-                probe.bind(('127.0.0.1', 8765))
+                probe.bind(('127.0.0.1', args.port))
             except OSError:
-                raise SystemExit('8765端口已被占用；未启动任何新进程')
+                raise SystemExit(f'{args.port} 端口已被占用；未启动任何新进程')
         logs = s.data / 'logs'
         logs.mkdir(exist_ok=True)
         # Rotate only our known API/worker logs, keeping three prior files.
@@ -220,10 +233,10 @@ def main():
                     if prior.is_file(): prior.replace(path.with_name(path.name + '.' + str(number+1)))
                 path.replace(path.with_name(path.name + '.1'))
         launched = []
-        for name, command in [('api', ['-m', 'uvicorn', 'researchdesk.server:app', '--host', '127.0.0.1', '--port', '8765']),
+        for name, command in [('api', ['-m', 'uvicorn', 'researchdesk.server:app', '--host', '127.0.0.1', '--port', str(args.port)]),
                               ('worker', ['-m', 'researchdesk', 'worker'])]:
             with (logs / (name + '.log')).open('a', encoding='utf-8') as log:
-                p = subprocess.Popen([sys.executable, *command], cwd=ROOT / 'service', stdout=log, stderr=log,
+                p = subprocess.Popen([sys.executable, '-X', 'utf8', *command], cwd=ROOT / 'service', stdout=log, stderr=log,
                     creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0) | getattr(subprocess, 'CREATE_NEW_PROCESS_GROUP', 0))
                 launched.append({'pid': p.pid, 'name': name})
         atomic(pidfile, launched)
@@ -234,8 +247,8 @@ def main():
         for _ in range(40):
             try:
                 with httpx.Client(trust_env=False, timeout=1) as client:
-                    client.get('http://127.0.0.1:8765/api/bootstrap').raise_for_status()
-                    health = client.get('http://127.0.0.1:8765/api/health').json()
+                    client.get(address + '/api/bootstrap').raise_for_status()
+                    health = client.get(address + '/api/health').json()
                     if health.get('worker_alive'):
                         ready = True
                         break
@@ -251,7 +264,7 @@ def main():
                 except psutil.NoSuchProcess: pass
             pidfile.unlink(missing_ok=True)
             raise SystemExit('启动未就绪，已回收本次进程；请检查data/logs')
-        print('研知已就绪：http://127.0.0.1:8765')
+        print('研知已就绪：' + address)
         print('日志：' + str(logs))
     elif args.command == 'stop':
         import psutil

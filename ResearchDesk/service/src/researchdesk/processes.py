@@ -25,7 +25,7 @@ def invoke(python, module, args, cwd, folder, check=lambda: None, timeout=600, e
     env.update(env_overrides or {})
     out_path, err_path = folder / 'stdout.log', folder / 'stderr.log'
     with out_path.open('w', encoding='utf-8') as out, err_path.open('w', encoding='utf-8') as err:
-        with subprocess.Popen([str(python), '-m', module, *map(str, args)], cwd=cwd, env=env, shell=False,
+        with subprocess.Popen([str(python), '-X', 'utf8', '-m', module, *map(str, args)], cwd=cwd, env=env, shell=False,
                 stdout=out, stderr=err, creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0)) as p:
             started, lines = time.monotonic(), 0
             try:

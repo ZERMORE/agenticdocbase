@@ -10,7 +10,10 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[3]
 WORKSPACE = ROOT.parent
-DATA = Path(os.environ.get('RESEARCHDESK_DATA', ROOT / 'data')).resolve()
+BUNDLED = (ROOT / 'bundled').is_file()
+DEFAULT_DATA = (Path(os.environ['LOCALAPPDATA']) / 'ResearchDesk' / 'Data'
+                if BUNDLED else ROOT / 'data')
+DATA = Path(os.environ.get('RESEARCHDESK_DATA', DEFAULT_DATA)).resolve()
 
 
 def uid(prefix):
@@ -38,7 +41,7 @@ class Store:
     @property
     def docbase_storage(self):
         restored = self.data / 'docbase_storage'
-        return restored if restored.is_dir() else WORKSPACE / 'DocBase' / 'storage'
+        return restored if BUNDLED or restored.is_dir() else WORKSPACE / 'DocBase' / 'storage'
 
     @contextlib.contextmanager
     def connect(self):
